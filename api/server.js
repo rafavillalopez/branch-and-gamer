@@ -2,7 +2,9 @@ const express = require("express");
 const morgan = require("morgan");
 
 const db = require("./db");
+const routes = require("./routes")
 const app = express();
+
 
 // LOGGUER
 app.use(morgan("dev"));
@@ -11,11 +13,19 @@ app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+// ROUTES
+app.use("/api", routes)
+
 // RUTA PRUEBA
 app.use("/", (req, res, nex) => {
   res.send("ESTAS EN '/'");
 });
 
+app.use("/", (err, req, res, next)=>{
+  console.log(err)
+  console.error("ERROR", err.stack)
+  res.status(500).json(err)
+})
 
 
 const PORT = 3001;
