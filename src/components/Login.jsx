@@ -7,8 +7,8 @@ export default function Login() {
 
 
     return(
-        <duv>
-            
-        </duv>
+        <div>
+            <h1>Login</h1>
+        </div>
     )
 }

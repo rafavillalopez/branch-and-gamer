@@ -7,8 +7,9 @@ export default function Header() {
 
 
     return(
-        <duv>
-            
-        </duv>
+        <div>
+            <button></button>
+            <h1>Header</h1>
+        </div>
     )
 }
