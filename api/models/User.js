@@ -50,3 +50,5 @@ User.beforeCreate(async (user) => {
   user.salt = await bcrypt.genSalt(10);
   user.password = await user.hash(user.password, user.salt);
 });
+
+module.exports = User;

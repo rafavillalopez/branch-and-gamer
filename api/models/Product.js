@@ -2,12 +2,12 @@ const S = require("sequelize");
 const db = require("../db");
 
 class Product extends S.Model {
-  // PROBAR METHODS WHIT SEQUELIZE< MAKE SURE THEY INCREMENT/DECREMENT IN THE DB
-  addOneOfProduct(num) {
+  // PROBAR METHODS WHIT SEQUELIZE MAKE SURE THEY INCREMENT/DECREMENT IN THE DB
+  add(num) {
     return this.increment("quantity", { by: num });
   }
 
-  removeOfProduct(num) {
+  remove(num) {
     return this.decrement("quantity", { by: num });
   }
 }
@@ -53,3 +53,5 @@ Product.init(
   },
   { sequelize: db, modelName: "products" }
 );
+
+module.exports = Product;

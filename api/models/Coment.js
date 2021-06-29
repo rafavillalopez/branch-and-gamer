@@ -15,3 +15,5 @@ Coment.init(
   },
   { sequelize: db, modelName: "coments" }
 );
+
+module.exports = Coment;
