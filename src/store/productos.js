@@ -12,4 +12,9 @@ export const unSoloProductoReducer = createReducer([], {
     [setUnSoloProducto]: (state, action) => action.payload
 })
 
+//buscar producto
+export const buscarProducto = createAction("set_buscarProducto")
+export const buscarProductoReducer = createReducer("", {
+    [buscarProducto]: (state, action) => action.payload
+})
 

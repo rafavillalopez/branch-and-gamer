@@ -7,8 +7,8 @@ export default function ProductBlock() {
 
 
     return(
-        <duv>
-            
-        </duv>
+        <div>
+            <h1>ProductBlock</h1>
+        </div>
     )
 }
