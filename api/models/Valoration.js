@@ -13,3 +13,4 @@ Valoration.init(
   { sequelize: db, modelName: "valorations" }
 );
 
+module.exports = Valoration;
