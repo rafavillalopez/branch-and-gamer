@@ -7,8 +7,8 @@ export default function SingleProduct() {
 
 
     return(
-        <duv>
-            
-        </duv>
+        <div>
+            <h1>SingleProduct</h1>
+        </div>
     )
 }
