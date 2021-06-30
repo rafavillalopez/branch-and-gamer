@@ -38,13 +38,17 @@
 }
 
 .productList {
-    /* display: flex; */
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .product-block {
+
+    height: auto;
     margin: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #61dafb;
 }
 
