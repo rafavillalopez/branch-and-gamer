@@ -8,7 +8,7 @@ export default function ProductBlock({ producto }) {
     return (
         <div className='product-block'>
                 <Card style={{ width: "18rem" }}>
-                    <Link to= {`/productos/${producto.id}`}>
+                    <Link to= {`/${producto.id}`}>
                         <Card.Img className='card-img' variant="top" src={`${producto.imageUrl}`} />
                         <Card.Title className='card-title'>{producto.title}</Card.Title>
                         <Card.Body className='card-body'>
