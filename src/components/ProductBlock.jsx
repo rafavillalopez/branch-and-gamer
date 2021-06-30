@@ -1,27 +1,22 @@
 import * as React from "react";
 import { useDispatch } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
-import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
+import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
 
 export default function ProductBlock({ producto }) {
-
     return (
-        <div className='product-block'>
-                <Card style={{ width: "18rem" }}>
-                <Link to= {`/productos/${producto.id}`}>
+        <div className="product-block">
+            <Card style={{ width: "18rem" }}>
+                <Link to={`/${producto.id}`}>
                     <Card.Img variant="top" src={`${producto.imageUrl}`} />
                     <Card.Body>
-                    <Card.Title>{producto.title}</Card.Title>
-                    <Card.Text>{producto.marca}</Card.Text>
+                        <Card.Title>{producto.title}</Card.Title>
+                        <Card.Text>{producto.marca}</Card.Text>
                     </Card.Body>
                 </Link>
                 <Button variant="primary">Comprar</Button>
-                </Card>
-                {/* <h4>{producto.title}</h4>
-                <h1>{producto.marca}</h1>
-                <h1>{producto.price}</h1>
-                <img src={`${producto.imageUrl}`} /> */}
-             </div>
+            </Card>
+        </div>
     );
 }
