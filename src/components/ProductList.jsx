@@ -21,17 +21,10 @@ export default function ProductList() {
 
     return (
         <div className="productList">
-            {/* <h1>Productlist</h1> */}
-           
-            {!item
-                ? //Todos los productos por que no existe nada en el input
-                  productos.length
-                    ? productos.map((producto) => {
+            {!item ? productos.length ? productos.map((producto) => {
                           return <ProductBlock producto={producto} />;
-                      })
-                    : console.log(
-                          "NO se encontro ningun producto con ese INPUT value"
-                      )
+                      }) 
+                      : <h3>"No se encontró ningún producto."</h3>
                 : productos.map((producto) => {
                       return <ProductBlock producto={producto} />;
                   })}
