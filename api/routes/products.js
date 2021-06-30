@@ -1,55 +1,56 @@
-const express = require("express")
-const router = express.Router()
-const { Product } = require("../models")
-
+const express = require("express");
+const router = express.Router();
+const { Product } = require("../models");
 
 router.get("/", (req, res, next) => {
-    Product.findAll()
+  Product.findAll()
     .then((data) => {
-        res.status(200).json(data)
+      res.status(200).json(data);
     })
-    .catch(next)
-})
+    .catch(next);
+});
 
 router.get("/:id", (req, res, next) => {
-    Product.findByPk(req.params.id)
+  Product.findByPk(req.params.id)
     .then((data) => {
-        res.status(200).json(data)
+      res.status(200).json(data);
     })
-    .catch(next)
-})
+    .catch(next);
+});
 
 router.post("/", (req, res, next) => {
-    Product.create(req.body)
+  Product.create(req.body)
     .then((data) => {
-        res.status(201).json(data)
+      res.status(201).json(data);
     })
-    .catch(next)
-})
+    .catch(next);
+});
 
 router.put("/:id", (req, res, next) => {
-    Product.update(req.body, {
-        where: {
-            id: req.params.id
-        }
-    })
-    .then(() => {
-        res.sendStatus(200)
+  Product.update(req.body, {
+    where: {
+      id: req.params.id,
+    },
+    returning: true,
+    plain: true,
+  })
+    .then(([, data]) => {
+      res.status(201).json(data);
     })
     // DEBERIAMOS DEVOLVER EL PRODUCTO ACTUALIZADO?
-    .catch(next)
-})
+    .catch(next);
+});
 
 router.delete("/:id", (req, res, next) => {
-    Product.destroy({
-        where: {
-            id: req.params.id
-        }
-    })
+  Product.destroy({
+    where: {
+      id: req.params.id,
+    },
+  })
     .then(() => {
-        res.sendStatus(200)
+      res.sendStatus(200);
     })
-    .catch(next)
-})
+    .catch(next);
+});
 
-module.exports = router
+module.exports = router;
