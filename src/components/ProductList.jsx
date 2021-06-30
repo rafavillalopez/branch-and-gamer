@@ -1,43 +1,47 @@
 import * as React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useHistory } from 'react-router-dom'
-import axios from 'axios'
-import { setProductos, buscarProducto } from '../store/productos'
+import { Link, useHistory } from "react-router-dom";
+import axios from "axios";
+import { setProductos, buscarProducto } from "../store/productos";
+import ProductBlock from "./ProductBlock";
 
 export default function ProductList() {
+    const dispatch = useDispatch();
+    let productos = useSelector((state) => state.productos);
+    let item = useSelector((state) => state.buscarProducto);
 
+    const buscar = function (e) {
+        if (e.keyCode === 13) {
+            dispatch(buscarProducto(e.target.value));
+            e.target.value = "";
+        }
+    };
 
-const dispatch = useDispatch()
-let productos = useSelector(state => state.productos)
-let item = useSelector(state => state.buscarProducto)
+    React.useEffect(() => {
+        axios
+            .get(`/api/products?item=${item}`)
+            .then((res) => res.data)
+            .then((data) => {
+                dispatch(setProductos(data));
+            });
+    }, [item]);
 
-const buscar = function(e) {
-    if(e.keyCode === 13){
-        dispatch(buscarProducto(e.target.value))
-        e.target.value = ""
-    }
-}
-
-React.useEffect(() => {
-    axios.get(`/api/productos?item=${item}`)
-        .then((res) => res.data)
-        .then(data => { dispatch(setProductos(data)) })
-},[item])
-
-    return(
-        <div>
-            <input placeholder='Buscar item...' onKeyUp={buscar}/>
-            {!item ? 
-            // RANDOM MAP
-            productos.length ? productos.map(
-                 producto => console.log("Producto: ", producto)
-                )
-                :
-                "Ese producto no existe"
-                :
-            "MAPEO ORDENADO"
-            }
+    return (
+        <div className="productList">
             <h1>Productlist</h1>
+            <input placeholder="Buscar item..." onKeyUp={buscar} />
+            {!item
+                ? //Todos los productos por que no existe nada en el input
+                  productos.length
+                    ? productos.map((producto) => {
+                          return <ProductBlock producto={producto} />;
+                      })
+                    : console.log(
+                          "NO se encontro ningun producto con ese INPUT value"
+                      )
+                : productos.map((producto) => {
+                      return <ProductBlock producto={producto} />;
+                  })}
         </div>
-    )
+    );
 }
