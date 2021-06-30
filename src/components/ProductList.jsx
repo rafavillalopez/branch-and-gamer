@@ -12,7 +12,7 @@ export default function ProductList() {
 
     const buscar = function (e) {
         if (e.keyCode === 13) {
-            dispatch(buscarProducto(e.target.value));
+            dispatch(buscarProducto(e.target.value.toLowerCase()));
             e.target.value = "";
         }
     };
