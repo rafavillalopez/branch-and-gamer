@@ -22,7 +22,7 @@ export default function ProductList() {
     return (
         <div className="productList">
             {/* <h1>Productlist</h1> */}
-           
+
             {!item
                 ? //Todos los productos por que no existe nada en el input
                   productos.length
