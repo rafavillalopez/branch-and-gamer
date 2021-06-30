@@ -29,8 +29,7 @@ app.use("/", (err, req, res, next) => {
 const PORT = 3001;
 const url = "http://localhost:";
 
-// db.sync({ force: true })
-db.sync()
+db.sync({ force: false })
   .then(() => {
     console.log(`Coneeccion a base de datos completa`);
     app.listen(PORT, () => {
