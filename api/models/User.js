@@ -18,6 +18,7 @@ User.init(
   {
     name: {
       type: S.STRING,
+      allowNull: false,
       validate: {
         notEmpty: true,
         notNull: true,
@@ -25,6 +26,7 @@ User.init(
     },
     email: {
       type: S.STRING,
+      allowNull: false, 
       validate: {
         notEmpty: true,
         notNull: true,
@@ -38,6 +40,7 @@ User.init(
     },
     isAdmin: {
       type: S.BOOLEAN,
+      defaultValue: false
     },
     salt: {
       type: S.STRING,

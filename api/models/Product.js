@@ -31,7 +31,7 @@ Product.init(
       defaultValue:
         "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/No_image_available_450_x_600.svg/450px-No_image_available_450_x_600.svg.png",
     },
-    desciption: {
+    description: {
       type: S.TEXT,
       defaultValue: "",
     },

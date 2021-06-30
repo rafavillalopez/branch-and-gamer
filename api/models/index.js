@@ -13,19 +13,14 @@ User.belongsToMany(Product, { through: "favorites" });
 Product.belongsToMany(Category, { through: "pruductscategories" });
 Category.belongsToMany(Product, { through: "pruductscategories" });
 
-User.belongsToMany(Comment);
-Product.belongsToMany(Comment);
-Coment.hasOne(User, { as: "userId" });
-Coment.hasOne(Product, { as: "prductId" });
+User.hasMany(Coment);
+Product.hasMany(Coment);
 
-Product.belongsToMany(Valoration);
-Valoration.hasOne(Product, { as: "productId" });
+Product.hasMany(Valoration);
 
-User.belongsToMany(Carrito)
-Carrito.hasOne(User);
+User.hasMany(Carrito)
 Carrito.belongsToMany(Product, { through: ProductsCarrito });
 Product.belongsToMany(Carrito, { through: ProductsCarrito });
-
 
 module.exports = {
   User,
