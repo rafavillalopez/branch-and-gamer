@@ -1,11 +1,10 @@
 import * as React from "react";
 import { useDispatch } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
-import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
+import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
 
 export default function ProductBlock({ producto }) {
-
     return (
         <div className='product-block'>
                 <Card style={{ width: "18rem" }}>
