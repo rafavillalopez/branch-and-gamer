@@ -7,6 +7,7 @@ Coment.init(
   {
     body: {
       type: S.TEXT,
+      allowNull: false,
       validate: {
         notEmpty: true,
         notNull: true,

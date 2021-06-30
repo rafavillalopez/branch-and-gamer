@@ -7,6 +7,7 @@ Category.init(
   {
     name: {
       type: S.STRING,
+      allowNull: false,
       validate: {
         notEmpty: true,
         notNull: true,
