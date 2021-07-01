@@ -7,8 +7,10 @@ Carrito.init(
   {
     state: {
       type: S.ENUM({
-        values: ["pendiente", "confirmado", "rechazado"],
+        values: ["pendiente", "confirmado", "rechazado", "inUse"],
       }),
+      defaultValue: "inUse",
+      allowNull: false,
     },
   },
   { sequelize: db, modelName: "carritos" }

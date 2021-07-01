@@ -11,8 +11,39 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.sideBar{
+/* .sideBar{
 
   justify-content: flex-start;
   width: 20%;
+  
+  
 }
+ */
+.carouselContainer{
+  justify-content: flex-end;
+  align-content: stretch;
+  padding-top: 30px;
+}
+.d-block{
+
+  height: 200px;
+}
+.text{
+
+  justify-content: flex-end;
+  align-items:center;
+  flex-direction: row;
+  align-content: center;
+  /* padding-right: 10px; */
+  padding-left: 90%;
+  display: flex;
+
+}
+.textCart{
+  padding-left: 40%;
+    padding-right: 10%;
+    display: flex;
+
+}
+
+

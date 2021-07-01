@@ -153,12 +153,15 @@ br {
 }
 
 #burgundy {
-    color: rgb(153, 40, 59)
+    color: white
 }
 
 #orange,
 select,
 
+.btn {
+    color: white
+}
 
 .fa-search {
     font-size: 20px;
@@ -211,6 +214,7 @@ h6 {
     margin-left: 20px;
 }
 
+
 .no-product {
     display: flex;
     flex-direction: column;
@@ -249,6 +253,24 @@ button {
     padding: 20px;
     margin: 10% 20%;
 }
+.search-nav-item {
+    margin-left: 250px;
+    width: 350px
+}
+.fa-shopping-cart {
+        font-size: 20px;
+        padding-left: 20px
+    }
+    .fa-user-o {
+        margin-left: 300px
+    }
+
+.homeButton{
+    border-radius: 15px;
+    background-color: #007BFF;
+    border: none
+}
+
 /* 
 @media(min-width:1200px) {
     #search {

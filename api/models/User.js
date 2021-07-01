@@ -8,9 +8,11 @@ class User extends S.Model {
   }
 
   // HAY QUE PROBARLO CON LAS RUTAS
-  validatePassword(loginPassword) {
-    const hassedLoginP = this.hash(loginPassword, this.salt);
-    return hassedLoginP === this.password;
+  async validatePassword(loginPassword) {
+
+    const hashed = await this.hash(loginPassword, this.salt);
+
+    return hashed === this.password;
   }
 }
 
@@ -26,7 +28,7 @@ User.init(
     },
     email: {
       type: S.STRING,
-      allowNull: false, 
+      allowNull: false,
       validate: {
         notEmpty: true,
         notNull: true,
@@ -40,7 +42,7 @@ User.init(
     },
     isAdmin: {
       type: S.BOOLEAN,
-      defaultValue: false
+      defaultValue: false,
     },
     salt: {
       type: S.STRING,

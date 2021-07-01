@@ -5,9 +5,6 @@ import { useDispatch } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 
 import { ListGroup } from "react-bootstrap";
-import { ListGroupItem } from "react-bootstrap";
-import { ListGroupItemProps } from "react-bootstrap";
-import { ListGroupProps } from "react-bootstrap";
 import "../assets/index.css"
 
 export default function Sidebar() {

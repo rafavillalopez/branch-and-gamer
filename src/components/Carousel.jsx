@@ -1,30 +1,53 @@
+/** @format */
+
 import * as React from "react";
+import { useDispatch } from "react-redux";
+import { Link, useHistory } from "react-router-dom";
+import "../assets/index.css";
+import Carousel from "react-bootstrap/Carousel";
 
-export default function Carousel() {
-    
-    return (
-        <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
-        <div className="carousel-inner">
-            <div className="carousel-item active">
-            <img className="d-block w-100" src="https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/ces/strip-banner/geforce-amp-banners-laptops-strip-1024-t@2x-esla.jpg" alt="First slide"/>
-            </div>
-            <div className="carousel-item">
-            <img className="d-block w-100" src="https://www.custompc.ie/media/catalog/category/9thGenBanner_1.jpg" alt="Second slide"/>
-            </div>
-            <div className="carousel-item">
-            <img className="d-block w-100" src="https://cdn.wccftech.com/wp-content/uploads/2012/08/ax1200i-Banner.png" alt="Third slide"/>
-            </div>
-        </div>
-        <a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span className="sr-only">Previous</span>
-        </a>
-        <a className="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-            <span className="carousel-control-next-icon" aria-hidden="true"></span>
-            <span className="sr-only">Next</span>
-        </a>
-        </div>
-    );
+export default function CarouselProducts() {
+  return (
+    <div className="carouselContainer">
+      <Carousel>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src="https://photo-cdn2.icons8.com/I7xxF1JfDveT8EluYD5ApmX9igRELX8QG5ncs3NDtpA/rs:fit:1606:1072/Z3M6Ly9tb29zZTIv/YXNzZXRzL3NhdGEv/b3JpZ2luYWwvNjEy/L2QwOTQxNmU5LTM2/M2QtNDIyYS04YjMw/LTM0MmJiY2JhOWU5/YS5qcGc.jpg"
+            alt="First slide"
+          />
+          <Carousel.Caption>
+            <h3>First slide label</h3>
+            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src="https://images.pexels.com/photos/5489393/pexels-photo-5489393.jpeg?cs=srgb&dl=pexels-florenz-mendoza-5489393.jpg&fm=jpg"
+            alt="Second slide"
+          />
+
+          <Carousel.Caption>
+            <h3>Second slide label</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src="https://images.pexels.com/photos/2883028/pexels-photo-2883028.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+            alt="Third slide"
+          />
+
+          <Carousel.Caption>
+            <h3>Third slide label</h3>
+            <p>
+              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+            </p>
+          </Carousel.Caption>
+        </Carousel.Item>
+      </Carousel>
+    </div>
+  );
 }
-
-

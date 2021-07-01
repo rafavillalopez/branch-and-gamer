@@ -52,15 +52,17 @@ export default function Header() {
                             <div className="nav-link" href="#">
                                 <Link to="/login">
                                     <span class="fa fa-user-o"></span>
-                                    <span class="text">Login</span>
+                                    <img src="https://img.icons8.com/ios-filled/30/000000/stormtrooper.png"/>
+                                    <span class="text" >Login</span>
                                 </Link>
                             </div>{" "}
                         </li>
                         <li className="nav-item ">
                             <div className="nav-link" href="#">
                                 <Link to="/cart">
-                                    <span className="fa fa-shopping-cart"></span>
-                                    <span className="text">Cart</span>
+                                    <span class="fa fa-shopping-cart"></span>
+                                    <img src="https://img.icons8.com/ios-glyphs/30/000000/fast-cart.png"/>
+                                    <span class="textCart">Cart</span>
                                 </Link>
                             </div>{" "}
                         </li>
