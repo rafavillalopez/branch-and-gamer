@@ -3,6 +3,7 @@ const router = express.Router();
 const jwt = require("jsonwebtoken");
 
 const { User } = require("../models");
+// eslint-disable-next-line no-unused-vars
 const { validateToken } = require("../middlewares");
 
 router.post("/register", (req, res, next) => {
@@ -26,10 +27,14 @@ router.post("/login", (req, res, next) => {
     }
 
     const token = jwt.sign({ id: user.id }, "branchSecretP5");
-    
+
     return res.status(200).json({ token });
   });
-  
+});
+
+router.get("/logout", (req, res, next) => {
+  req.user = null;
+  res.status(200).json({});
 });
 
 //ESTA RUTA ES PARA PROBAR TOKENS
@@ -37,10 +42,5 @@ router.post("/login", (req, res, next) => {
 //   console.log(req.user);
 //   res.status(200).json("HOLA ESTA ES UNA RUTA DE PRUEBA");
 // });
-
-/**
- * Al usar JWT el LOGOUT lo manejamos desde el FRONT
- */
-
 
 module.exports = router;
