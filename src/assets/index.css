@@ -15,4 +15,42 @@ code {
 
   justify-content: flex-start;
   width: 20%;
+  
+  
 }
+
+.carouselContainer{
+  justify-content: flex-end;
+  height: 30px;
+  width: 100%;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  flex-direction: row;
+  align-content: stretch;
+  padding-left: 20%;
+  padding-top: 30px;
+  
+}
+.d-block{
+
+  height: 200px;
+}
+.text{
+
+  justify-content: flex-end;
+  align-items:center;
+  flex-direction: row;
+  align-content: center;
+  /* padding-right: 10px; */
+  padding-left: 90%;
+  display: flex;
+
+}
+.textCart{
+  padding-left: 40%;
+    padding-right: 10%;
+    display: flex;
+
+}
+
+

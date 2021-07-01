@@ -6,6 +6,7 @@ const {Op} = require("sequelize")
 router.get("/", (req, res, next) => {
     //Example query
     //Req.query = {item : "mouse"}
+    
     if(req.query.item){
         const filter = req.query.item.split(" ")[0] //Solo la primera palabra del query
         Product.findAll({
