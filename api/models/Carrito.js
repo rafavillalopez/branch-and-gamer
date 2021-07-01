@@ -9,6 +9,8 @@ Carrito.init(
       type: S.ENUM({
         values: ["pendiente", "confirmado", "rechazado"],
       }),
+      defaultValue: "pendiente",
+      allowNull: false,
     },
   },
   { sequelize: db, modelName: "carritos" }
