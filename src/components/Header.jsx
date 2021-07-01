@@ -21,7 +21,7 @@ export default function Header() {
         <div>
             <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom">
                 {" "}
-                <button onClick={inicio}>
+                <button className="homeButton" onClick={inicio}>
                     <a class="navbar-brand ml-2 font-weight-bold" href="#">
                         <span id="burgundy">BranchAnd</span>
                         <span id="orange">Gamer</span>
@@ -55,7 +55,8 @@ export default function Header() {
                             <a class="nav-link" href="#">
                                 <Link to="/login">
                                     <span class="fa fa-user-o"></span>
-                                    <span class="text">Login</span>
+                                    <img src="https://img.icons8.com/ios-filled/30/000000/stormtrooper.png"/>
+                                    <span class="text" >Login</span>
                                 </Link>
                             </a>{" "}
                         </li>
@@ -63,7 +64,8 @@ export default function Header() {
                             <a class="nav-link" href="#">
                                 <Link to="/cart">
                                     <span class="fa fa-shopping-cart"></span>
-                                    <span class="text">Cart</span>
+                                    <img src="https://img.icons8.com/ios-glyphs/30/000000/fast-cart.png"/>
+                                    <span class="textCart">Cart</span>
                                 </Link>
                             </a>{" "}
                         </li>
