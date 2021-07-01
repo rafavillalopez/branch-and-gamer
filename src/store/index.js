@@ -1,7 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { usuariosReducer, favoritosReducer, loginReducer, registerReducer } from "./user"
+import { usuariosReducer, favoritosReducer, loginReducer, registerReducer, tokenReducer } from "./user"
 import { productosReducer, unSoloProductoReducer, buscarProductoReducer } from "./productos"
 import logger from 'redux-logger'
+import loggedUserReducer from "./loggedUserReducer";
 
 
 const store = configureStore({
@@ -16,7 +17,11 @@ const store = configureStore({
         //productos
         productos: productosReducer,
         productoIndividual: unSoloProductoReducer,
-        buscarProducto: buscarProductoReducer
+        buscarProducto: buscarProductoReducer,
+
+        //registerToken
+        token: tokenReducer,
+        loggedUser: loggedUserReducer
     }
 })
 
