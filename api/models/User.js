@@ -7,11 +7,8 @@ class User extends S.Model {
     return bcrypt.hash(password, salt);
   }
 
-  // HAY QUE PROBARLO CON LAS RUTAS
   async validatePassword(loginPassword) {
-
     const hashed = await this.hash(loginPassword, this.salt);
-
     return hashed === this.password;
   }
 }

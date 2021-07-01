@@ -3,6 +3,7 @@ const morgan = require("morgan");
 
 const db = require("./db");
 const routes = require("./routes");
+
 const app = express();
 
 // LOGGUER
@@ -15,7 +16,7 @@ app.use(express.urlencoded({ extended: false }));
 // ROUTES
 app.use("/api", routes);
 
-// RUTA PRUEBA
+// RUTA PRUEBA // ! SE PUEDE SACAR
 app.use("/", (req, res, nex) => {
   res.send("ESTAS EN '/'");
 });

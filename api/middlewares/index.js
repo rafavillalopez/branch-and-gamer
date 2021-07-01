@@ -11,6 +11,7 @@ const validateToken = (req, res, next) => {
     req.user = { id: data.id };
     next();
   });
+  
 };
 
 const isAdmin = (req, res, next) => {
