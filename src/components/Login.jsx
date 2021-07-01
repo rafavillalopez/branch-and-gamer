@@ -3,9 +3,10 @@ import axios from "axios";
 import { Alert } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
-import Register from "./Register";
 
 import { setToken } from "../store/user";
+import Navbar from "./Navbar";
+import Footer from "../components/Footer";
 import "./register.css";
 
 export default function Login() {
@@ -42,45 +43,64 @@ export default function Login() {
   return (
     <div>
       <div>
-        <form onSubmit={onSubmit}>
-          <div className="h5 font-weight-bold text-center mb-3">Login</div>
-          <div className="form-group d-flex align-items-center">
-            <div className="icon">
-              <span class="far fa-envelope"></span>
-            </div>{" "}
-            <input
-              onChange={onChange}
-              autocomplete="off"
-              type="email"
-              className="form-control"
-              placeholder="Email"
-              name="email"
-            />
-          </div>
-          <div className="form-group d-flex align-items-center">
-            <div className="icon">
-              <span className="fas fa-key"></span>
-            </div>{" "}
-            <input
-              onChange={onChange}
-              autocomplete="off"
-              type="password"
-              className="form-control"
-              placeholder="Password"
-              name="password"
-            />
-            <div className="icon btn">
-              <span className="fas fa-eye-slash"></span>
+        <Navbar />
+        <div class="register">
+          <Link to="/" className="goback" style={{ textDecoration: "none" }}>
+            Volver
+          </Link>
+          <div className="register-card">
+            <div>
+              <form onSubmit={onSubmit}>
+                <div className="log-text">Login</div>
+                <div className="form-group d-flex align-items-center">
+                  <div className="icon">
+                    <span class="far fa-envelope"></span>
+                  </div>{" "}
+                  <input
+                    onChange={onChange}
+                    autocomplete="off"
+                    type="email"
+                    placeholder="Email"
+                    name="email"
+                  />
+                </div>
+                <div className="form-group d-flex align-items-center">
+                  <div className="icon">
+                    <span className="fas fa-key"></span>
+                  </div>{" "}
+                  <input
+                    onChange={onChange}
+                    autocomplete="off"
+                    type="password"
+                    placeholder="Password"
+                    name="password"
+                  />
+                </div>
+                {true && (
+                  <Alert
+                    style={{
+                      borderRadius: "30px",
+                      fontSize: "12px",
+                      height: "12px",
+                      paddingTop: 0,
+                      paddingBottom: "17px",
+                    }}
+                    variant={"danger"}
+                  >
+                    Email or password invalid
+                  </Alert>
+                )}
+                <input type="submit" value="Login" className="log-btn" />
+                <h7> Don't have an account? Click here!</h7>
+                <Link to="/register">
+                  <button className="register-btn">Register!</button>
+                </Link>
+              </form>
             </div>
           </div>
-          <input type="submit" value="Send" className="btn btn-primary mb-3" />
-          <h1> If you dont have an account click here!</h1>
-          <Link to="/register">
-            <button className="btn btn-primary mb-3">Register!</button>
-          </Link>
-        </form>
-        {alert && <Alert variant={"danger"}>Email or password invalid</Alert>}
+        </div>
       </div>
+      <Footer />
     </div>
   );
 }

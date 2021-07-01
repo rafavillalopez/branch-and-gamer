@@ -20,10 +20,14 @@ code {
 }
  */
 .carouselContainer{
-  justify-content: flex-end;
-  align-content: stretch;
-  padding-top: 30px;
 }
+
+img .carouselContainer {
+  object-fit:cover;
+  height:300px !important;
+  width:350px;
+}
+
 .d-block{
 
   height: 200px;

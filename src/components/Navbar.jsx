@@ -1,27 +1,20 @@
 import * as React from "react";
 import { Link, useHistory } from "react-router-dom";
-import { setProductos, buscarProducto } from "../store/productos";
-import { useDispatch, useSelector } from "react-redux";
 
-export default function Header() {
-    const dispatch = useDispatch();
 
-    const buscar = function (e) {
-        if (e.keyCode === 13) {
-            dispatch(buscarProducto(e.target.value.toLowerCase()));
-            e.target.value = "";
-        }
-    };
+export default function Navbar() {
 
-    function inicio() {
-        dispatch(buscarProducto(""));
+    const history = useHistory()
+
+    const inicio = () => {
+        history.push('/')
     }
 
     return (
         <div>
             <nav className="navbar navbar-expand-sm navbar-light bg-white border-bottom">
                 {" "}
-                <button className='logo-btn'onClick={inicio}>
+                <button className='logo-btn' onClick={inicio}>
                     <img className='logo' src='https://i.postimg.cc/MK3vy7xt/Captura-de-Pantalla-2021-07-01-a-la-s-01-10-58.png' alt='Branch&Gamer'/>
                 </button>
                 <button
@@ -38,16 +31,6 @@ export default function Header() {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarColor">
                     <ul className="navbar-nav">
-                        <li className="nav-item rounded bg-light search-nav-item">
-                            <input
-                                type="text"
-                                id="search"
-                                className="bg-light"
-                                placeholder="Busca un producto"
-                                onKeyUp={buscar}
-                            />
-                            <span className="fa fa-search text-muted"></span>
-                        </li>
                         <li className="nav-item">
                             <div className="nav-link" href="#">
                                 <Link to="/login">
