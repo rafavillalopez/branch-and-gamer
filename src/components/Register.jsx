@@ -4,6 +4,7 @@ import { setRegister } from "../store/user";
 import { Link, useHistory } from "react-router-dom";
 import "./register.css";
 import axios from "axios";
+import Navbar from "./Navbar";
 
 export default function Register() {
     const History = useHistory();
@@ -30,9 +31,13 @@ export default function Register() {
     }
 
     return (
-        <div className='register'>
+        <div>
+            <Navbar/>
+            <div class='register'>
+                 <Link to='/' className='goback' style={{ textDecoration: 'none' }}>Volver</Link>
+            <div className='register-card'>
             <form action="#" onSubmit={handleSubmit}>
-                <div className="h5 font-weight-bold text-center mb-3">
+                <div className="log-text">
                     Registration
                 </div>
                 <div className="form-group d-flex align-items-center">
@@ -42,7 +47,6 @@ export default function Register() {
                     <input
                         autocomplete="off"
                         type="text"
-                        className="form-control"
                         placeholder="Name"
                         name="name"
                         onChange={handleChangeNombre}
@@ -55,7 +59,6 @@ export default function Register() {
                     <input
                         autocomplete="off"
                         type="email"
-                        className="form-control"
                         placeholder="Email"
                         name="email"
                         onChange={handleChangeEmail}
@@ -68,19 +71,16 @@ export default function Register() {
                     <input
                         autocomplete="off"
                         type="password"
-                        className="form-control"
                         placeholder="Password"
                         name="password"
+                        className='reg-pass'
                         onChange={handleChangePassword}
                     />
-                    <div className="icon btn">
-                        <span className="fas fa-eye-slash"></span>
-                    </div>
                 </div>
                 <input
                     type="submit"
-                    value="Send"
-                    className="btn btn-primary mb-3"
+                    value="Register"
+                    className="register-btn"
                 />
                 {/* <div className="terms mb-2">
                     {" "}
@@ -107,6 +107,8 @@ export default function Register() {
                     </li>
                 </ul> */}
             </form>
+        </div>
+        </div>
         </div>
     );
 }
