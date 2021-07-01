@@ -10,13 +10,6 @@ export default function ProductList() {
     let productos = useSelector((state) => state.productos);
     let item = useSelector((state) => state.buscarProducto);
 
-    const buscar = function (e) {
-        if (e.keyCode === 13) {
-            dispatch(buscarProducto(e.target.value.toLowerCase()));
-            e.target.value = "";
-        }
-    };
-
     React.useEffect(() => {
         axios
             .get(`/api/products?item=${item}`)
@@ -28,17 +21,10 @@ export default function ProductList() {
 
     return (
         <div className="productList">
-            <h1>Productlist</h1>
-            <input placeholder="Buscar item..." onKeyUp={buscar} />
-            {!item
-                ? //Todos los productos por que no existe nada en el input
-                  productos.length
-                    ? productos.map((producto) => {
+            {!item ? productos.length ? productos.map((producto) => {
                           return <ProductBlock producto={producto} />;
-                      })
-                    : console.log(
-                          "NO se encontro ningun producto con ese INPUT value"
-                      )
+                      }) 
+                      : <h3>"No se encontró ningún producto."</h3>
                 : productos.map((producto) => {
                       return <ProductBlock producto={producto} />;
                   })}
