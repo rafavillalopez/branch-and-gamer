@@ -12,8 +12,9 @@ export default function Register() {
 
     function handleSubmit(e) {
         e.preventDefault();
-        axios.post("/api/auth/register", usuario);
-        History.push("login");
+        axios.post("/api/auth/register", usuario).then(() => {
+            History.push("login");
+        });
     }
 
     function handleChangeNombre(e) {
