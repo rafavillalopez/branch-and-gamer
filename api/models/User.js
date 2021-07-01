@@ -8,9 +8,7 @@ class User extends S.Model {
   }
 
   async validatePassword(loginPassword) {
-
     const hashed = await this.hash(loginPassword, this.salt);
-
     return hashed === this.password;
   }
 }

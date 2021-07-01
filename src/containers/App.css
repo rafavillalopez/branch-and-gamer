@@ -82,7 +82,7 @@
 
 .fav-btn:focus {
     background-color: rgb(209, 224, 234);
-    color:rgb(149, 83, 83)
+    color:rgb(202, 194, 194)
 }
 
 .block-btns {
@@ -268,8 +268,7 @@ input:focus {
     color: white
 }
 
-#orange,
-select,
+
 
 .btn {
     color: white
@@ -375,17 +374,13 @@ h6 {
     margin: 10% 20%;
 }
 .search-nav-item {
-    margin-left: 250px;
-    width: 350px;
-   
+    /* margin-left: 250px; */
+    width: 350px
 }
 .fa-shopping-cart {
         font-size: 20px;
         padding-left: 20px
     }
-.fa-user-o {
-    margin-left: 300px
-}
 
 .homeButton{
     border-radius: 15px;
@@ -394,6 +389,20 @@ h6 {
 }
 .nav-item{
     justify-content: flex-end;
+}
+
+.caroulselImage{
+    height: 17.3rem;
+}
+@media (max-width: 930px) {
+    .caroulselImage {
+        height: 13rem;
+    }
+}
+@media (max-width: 670px) {
+    .caroulselImage {
+        height: 8rem;
+    }
 }
 
 /* 

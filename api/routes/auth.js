@@ -14,22 +14,24 @@ router.post("/register", (req, res, next) => {
     .catch(next);
 });
 
-router.post("/login", (req, res, next) => {
+router.post("/login", async (req, res, next) => {
   const { email, password } = req.body;
 
-  User.findOne({ where: { email } }).then((user) => {
-    if (!user) {
-      return res.status(400).json({ msg: "Usuario no encontrado" });
-    }
+  const user = await User.findOne({ where: { email } });
 
-    if (!user.validatePassword(password)) {
-      return res.status(401).json({ msg: "Invalid credentials" });
-    }
+  if (!user) {
+    return res.status(400).json({ msg: "Usuario no encontrado" });
+  }
 
-    const token = jwt.sign({ id: user.id }, "branchSecretP5");
+  const validate = await user.validatePassword(password);
 
-    return res.status(200).json({ token });
-  });
+  if (!validate) {
+    return res.status(401).json({ msg: "Invalid credentials" });
+  }
+
+  const token = jwt.sign({ id: user.id }, "branchSecretP5");
+
+  return res.status(200).json({ token });
 });
 
 router.get("/logout", (req, res, next) => {
