@@ -90,7 +90,7 @@
 
 .fav-btn:focus {
     background-color: rgb(209, 224, 234);
-    color:rgb(149, 83, 83)
+    color:rgb(202, 194, 194)
 }
 
 .block-btns {
@@ -157,8 +157,7 @@ br {
     color: white
 }
 
-#orange,
-select,
+
 
 .btn {
     color: white
