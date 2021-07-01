@@ -3,7 +3,7 @@ const {User} = require("../models")
 
 const validateToken = (req, res, next) => {
   const token = req.headers.authorization.split(" ")[1];
-  console.log("VALIDATE TOKEN", token)
+  
   jwt.verify(token, "branchSecretP5", (err, data) => {
     if(err) next(err)   
     req.user = { id: data.id };
