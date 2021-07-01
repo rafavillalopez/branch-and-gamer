@@ -29,7 +29,7 @@ export default function Register() {
     }
 
     return (
-        <div>
+        <div className='register'>
             <form action="#" onSubmit={handleSubmit}>
                 <div className="h5 font-weight-bold text-center mb-3">
                     Registration

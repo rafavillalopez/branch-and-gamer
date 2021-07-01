@@ -140,6 +140,11 @@ br {
     margin-top: 25px;
 }
 
+.register {
+    display: flex;
+    flex-direction: column;
+}
+
 /* ------------------------ */
 
 * {
