@@ -3,30 +3,37 @@ const { Carrito } = require("../models");
 const ProducstCarrito = require("../models/ProducstCarrito");
 const router = express.Router();
 
-router.post("/:userId", (req, res, next) => {
-  const { userId } = req.params;
-  Carrito.create({}).then((car) => {
-    res.status(201).jason(car);
-  });
-});
-
-router.post("/add/:carritoId/:productId", (req, res, next) => {
-  const { carritoId, productId } = req.params;
+router.post("/add", (req, res, next) => {
+  console.log("BAD");
+  const { carritoId, productId } = req.body;
   ProducstCarrito.findOrCreate({
-    carritoId,
-    productId,
+    where: {
+      carritoId,
+      productId,
+    },
   })
-    .then((productInCar) => {
-      return productInCar.add(1);
-    })
-    .then((updated) => {
-      res.json(updated);
+    .then(([productInCar]) => {
+      res.status(201).json(productInCar);
     })
     .catch(next);
 });
 
-router.put("/add/:carritoId/:productId", (req, res, next) => {
-  const { carritoId, productId } = req.params;
+router.post("/:userId", (req, res, next) => {
+  console.log("GOOD");
+  const { userId } = req.params;
+  console.log(req.params)
+  Carrito.findOrCreate({
+    where: {
+      userId,
+      state: "inUse",
+    },
+  }).then(([car]) => {
+    res.status(201).json(car);
+  });
+});
+
+router.post("/delete", (req, res, next) => {
+  const { carritoId, productId } = req.body;
   ProducstCarrito.findOrCreate({
     carritoId,
     productId,
