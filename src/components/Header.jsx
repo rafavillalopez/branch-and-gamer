@@ -18,7 +18,7 @@ export default function Header() {
     }
 
     return (
-        <div>
+        <div className="container">
             <nav className="navbar navbar-expand-sm navbar-light bg-white border-bottom">
                 {" "}
                 <button onClick={inicio}>
@@ -37,7 +37,7 @@ export default function Header() {
                     <span className="navbar-toggler-icon"></span>{" "}
                 </button>
                 <div className="collapse navbar-collapse" id="navbarColor">
-                    <ul className="navbar-nav">
+                    <ul className="navbar-nav d-flex justify-content-around w-100 align-items-center">
                         <li className="nav-item rounded bg-light search-nav-item">
                             <input
                                 type="text"
@@ -48,8 +48,10 @@ export default function Header() {
                             />
                             <span className="fa fa-search text-muted"></span>
                         </li>
+                        <div className="d-flex">
+
                         <li className="nav-item">
-                            <div className="nav-link" href="#">
+                            <div className="nav-link">
                                 <Link to="/login">
                                     <span class="fa fa-user-o"></span>
                                     <img src="https://img.icons8.com/ios-filled/30/000000/stormtrooper.png"/>
@@ -58,7 +60,7 @@ export default function Header() {
                             </div>{" "}
                         </li>
                         <li className="nav-item ">
-                            <div className="nav-link" href="#">
+                            <div className="nav-link">
                                 <Link to="/cart">
                                     <span class="fa fa-shopping-cart"></span>
                                     <img src="https://img.icons8.com/ios-glyphs/30/000000/fast-cart.png"/>
@@ -66,6 +68,7 @@ export default function Header() {
                                 </Link>
                             </div>{" "}
                         </li>
+                        </div>
                     </ul>
                 </div>
             </nav>

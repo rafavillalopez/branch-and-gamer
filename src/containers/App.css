@@ -254,7 +254,7 @@ button {
     margin: 10% 20%;
 }
 .search-nav-item {
-    margin-left: 250px;
+    /* margin-left: 250px; */
     width: 350px
 }
 .fa-shopping-cart {
@@ -262,7 +262,7 @@ button {
         padding-left: 20px
     }
     .fa-user-o {
-        margin-left: 300px
+        /* margin-left: 300px */
     }
 
 .homeButton{
