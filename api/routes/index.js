@@ -1,11 +1,10 @@
-const express = require("express")
-const router = express.Router()
+const express = require("express");
+const router = express.Router();
 
-const products = require("./products")
-const cart = require("./cat");
+const auth = require("./auth");
+const products = require("./products");
 
-router.use("/products", products)
+router.use("/auth", auth);
+router.use("/products", products);
 
-router.use("/cat", cart);
-
-module.exports = router
+module.exports = router;
