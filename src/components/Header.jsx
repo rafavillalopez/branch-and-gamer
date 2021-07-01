@@ -19,16 +19,13 @@ export default function Header() {
 
     return (
         <div>
-            <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom">
+            <nav className="navbar navbar-expand-sm navbar-light bg-white border-bottom">
                 {" "}
-                <button className="homeButton" onClick={inicio}>
-                    <a class="navbar-brand ml-2 font-weight-bold" href="#">
-                        <span id="burgundy">BranchAnd</span>
-                        <span id="orange">Gamer</span>
-                    </a>{" "}
+                <button onClick={inicio}>
+                    <img className='logo' src='https://i.postimg.cc/MK3vy7xt/Captura-de-Pantalla-2021-07-01-a-la-s-01-10-58.png' alt='Branch&Gamer'/>
                 </button>
                 <button
-                    class="navbar-toggler"
+                    className="navbar-toggler"
                     type="button"
                     data-toggle="collapse"
                     data-target="#navbarColor"
@@ -37,37 +34,37 @@ export default function Header() {
                     aria-label="Toggle navigation"
                 >
                     {" "}
-                    <span class="navbar-toggler-icon"></span>{" "}
+                    <span className="navbar-toggler-icon"></span>{" "}
                 </button>
-                <div class="collapse navbar-collapse" id="navbarColor">
-                    <ul class="navbar-nav">
-                        <li class="nav-item rounded bg-light search-nav-item">
+                <div className="collapse navbar-collapse" id="navbarColor">
+                    <ul className="navbar-nav">
+                        <li className="nav-item rounded bg-light search-nav-item">
                             <input
                                 type="text"
                                 id="search"
-                                class="bg-light"
+                                className="bg-light"
                                 placeholder="Busca un producto"
                                 onKeyUp={buscar}
                             />
-                            <span class="fa fa-search text-muted"></span>
+                            <span className="fa fa-search text-muted"></span>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
+                        <li className="nav-item">
+                            <div className="nav-link" href="#">
                                 <Link to="/login">
                                     <span class="fa fa-user-o"></span>
                                     <img src="https://img.icons8.com/ios-filled/30/000000/stormtrooper.png"/>
                                     <span class="text" >Login</span>
                                 </Link>
-                            </a>{" "}
+                            </div>{" "}
                         </li>
-                        <li class="nav-item ">
-                            <a class="nav-link" href="#">
+                        <li className="nav-item ">
+                            <div className="nav-link" href="#">
                                 <Link to="/cart">
                                     <span class="fa fa-shopping-cart"></span>
                                     <img src="https://img.icons8.com/ios-glyphs/30/000000/fast-cart.png"/>
                                     <span class="textCart">Cart</span>
                                 </Link>
-                            </a>{" "}
+                            </div>{" "}
                         </li>
                     </ul>
                 </div>

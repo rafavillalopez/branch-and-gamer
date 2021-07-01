@@ -14,6 +14,8 @@ import Home from "../components/Home";
 import Favorites from "../components/Favorites";
 import Cart from "../components/Cart";
 import User from "../components/User";
+import Contact from "../components/Contact";
+import About from "../components/About";
 import { useSelector } from "react-redux";
 
 function App() {
@@ -40,6 +42,8 @@ function App() {
                 <Route exact path="/Cart" component={Cart} />
                 <Route exact path="/Favorites" component={Favorites} />
                 <Route exact path="/Me" component={User} />
+                <Route exact path="/Contact" component={Contact} />
+                <Route exact path="/About" component={About} />
             </Switch>
         </div>
     );

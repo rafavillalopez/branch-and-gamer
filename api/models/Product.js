@@ -29,7 +29,7 @@ Product.init(
     imageUrl: {
       type: S.STRING,
       defaultValue:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/No_image_available_450_x_600.svg/450px-No_image_available_450_x_600.svg.png",
+        "https://i.ibb.co/hRWHZ1b/Captura-de-Pantalla-2021-07-01-a-la-s-00-47-33.png",
     },
     description: {
       type: S.TEXT,
