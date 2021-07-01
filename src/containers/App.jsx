@@ -26,7 +26,7 @@ function App() {
   React.useEffect(() => {
     console.log("LLEGUE A USEFECT");
     dispatch(setUser());
-  }, []);
+  }, [dispatch]);
 
   let productos = useSelector((state) => state.productos);
   return (

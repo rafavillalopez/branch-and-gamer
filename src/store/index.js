@@ -3,6 +3,7 @@ import { usuariosReducer, favoritosReducer, loginReducer, registerReducer, token
 import { productosReducer, unSoloProductoReducer, buscarProductoReducer } from "./productos"
 import logger from 'redux-logger'
 import loggedUserReducer from "./loggedUserReducer";
+import authReducer from "./authReducer";
 
 
 const store = configureStore({
@@ -21,7 +22,8 @@ const store = configureStore({
 
         //registerToken
         token: tokenReducer,
-        loggedUser: loggedUserReducer
+        loggedUser: loggedUserReducer,
+        isLogIn: authReducer
     }
 })
 

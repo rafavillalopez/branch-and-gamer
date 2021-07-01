@@ -1,5 +1,6 @@
 import { createReducer, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { setLogginTrue } from "./authReducer";
 
 import { setToken } from "./user";
 
@@ -15,6 +16,7 @@ export const setUser = createAsyncThunk("SET_USER", async (data, thunkAPI) => {
       });
 
       thunkAPI.dispatch(setToken(token));
+      thunkAPI.dispatch(setLogginTrue)
 
       return req.data;
     }
