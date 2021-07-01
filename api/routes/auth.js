@@ -21,8 +21,6 @@ router.post("/login", (req, res, next) => {
       return res.status(400).json({ msg: "Usuario no encontrado" });
     }
 
-    console.log("USER", user.password);
-
     if (!user.validatePassword(password)) {
       return res.status(401).json({ msg: "Invalid credentials" });
     }
@@ -32,6 +30,7 @@ router.post("/login", (req, res, next) => {
     return res.status(200).json({ token });
 
   });
+  
 });
 
 router.get("/prueba", validateToken, (req, res, next) => {
@@ -39,7 +38,7 @@ router.get("/prueba", validateToken, (req, res, next) => {
   res.status(200).json("HOLA ESTA ES UNA RUTA DE PRUEBA");
 });
 
-// FALTA LA RUTA LOGOUR
+// FALTA LA RUTA DEL LOGOUT
 
 
 module.exports = router;

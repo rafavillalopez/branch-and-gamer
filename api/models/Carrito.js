@@ -7,9 +7,9 @@ Carrito.init(
   {
     state: {
       type: S.ENUM({
-        values: ["pendiente", "confirmado", "rechazado"],
+        values: ["pendiente", "confirmado", "rechazado", "inUse"],
       }),
-      defaultValue: "pendiente",
+      defaultValue: "inUse",
       allowNull: false,
     },
   },
