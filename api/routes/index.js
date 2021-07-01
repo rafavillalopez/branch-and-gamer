@@ -3,13 +3,13 @@ const router = express.Router();
 
 const products = require("./products")
 const users = require("./users")
+
 const cart = require("./cart");
+router.use("/users", users)
 const auth = require("./auth");
 
-
-router.use("/products", products);
-router.use("/users", users)
-router.use("/cart", cart);
 router.use("/auth", auth);
+router.use("/products", products);
+router.use("/cart", cart);
 
 module.exports = router;

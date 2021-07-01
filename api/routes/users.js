@@ -1,29 +1,7 @@
 const express = require("express")
 const router = express.Router()
 const { User } = require("../models")
-
-//REGISTER
-router.post("/", (req, res, next)=>{
-    User.create(req.body)
-    .then((data)=>{
-        res.status(201).json(data)
-    })
-    .catch(next)
-})
-
-/**
- * 
-//LOGIN PASSPORT
-router.post("/auth", passport.authenticate("local"), (req, res)=>{
-    return res.send(req.user)
-})
-
-//LOGOUT PASSPORT
-router.post("/logout", (req, res)=>{
-    req.logOut()
-    res.sendStatus(200)
-})
- */
+const { validateToken, isAdmin } = require("../middlewares");
 
 
 //EDIT USER
@@ -42,10 +20,20 @@ router.put("/:id", (req, res, next)=>{
 })
 
 //RETORNAR UN USUARIO LOGUEADO EN CASO DE QUE LO HAYA
+router.get("/logged", validateToken, (req, res, next)=>{
+    User.findByPk(req.user.id)
+    .then((data)=>{
+        res.status(200).json(data)
+    })
+    .catch(next)
+} )
+
+
+//RUTAS ADMIN
+//Con isAdmin verificamos que a estas rutas solo se puede acceder siendo ADMIN 
 
 //PROMOVER ADMINISTRADORES (ADMIN)
-router.put("/:id/admin", (req, res, next)=>{
-     //Si el usuario registradp isAdmin : true ? return esta funcion : next() 
+router.put("/:id/admin", isAdmin, (req, res, next)=>{
      User.update({isAdmin : true}, {
          where : {
              id : req.params.id
@@ -60,8 +48,7 @@ router.put("/:id/admin", (req, res, next)=>{
 })
 
 //DELETE USER (ADMIN)
-router.delete("/:id", (req, res, next)=>{
-    //Si el usuario registradp isAdmin : true ? return esta funcion : next() 
+router.delete("/:id", isAdmin, (req, res, next)=>{
     User.destroy({
         where : {
             id : req.params.id
@@ -75,15 +62,13 @@ router.delete("/:id", (req, res, next)=>{
 
 
 //SEE ALL USERS (ADMIN)
-router.get("/", (req, res, next)=>{
-    //Si el usuario registradp isAdmin : true ? return esta funcion : next() 
+router.get("/", isAdmin, (req, res, next)=>{
     User.findAll()
     .then((data)=>{
         res.status(200).json(data)
     })
     .catch(next)
 }) 
-
 
 
 module.exports = router
