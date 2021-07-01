@@ -26,19 +26,21 @@ router.post("/login", (req, res, next) => {
     }
 
     const token = jwt.sign({ id: user.id }, "branchSecretP5");
-
+    console.log("TOKEN", token)
     return res.status(200).json({ token });
-
   });
   
 });
 
-router.get("/prueba", validateToken, (req, res, next) => {
-  console.log(req.user);
-  res.status(200).json("HOLA ESTA ES UNA RUTA DE PRUEBA");
-});
+//ESTA RUTA ES PARA PROBAR TOKENS
+// router.get("/prueba", validateToken, (req, res, next) => {
+//   console.log(req.user);
+//   res.status(200).json("HOLA ESTA ES UNA RUTA DE PRUEBA");
+// });
 
-// FALTA LA RUTA DEL LOGOUT
+/**
+ * Al usar JWT el LOGOUT lo manejamos desde el FRONT
+ */
 
 
 module.exports = router;
