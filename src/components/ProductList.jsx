@@ -24,7 +24,7 @@ export default function ProductList() {
             {!item ? productos.length ? productos.map((producto) => {
                           return <ProductBlock producto={producto} />;
                       }) 
-                      : <h3>"No se encontró ningún producto."</h3>
+                      : <h3 className='no-product'>"No se encontró ningún producto."</h3>
                 : productos.map((producto) => {
                       return <ProductBlock producto={producto} />;
                   })}
