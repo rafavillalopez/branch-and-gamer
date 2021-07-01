@@ -40,7 +40,6 @@ Product.init(
       defaultValue: 0,
     },
     colors: {
-      //! PROBAR SI SE LE PASA UN ARRAY THE JAVASCRIPT?
       type: S.ARRAY(S.STRING),
       defaultValue: [],
     },

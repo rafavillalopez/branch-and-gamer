@@ -242,6 +242,7 @@ input:focus {
     outline: none;
     border: none;
     display: inline-block;
+   
 }
 
 #burgundy {
@@ -260,10 +261,12 @@ select,
     padding: 10px;
     margin-bottom: 3px;
     padding-right: 20px;
+    
 }
 
 .search-nav-item {
     height: 40px;
+    
 }
 
 nav {
@@ -304,6 +307,7 @@ h6 {
 
 #search {
     margin-left: 20px;
+    
 }
 
 
@@ -353,7 +357,8 @@ h6 {
 }
 .search-nav-item {
     margin-left: 250px;
-    width: 350px
+    width: 350px;
+   
 }
 .fa-shopping-cart {
         font-size: 20px;
@@ -367,6 +372,9 @@ h6 {
     border-radius: 15px;
     background-color: #007BFF;
     border: none
+}
+.nav-item{
+    justify-content: flex-end;
 }
 
 /* 
