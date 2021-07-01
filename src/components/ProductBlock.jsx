@@ -5,7 +5,7 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import axios from 'axios'
 
-export default function ProductBlock({ producto }) {
+export default function ProductBlock({ producto}) {
 
     const user = useSelector(state => state.login)
 

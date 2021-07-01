@@ -28,17 +28,9 @@
     color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
 .productList {
     margin-top: 10px;
+    margin-left: 70px;
     display: flex;
     flex-wrap: wrap;
 }
@@ -90,7 +82,7 @@
 
 .fav-btn:focus {
     background-color: rgb(209, 224, 234);
-    color:rgb(149, 83, 83)
+    color:rgb(202, 194, 194)
 }
 
 .block-btns {
@@ -140,6 +132,106 @@ br {
     margin-top: 25px;
 }
 
+.register {
+    display: flex;
+    flex-direction: row;
+}
+
+.register-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10% 30%;
+    padding: 10px 10px;
+    width: 400px;background-color: rgb(249, 249, 249);
+    border: 2px solid rgb(233, 233, 233);
+    border-radius: 30px;
+    box-shadow: 3px 3px 10px grey;
+}
+
+.log-text {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    color:rgb(176, 176, 176);
+    font-size: 20px;
+    font-weight: bold;    
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.goback {
+    height: 35px;
+    margin: 15px 15px;
+    border: 1px solid lightgray;
+    padding: 5px 10px 15px 10px;
+    border-radius: 20px;
+}
+
+.goback:hover {
+    background-color: rgb(199, 208, 233);
+    transform: scale(1.06);
+}
+
+.log-btn {
+    width: fit-content;
+    padding: 5px 10px;
+    margin-top: 10px;
+    margin-bottom: 40px;
+    border: 2px solid rgb(184, 184, 184);
+    border-radius: 20px;
+    background-color: white;
+}
+
+.register-btn {
+    margin: 0px;
+    width: fit-content;
+    padding: 5px 10px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    border: 2px solid rgb(184, 184, 184);
+    border-radius: 20px;
+    background-color: white;
+}
+
+.log-btn:hover {
+    background-color: rgb(222, 230, 254);
+    transform: scale(1.06);
+}
+
+.register-btn:hover {
+    background-color: rgb(222, 230, 254);
+    transform: scale(1.06);
+}
+
+.reg-pass {
+    margin-bottom: 15px;
+}
+
+input {
+    width: fit-content;
+    box-sizing: border-box;
+    padding-left: 10px;
+    border-radius: 20px;
+    border: 1px solid lightgray;
+}
+
+::placeholder {
+    padding-left: 0px;
+    color: lightgray
+}
+
+input:focus {
+    outline: none
+}
+
+
+
+
 /* ------------------------ */
 
 * {
@@ -157,8 +249,7 @@ br {
     color: white
 }
 
-#orange,
-select,
+
 
 .btn {
     color: white
@@ -230,18 +321,24 @@ h6 {
     border: none;
 }
 
-button {
+.logo-btn {
+    height: 50px;
     border: none;
-    padding: 0;
+    background-color: white;
 }
+
 
 .footer {
     border-top: 1px solid lightgray;
-    margin-top: 25px;
-    padding-top: 15px;
+    margin-top: 50px;
+    padding-top: 35px;
     display: flex;
     justify-content: space-around;
+    position: relative;
+    width: 100%;
+    height: 100px;  
 }
+
 
 .contacto {
 
@@ -263,9 +360,6 @@ button {
 .fa-shopping-cart {
         font-size: 20px;
         padding-left: 20px
-    }
-    .fa-user-o {
-        /* margin-left: 300px */
     }
 
 .homeButton{
