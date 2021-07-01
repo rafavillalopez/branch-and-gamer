@@ -1,15 +1,21 @@
 import * as React from "react";
 import { useDispatch } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
-import Register from "./Register";
+import Navbar from "./Navbar";
+import Footer from '../components/Footer'
 import "./register.css";
 
 export default function Login() {
     return (
         <div>
             <div>
+            <Navbar/>
+        <div class='register'>
+            <Link to='/' className='goback' style={{ textDecoration: 'none' }}>Volver</Link>
+        <div className='register-card'>
+            <div>
                 <form action="#">
-                    <div className="h5 font-weight-bold text-center mb-3">
+                    <div className="log-text">
                         Login
                     </div>
                     <div className="form-group d-flex align-items-center">
@@ -19,7 +25,6 @@ export default function Login() {
                         <input
                             autocomplete="off"
                             type="email"
-                            className="form-control"
                             placeholder="Email"
                             name="email"
                         />
@@ -31,27 +36,28 @@ export default function Login() {
                         <input
                             autocomplete="off"
                             type="password"
-                            className="form-control"
                             placeholder="Password"
                             name="password"
                         />
-                        <div className="icon btn">
-                            <span className="fas fa-eye-slash"></span>
-                        </div>
+                        
                     </div>
                     <input
                         type="submit"
-                        value="Send"
-                        className="btn btn-primary mb-3"
+                        value="Login"
+                        className="log-btn"
                     />
-                    <h1> If you dont have an account click here!</h1>
+                    <h7> Don't have an account? Click here!</h7>
                     <Link to="/register">
-                        <button className="btn btn-primary mb-3">
+                        <button className="register-btn">
                             Register!
                         </button>
                     </Link>
                 </form>
             </div>
+        </div>
+        </div>
+        </div>
+        <Footer />
         </div>
     );
 }
