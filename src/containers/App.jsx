@@ -17,36 +17,45 @@ import User from "../components/User";
 import Contact from "../components/Contact";
 import About from "../components/About";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { setUser } from "../store/loggedUserReducer";
 
 function App() {
-    let productos = useSelector((state) => state.productos);
-    return (
-        <div className="App">
-            <Switch>
-                {/* RUTAS PARA VER LA INFO DE UN SOLO PRODUCTO */}
-                {productos.map((producto) => {
-                    return (
-                        <Route
-                            exact
-                            path={`/${producto.id}`}
-                            render={() => {
-                                return <SingleProduct producto={producto} />;
-                            }}
-                        />
-                    );
-                })}
+  const dispatch = useDispatch();
 
-                <Route exact path="/" component={Home} />
-                <Route exact path="/Login" component={Login} />
-                <Route exact path="/Register" component={Register} />
-                <Route exact path="/Cart" component={Cart} />
-                <Route exact path="/Favorites" component={Favorites} />
-                <Route exact path="/Me" component={User} />
-                <Route exact path="/Contact" component={Contact} />
-                <Route exact path="/About" component={About} />
-            </Switch>
-        </div>
-    );
+  React.useEffect(() => {
+    console.log("LLEGUE A USEFECT");
+    dispatch(setUser());
+  }, []);
+
+  let productos = useSelector((state) => state.productos);
+  return (
+    <div className="App">
+      <Switch>
+        {/* RUTAS PARA VER LA INFO DE UN SOLO PRODUCTO */}
+        {productos.map((producto) => {
+          return (
+            <Route
+              exact
+              path={`/${producto.id}`}
+              render={() => {
+                return <SingleProduct producto={producto} />;
+              }}
+            />
+          );
+        })}
+
+        <Route exact path="/" component={Home} />
+        <Route exact path="/Login" component={Login} />
+        <Route exact path="/Register" component={Register} />
+        <Route exact path="/Cart" component={Cart} />
+        <Route exact path="/Favorites" component={Favorites} />
+        <Route exact path="/Me" component={User} />
+        <Route exact path="/Contact" component={Contact} />
+        <Route exact path="/About" component={About} />
+      </Switch>
+    </div>
+  );
 }
 
 export default App;
