@@ -5,6 +5,7 @@ import { Link, useHistory } from "react-router-dom";
 import "./register.css";
 import axios from "axios";
 import Navbar from "./Navbar";
+import Footer from '../components/Footer'
 
 export default function Register() {
     const History = useHistory();
@@ -32,9 +33,10 @@ export default function Register() {
 
     return (
         <div>
+            <div>
             <Navbar/>
             <div class='register'>
-                 <Link to='/' className='goback' style={{ textDecoration: 'none' }}>Volver</Link>
+                 <Link to='/login' className='goback' style={{ textDecoration: 'none' }}>Volver</Link>
             <div className='register-card'>
             <form action="#" onSubmit={handleSubmit}>
                 <div className="log-text">
@@ -109,6 +111,8 @@ export default function Register() {
             </form>
         </div>
         </div>
+        </div>
+        <Footer/>
         </div>
     );
 }

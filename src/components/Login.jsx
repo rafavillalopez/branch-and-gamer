@@ -2,11 +2,13 @@ import * as React from "react";
 import { useDispatch } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import Navbar from "./Navbar";
+import Footer from '../components/Footer'
 import "./register.css";
 
 export default function Login() {
     return (
         <div>
+            <div>
             <Navbar/>
         <div class='register'>
             <Link to='/' className='goback' style={{ textDecoration: 'none' }}>Volver</Link>
@@ -54,6 +56,8 @@ export default function Login() {
             </div>
         </div>
         </div>
+        </div>
+        <Footer />
         </div>
     );
 }
