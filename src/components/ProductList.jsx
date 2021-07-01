@@ -20,11 +20,11 @@ export default function ProductList() {
     }, [item]);
 
     return (
-        <div className="productList">
+        <div className="productList w-100">
             {!item ? productos.length ? productos.map((producto) => {
                           return <ProductBlock producto={producto} />;
                       }) 
-                      : <h3 className='no-product'>"No se encontró ningún producto."</h3>
+                      : <h3 className='no-product d-flex justify-content-center align-items-center w-100'>"No se encontró ningún producto."</h3>
                 : productos.map((producto) => {
                       return <ProductBlock producto={producto} />;
                   })}

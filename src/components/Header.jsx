@@ -38,11 +38,11 @@ export default function Header() {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarColor">
                     <ul className="navbar-nav d-flex justify-content-around w-100 align-items-center">
-                        <li className="nav-item rounded bg-light search-nav-item">
+                        <li className="nav-item rounded bg-light search-nav-item d-flex ">
                             <input
                                 type="text"
                                 id="search"
-                                className="bg-light"
+                                className="bg-light pl-3"
                                 placeholder="Busca un producto"
                                 onKeyUp={buscar}
                             />
@@ -53,7 +53,7 @@ export default function Header() {
                         <li className="nav-item">
                             <div className="nav-link">
                                 <Link to="/login">
-                                    <span class="fa fa-user-o"></span>
+                                    <span class="fa fa-user-o p-0"></span>
                                     <img src="https://img.icons8.com/ios-filled/30/000000/stormtrooper.png"/>
                                     <span class="text" >Login</span>
                                 </Link>
