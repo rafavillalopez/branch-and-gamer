@@ -1,14 +1,14 @@
 const express = require("express");
 const router = express.Router();
 
-const products = require("./products")
-const users = require("./users")
-
-const cart = require("./cart");
-router.use("/users", users)
 const auth = require("./auth");
+const users = require("./users")
+const products = require("./products")
+const cart = require("./cart");
+
 
 router.use("/auth", auth);
+router.use("/users", users)
 router.use("/products", products);
 router.use("/cart", cart);
 
