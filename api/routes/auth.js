@@ -26,7 +26,7 @@ router.post("/login", (req, res, next) => {
     }
 
     const token = jwt.sign({ id: user.id }, "branchSecretP5");
-    console.log("TOKEN", token)
+    
     return res.status(200).json({ token });
   });
   
