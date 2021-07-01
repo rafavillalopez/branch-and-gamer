@@ -3,11 +3,17 @@ import { Link, useHistory } from 'react-router-dom'
 
 export default function Footer() {
 
-
-
     return(
-        <div>
-            <h1>Footer</h1>
+        <div className='footer'>
+            <Link className='contacto' to='/about'>
+                Sobre nosotros
+            </Link>
+            <p>
+                Branch&Gamer fué creado por estudiantes de Plataforma 5 Argentina © 2021
+            </p>
+            <Link className='contacto' to='/contact'>
+                Contacto
+            </Link>
         </div>
     )
 }

@@ -1,20 +1,20 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import Header from '../components/Header'
 import Sidebar from '../components/Sidebar'
-import ProductBlock from '../components/ProductBlock'
 import Footer from '../components/Footer'
 import ProductList from '../components/ProductList'
-import { Link } from 'react-router-dom'
+import Carousel from '../components/Carousel'
 
 export default function Home() {
   return (
     <div className="Home">
         <Header/>
-        <Sidebar/>
-        <ProductList/>
+        <Carousel/>
+        <div className='body-home'>
+          <Sidebar/>
+          <ProductList/>
+        </div>
         <Footer/>
-      <h1>Home</h1>
     </div>
   );
 }

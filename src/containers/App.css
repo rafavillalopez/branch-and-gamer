@@ -38,29 +38,35 @@
 }
 
 .productList {
+    margin-top: 10px;
     display: flex;
     flex-wrap: wrap;
 }
 
 .product-block {
     height: auto;
-    margin: 20px;
+    margin: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+}
+
+.product-block:hover {
+    transform: scale(1.01);
 }
 
 .card-img {
     height: 180px;
     width: auto;
     border-bottom: 1px solid rgb(204, 204, 204);
+    padding-bottom: 10px;
+    padding-top: 10px;
 }
 
 .buy-btn {
     width: fit-content;
     padding: 10px 10px;
-    margin-top: 25px;
+    margin-top: 20px;
     margin-bottom: 25px;
     border-radius: 20px;
 }
@@ -82,12 +88,16 @@
     transform: scale(1.06);
 }
 
+.fav-btn:focus {
+    background-color: rgb(209, 224, 234);
+    color:rgb(149, 83, 83)
+}
+
 .block-btns {
-   
 }
 
 .buy-btn:hover {
-    transform: scale(1.03);
+    transform: scale(1.01);
 }
 
 .card {
@@ -96,6 +106,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    box-shadow: 3px 3px 10px grey;
+    background-color: rgb(251, 251, 251);
 }
 
 .card-body {
@@ -103,10 +115,29 @@
     padding: 0;
 }
 
-
 .card-title {
-    margin: 20px 0px 0px 0px;
+    border-top: 1px;
+    color:rgb(69, 102, 193);
+    margin: 0px 0px 0px 0px;
     padding: 0;
+}
+
+.price {
+    margin-top: 15px;
+    font-size: 25px;
+}
+
+br {
+    font-size: 10px;
+}
+
+.body-home {
+    display: flex;
+}
+
+.sideBar {
+    width: 400px;
+    margin-top: 25px;
 }
 
 /* ------------------------ */
@@ -127,9 +158,7 @@
 
 #orange,
 select,
-.btn {
-    color: orange
-}
+
 
 .fa-search {
     font-size: 20px;
@@ -173,32 +202,52 @@ h6 {
     border: none
 }
 
-.btn {
-    border: 1px solid orange;
-    border-radius: 10px;
-    background-color: #fff
-}
-
-.btn:hover {
-    color: #fff;
-    background-color: orange
-}
-
-.card-body {
-    padding: 8px
-}
-
 .sign {
     width: 25px;
     height: 25px
 }
 
-.discount {
-    border: 1px solid orange;
-    border-radius: 5px;
-    width: 65px;
-    position: absolute;
-    top: 2%
+#search {
+    margin-left: 20px;
+}
+
+.no-product {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    
+}
+
+.logo {
+    height: 50px;
+    border: none;
+}
+
+button {
+    border: none;
+    padding: 0;
+}
+
+.footer {
+    border-top: 1px solid lightgray;
+    margin-top: 25px;
+    padding-top: 15px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.contacto {
+
+}
+
+.about {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid rgb(202, 202, 202);
+    border-radius: 40px;
+    padding: 20px;
+    margin: 10% 20%;
 }
 /* 
 @media(min-width:1200px) {
