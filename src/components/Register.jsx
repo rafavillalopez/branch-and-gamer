@@ -40,7 +40,7 @@ export default function Register() {
             <div className='register-card'>
             <form action="#" onSubmit={handleSubmit}>
                 <div className="log-text">
-                    Registration
+                    Registro
                 </div>
                 <div className="form-group d-flex align-items-center">
                     <div className="icon">
@@ -81,7 +81,7 @@ export default function Register() {
                 </div>
                 <input
                     type="submit"
-                    value="Register"
+                    value="Enviar"
                     className="register-btn"
                 />
                 {/* <div className="terms mb-2">

@@ -24,6 +24,7 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
+    "seed": "node api/seed.js",
     "start": "concurrently 'npm run server' 'npm run client'",
     "server": "nodemon api/server.js",
     "client": "react-scripts start",
