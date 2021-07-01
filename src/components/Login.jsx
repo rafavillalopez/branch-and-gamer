@@ -46,10 +46,10 @@ export default function Login() {
                         value="Login"
                         className="log-btn"
                     />
-                    <h7> Don't have an account? Click here!</h7>
+                    <h7> ¿No tienes cuenta? <br/>¡Clickea aquí!</h7>
                     <Link to="/register">
                         <button className="register-btn">
-                            Register!
+                            Registrarme
                         </button>
                     </Link>
                 </form>

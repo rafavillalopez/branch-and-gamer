@@ -132,6 +132,25 @@ br {
     margin-top: 25px;
 }
 
+.categories {
+    margin-bottom: 0px;
+    padding-top: 20px;
+    background-color: rgb(223, 223, 223);
+}
+
+.categories-item {
+    height: fit-content;
+    font-size: 20px;
+    color: rgb(124, 124, 124);
+    background-color: none;
+    border: none;
+    padding: 5px 10px;
+}
+
+.categories-item:hover {
+    background-color: rgb(255, 255, 255);
+}
+
 .register {
     display: flex;
     flex-direction: row;
@@ -314,8 +333,7 @@ h6 {
 .no-product {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    
+    justify-content: center;    
 }
 
 .logo {
@@ -339,6 +357,7 @@ h6 {
     position: relative;
     width: 100%;
     height: 100px;  
+    background-color: rgb(241, 241, 241);
 }
 
 
