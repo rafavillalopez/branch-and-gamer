@@ -1,7 +1,9 @@
 const jwt = require("jsonwebtoken");
 const {User} = require("../models")
 
+
 const validateToken = (req, res, next) => {
+
   const token = req.headers.authorization.split(" ")[1];
   
   jwt.verify(token, "branchSecretP5", (err, data) => {
