@@ -22,7 +22,11 @@ export const loginReducer = createReducer([], {
 
 //register 
 export const setRegister = createAction("set_Register")
-export const registerReducer = createReducer([], {
+export const registerReducer = createReducer({
+    name: "",
+    email: "",
+    password: "",
+}, {
     [setRegister]: (state, action) => action.payload
 })
 

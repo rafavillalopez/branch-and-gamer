@@ -48,7 +48,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    
 }
 
 .card-img {
@@ -69,7 +68,7 @@
     height: fit-content;
     font-size: 20px;
     color: rgb(212, 212, 212);
-    background-color: none;  
+    background-color: none;
     margin-left: 25px;
     border: 1px solid lightgray;
     border-radius: 25px;
@@ -77,13 +76,12 @@
 }
 
 .fav-btn:hover {
-    color:rgb(48, 92, 212);
+    color: rgb(48, 92, 212);
     background-color: rgb(218, 233, 247);
     transform: scale(1.06);
 }
 
 .block-btns {
-   
 }
 
 .buy-btn:hover {
@@ -103,7 +101,6 @@
     padding: 0;
 }
 
-
 .card-title {
     margin: 20px 0px 0px 0px;
     padding: 0;
@@ -112,85 +109,85 @@
 /* ------------------------ */
 
 * {
-    box-sizing: border-box
+    box-sizing: border-box;
 }
 
 #search {
     outline: none;
     border: none;
-    display: inline-block
+    display: inline-block;
 }
 
 #burgundy {
-    color: rgb(153, 40, 59)
+    color: rgb(153, 40, 59);
 }
 
 #orange,
 select,
 .btn {
-    color: orange
+    color: orange;
 }
 
 .fa-search {
     font-size: 20px;
     padding: 10px;
     margin-bottom: 3px;
-    padding-right: 20px
+    padding-right: 20px;
 }
 
 .search-nav-item {
-    height: 40px
+    height: 40px;
 }
 
 nav {
-    padding: 0px 100px
+    padding: 0px 100px;
 }
 
 .fa-user-o,
 .fa-shopping-cart {
     font-size: 20px;
-    padding: 4px
+    padding: 4px;
 }
 
 .form-group {
-    margin-bottom: 5px
+    margin-bottom: 5px;
 }
 
 label {
-    padding-left: 10px
+    padding-left: 10px;
 }
 
 .form-group:last-child {
-    margin-bottom: 0
+    margin-bottom: 0;
 }
 
 h6 {
-    margin-bottom: 0px
+    margin-bottom: 0px;
 }
 
 #sort {
     outline: none;
-    border: none
+    border: none;
 }
 
 .btn {
     border: 1px solid orange;
     border-radius: 10px;
-    background-color: #fff
+    background-color: #fff;
 }
 
 .btn:hover {
     color: #fff;
-    background-color: orange
+    background-color: orange;
 }
 
 .card-body {
-    padding: 8px
+    padding: 8px;
 }
 
 .sign {
     width: 25px;
-    height: 25px
+    height: 25px;
 }
 
 .discount {
@@ -198,7 +195,7 @@ h6 {
     border-radius: 5px;
     width: 65px;
     position: absolute;
-    top: 2%
+    top: 2%;
 }
 /* 
 @media(min-width:1200px) {
@@ -456,3 +453,6 @@ h6 {
         margin-top: 2%
     } */
 /* } */
+
+
+
