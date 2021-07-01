@@ -45,7 +45,7 @@ export default function Navbar() {
                                 <Link to="/cart">
                                     <span class="fa fa-shopping-cart"></span>
                                     <img src="https://img.icons8.com/ios-glyphs/30/000000/fast-cart.png"/>
-                                    <span class="textCart">Cart</span>
+                                    <span class="textCart">Carrito</span>
                                 </Link>
                             </div>{" "}
                         </li>
