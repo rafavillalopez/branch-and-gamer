@@ -27,7 +27,7 @@ Product.init(
       allowNull: false,
     },
     imageUrl: {
-      type: S.STRING,
+      type: S.TEXT,
       defaultValue:
         "https://i.ibb.co/hRWHZ1b/Captura-de-Pantalla-2021-07-01-a-la-s-00-47-33.png",
     },

@@ -2,10 +2,13 @@ import * as React from "react";
 import { Link, useHistory } from "react-router-dom";
 import { setProductos, buscarProducto } from "../store/productos";
 import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
 
 export default function Header() {
+    const history = useHistory();
     const dispatch = useDispatch();
-    let userLog = useSelector((state) => state.loggedUser);
+    let { loggedUser, item } = useSelector((state) => state);
+
     const buscar = function (e) {
         if (e.keyCode === 13) {
             dispatch(buscarProducto(e.target.value.toLowerCase()));
@@ -14,7 +17,12 @@ export default function Header() {
     };
 
     function inicio() {
-        dispatch(buscarProducto(""));
+        axios
+            .get(`/api/products`)
+            .then((res) => res.data)
+            .then((data) => {
+                dispatch(setProductos(data));
+            });
     }
 
     function logOut() {
@@ -25,8 +33,12 @@ export default function Header() {
         <div className="container">
             <nav className="navbar navbar-expand-sm navbar-light bg-white border-bottom">
                 {" "}
-                <button className='logo-btn'onClick={inicio}>
-                    <img className='logo' src='https://i.postimg.cc/3J1SHX0X/b-g-logo.png' alt='Branch&Gamer'/>
+                <button className="logo-btn" onClick={inicio}>
+                    <img
+                        className="logo"
+                        src="https://i.postimg.cc/3J1SHX0X/b-g-logo.png"
+                        alt="Branch&Gamer"
+                    />
                 </button>
                 <button
                     className="navbar-toggler"
@@ -54,7 +66,7 @@ export default function Header() {
                         </li>
                         <div className="d-flex">
                             <li className="nav-item">
-                                {!userLog.name ? (
+                                {!loggedUser.name ? (
                                     <div className="nav-link">
                                         <Link to="/login">
                                             <span class="fa fa-user-o p-0"></span>
@@ -64,7 +76,10 @@ export default function Header() {
                                     </div>
                                 ) : (
                                     <div className="nav-link">
-                                        <button onClick={logOut} className="register-btn">
+                                        <button
+                                            onClick={logOut}
+                                            className="register-btn"
+                                        >
                                             cerrar sesion
                                         </button>
                                         {/* {userLog.name} */}
