@@ -541,7 +541,7 @@ const seed = [
         "imageUrl": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_26542_Notebook_ASUS_ZenBook_UX425EA_14__Core_i7_1165G7_16GB_M.2_512GB__WIN10_38456ef8-grn.jpg"
     },
     {
-        "title": "notebook asus rz-16 gamer ryzen 5",
+        "title": "notebook asus rz-16 ",
         "marca": "asus",
         "price": 130000,
         "description": "pero que pedazo de compu!!!",
@@ -578,7 +578,73 @@ const seed = [
             "brown"
         ],
         "imageUrl": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_26623_Notebook_ASUS_TUF_FA506_15.6__144Hz_Ryzen_7_4800H_GTX1660Ti_6GB_DDR4_16GB__M.2_512GB_d1b51c53-grn.jpg"
-    }
+    },
+    {
+        "title": "impresora",
+        "marca": "hp",
+        "price": 8000,
+        "description": "imprime re piola",
+        "quantity": 100,
+        "colors": [
+            "black",
+            "white",
+            "blue",
+            "brown"
+        ],
+        "imageUrl": "http://medias.musimundo.com/medias/00212183-136849-136849-01-136849-01.jpg-size515?context=bWFzdGVyfGltYWdlc3wyOTcxMHxpbWFnZS9qcGVnfGg1Mi9oOGUvMTAyMzM1NTUxODk3OTAvMDAyMTIxODMtMTM2ODQ5LTEzNjg0OV8wMS0xMzY4NDlfMDEuanBnX3NpemU1MTV8YjA5NGMyN2QwNDZhZDBiODhhZjE3NTk2MTcyYTQ3NzYyZDhjNGUzNmJjMjg2OWU3NjEyOTIwMzg0Y2IxODAyNg"
+    }, {
+        "title": "impresora",
+        "marca": "epson",
+        "price": 5000,
+        "description": "imprime bien",
+        "quantity": 11,
+        "colors": [
+            "black",
+            "white",
+            "blue",
+            "brown"
+        ],
+        "imageUrl": "http://medias.musimundo.com/medias/00369001-142814-142814-01-142814-01.jpg-size515?context=bWFzdGVyfGltYWdlc3w1MDY0NXxpbWFnZS9qcGVnfGhlNS9oMTcvMTAyNTc2ODUwMjA3MDIvMDAzNjkwMDEtMTQyODE0LTE0MjgxNF8wMS0xNDI4MTRfMDEuanBnX3NpemU1MTV8ZDJkNGIwNGQwNmY1OTM1OGRiMDFhZjNjZDE1ZTg5ZmNlNTcyMzNlMzY3YTQ5MDA1MzRkNjY1NzRmNDFkODQ4Mw"
+    }, {
+        "title": "impresora",
+        "marca": "xerox",
+        "price": 1000,
+        "description": "imprime maso menos",
+        "quantity": 15,
+        "colors": [
+            "black",
+            "white",
+            "blue",
+            "brown"
+        ],
+        "imageUrl": "http://medias.musimundo.com/medias/00321720-140379-140379-01-140379-01.jpg-size515?context=bWFzdGVyfGltYWdlc3w1MzE2NHxpbWFnZS9qcGVnfGg0Ny9oYTEvMTAyMzQyNzIxMjA4NjIvMDAzMjE3MjAtMTQwMzc5LTE0MDM3OV8wMS0xNDAzNzlfMDEuanBnX3NpemU1MTV8ZDRkOTI2MDVkNjI2YjVlZjhiYjA4MTU0NzUyYzU2ZjNiMDVlODMzYmEzOGE1ODk1ZTc3MmFhOGI5MTQ3MTA1Zg"
+    }, {
+        "title": "impresora",
+        "marca": "brother",
+        "price": 200,
+        "description": "imprime hasta ahi",
+        "quantity": 100,
+        "colors": [
+            "black",
+            "white",
+            "blue",
+            "brown"
+        ],
+        "imageUrl": "http://medias.musimundo.com/medias/00005804-130371-130371-01-130371-01.jpg-size515?context=bWFzdGVyfGltYWdlc3w2MjIzNXxpbWFnZS9qcGVnfGhkNS9oMWIvMTAyMzI0MjcyMTY5MjYvMDAwMDU4MDQtMTMwMzcxLTEzMDM3MV8wMS0xMzAzNzFfMDEuanBnX3NpemU1MTV8MzljN2ZjMWNkOWEyYTYxMTNlZjZiMzMzNTE2MmMzYTkyYTdiOGExZDcwY2FlZjc5ODU4NGFhZmIxZjIyNTIyMA"
+    }, {
+        "title": "impresora",
+        "marca": "hp",
+        "price": 9500,
+        "description": "imprime re bien los colores!",
+        "quantity": 16,
+        "colors": [
+            "black",
+            "white",
+            "blue",
+            "brown"
+        ],
+        "imageUrl": "http://medias.musimundo.com/medias/00135022-135724-135724-01-135724-01.jpg-size515?context=bWFzdGVyfGltYWdlc3w0OTQ5MnxpbWFnZS9qcGVnfGg0MS9oZjkvMTAyNTc1MTk5MDI3NTAvMDAxMzUwMjItMTM1NzI0LTEzNTcyNF8wMS0xMzU3MjRfMDEuanBnX3NpemU1MTV8YmRmZmRmNWNiMDJiYzBlOTZlMDZlZTQyM2VjMmRkNDM2M2UxNjUzZTBjNzZhMjAzMWRmYzg1NzMxOGIwMzg2NA"
+    },
 ]
 
 Promise.all(seed.map((producto) => {

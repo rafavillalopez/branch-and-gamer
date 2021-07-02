@@ -8,7 +8,7 @@ import ProductBlock from "./ProductBlock";
 export default function ProductList() {
     const dispatch = useDispatch();
     let productos = useSelector((state) => state.productos);
-    let item = useSelector((state) => state.buscarProducto);
+    let item = useSelector((state) => state.item);
 
     React.useEffect(() => {
         axios
@@ -21,13 +21,21 @@ export default function ProductList() {
 
     return (
         <div className="productList w-100">
-            {!item ? productos.length ? productos.map((producto) => {
-                          return <ProductBlock producto={producto} />;
-                      }) 
-                      : <h3 className='no-product d-flex justify-content-center align-items-center w-100'>"No se encontró ningún producto."</h3>
-                : productos.map((producto) => {
-                      return <ProductBlock producto={producto} />;
-                  })}
+            {!item ? (
+                productos.length ? (
+                    productos.map((producto) => {
+                        return <ProductBlock producto={producto} />;
+                    })
+                ) : (
+                    <h3 className="no-product d-flex justify-content-center align-items-center w-100">
+                        "No se encontró ningún producto."
+                    </h3>
+                )
+            ) : (
+                productos.map((producto) => {
+                    return <ProductBlock producto={producto} />;
+                })
+            )}
         </div>
     );
 }
