@@ -32,9 +32,9 @@ export const addItem = createAsyncThunk("ADD_ITEM", async (data, thunkAPI) => {
       headers: { authorization: token },
     });
 
-    const { id, quantity } = req.data;
+    const { productId, quantity } = req.data;
 
-    return { id, quantity };
+    return { productId, quantity };
   } catch (err) {
     throw err;
   }
@@ -49,7 +49,7 @@ export const removeItem = createAsyncThunk(
       await axios.delete(`/api/cart/${cartInUse.id}/${data.id}`, {
         headers: { authorization: token },
       });
-
+      console.log("DATA", data);
       return data;
     } catch (err) {
       throw err;
@@ -107,9 +107,9 @@ const cartReducer = createReducer([], {
   [getItems.fulfilled]: (state, action) => action.payload,
   [addItem.fulfilled]: (state, action) => [...state, action.payload],
   [removeItem.fulfilled]: (state, action) =>
-    state.filter((item) => item.id === action.payload.id),
-  [quantityRemove.fulfilled]: aumentarCantidad,
-  [removeItem.fulfilled]: disminuirCantidad,
+    state.filter((item) => item.productId !== action.payload.id),
+  [quantityAdd.fulfilled]: aumentarCantidad,
+  [quantityRemove.fulfilled]: disminuirCantidad,
 });
 
 export default cartReducer;

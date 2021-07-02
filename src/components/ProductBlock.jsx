@@ -4,20 +4,26 @@ import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
+import { isInCarItems } from "../utils";
+import { useDispatch } from "react-redux";
+import { addItem, removeItem } from "../store/cartReducer";
 
 export default function ProductBlock({ producto }) {
-  const user = useSelector((state) => state.login);
+  const { cartItems } = useSelector((state) => state);
+  const dispatch = useDispatch();
+  const isInCar = isInCarItems(cartItems, producto.id);
 
   let formatter = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
   });
 
-  const handleBuy = () => {
-    axios
-      .post(`/api/products?productId=${producto.id}&userId=${user.id}`)
-      .then((res) => res.data);
-    console.log("Buy: ", producto);
+  const handleAdd = () => {
+    dispatch(addItem({ id: producto.id }));
+  };
+
+  const handleRemove = () => {
+    dispatch(removeItem({ id: producto.id }));
   };
 
   const handleFav = () => {
@@ -46,8 +52,12 @@ export default function ProductBlock({ producto }) {
         </Link>
         <h3 className="price">{formatter.format(producto.price)}</h3>
         <div className="block-btns">
-          <Button className="buy-btn" variant="primary" onClick={handleBuy}>
-            Comprar
+          <Button
+            className="buy-btn"
+            variant="primary"
+            onClick={isInCar ? handleRemove : handleAdd}
+          >
+            {isInCar ? "Eliminar del carrito" : "Aderir al carrito"}
           </Button>
           <button type="submit" className="fav-btn" onClick={handleFav}>
             ♡

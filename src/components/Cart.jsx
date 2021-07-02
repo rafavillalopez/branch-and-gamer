@@ -1,16 +1,26 @@
 /** @format */
 
-import * as React from "react";
+import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 
 import { Link } from "react-router-dom";
 import "../assets/cart.css";
+import { getProductFromDb } from "../utils";
 
-// import CartItems from "./CartItems";
+import CartItems from "./CartItems";
 
 export default function Cart() {
-  // const { isLogIn, carItems } = useSelector((state) => state);
+  const { cartItems } = useSelector((state) => state);
 
-  // let orderTotal = 0;
+  const [itemsToRender, setItemsToRender] = useState([]);
+
+  let orderTotal = 0;
+
+  useEffect(() => {
+    getProductFromDb(cartItems).then((dbproducts) => {
+      setItemsToRender(dbproducts);
+    });
+  }, [cartItems]);
 
   return (
     <div>
@@ -20,19 +30,25 @@ export default function Cart() {
           <div className="col-lg-10 offset-lg-1">
             <div className="cart_container">
               <div className="cart_title">
-                Shopping Cart<small> (1 item in your cart) </small>
+                Shopping Cart
+                <small>
+                  {" "}
+                  ({itemsToRender ? itemsToRender.length : 1} item/s in your
+                  cart){" "}
+                </small>
               </div>
               <div className="cart_items">
                 <ul className="cart_list">
-                  {/* {productsDb.map((producto,i) => {
-                   return  <  CartItems key={i} producto={producto} />
-                  })} */}
+                  {itemsToRender?.map((producto, i) => {
+                    orderTotal += producto.price;
+                    return <CartItems key={i} producto={producto} />;
+                  })}
                 </ul>
               </div>
               <div className="order_total">
                 <div className="order_total_content text-md-right">
                   <div className="order_total_title">Order Total:</div>
-                  <div className="order_total_amount">₹22000</div>
+                  <div className="order_total_amount">{`$${orderTotal}`}</div>
                 </div>
               </div>
               <div className="cart_buttons">
@@ -42,7 +58,7 @@ export default function Cart() {
                   </button>
                 </Link>
                 <button type="button" className="button cart_button_checkout">
-                  Add to Cart
+                  Confirmar Compra
                 </button>
               </div>
             </div>
