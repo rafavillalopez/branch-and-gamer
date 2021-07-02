@@ -1,15 +1,9 @@
 import "./App.css";
 import React from "react";
-import ReactDOM from "react-dom";
-import { Route, Switch, Redirect } from "react-router-dom";
-import Header from "../components/Header";
-import Sidebar from "../components/Sidebar";
+import { Route, Switch } from "react-router-dom";
 import Register from "../components/Register";
 import Login from "../components/Login";
-import ProductBlock from "../components/ProductBlock";
-import ProductList from "../components/ProductList";
 import SingleProduct from "../components/SingleProduct";
-import Footer from "../components/Footer";
 import Home from "../components/Home";
 import Favorites from "../components/Favorites";
 import Cart from "../components/Cart";
@@ -55,7 +49,6 @@ function App() {
         <Route exact path="/Contact" component={Contact} />
         <Route exact path="/About" component={About} />
       </Switch>
-      <Footer/>
     </div>
   );
 }

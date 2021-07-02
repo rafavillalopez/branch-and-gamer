@@ -62,9 +62,6 @@ export default function Sidebar() {
         <button className='categories-item' onClick={() => handleFilter('inmpresora')}>
           Impresoras
         </button>
-        <button className='categories-item' onClick={() => handleFilter('otros')}>
-          Otros
-        </button>
       </ListGroup>
     </div>
   );
