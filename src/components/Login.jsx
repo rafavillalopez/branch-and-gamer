@@ -88,13 +88,13 @@ export default function Login() {
               }}
               variant={"danger"}
             >
-              email or password invalid
+              Email o contraseña inválidos
             </Alert>
           )}
           <input type="submit" value="Login" className="log-btn" />
-          <h6> Don't have an account? Click here!</h6>
+          <h6> ¿No tienes cuenta? ¡Click aquí!</h6>
           <Link to="/register">
-            <button className="register-btn">Register!</button>
+            <button className="register-btn">Registrarme</button>
           </Link>
         </form>
       </div>
