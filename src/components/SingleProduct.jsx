@@ -66,7 +66,7 @@ export default function SingleProduct() {
           </div>
           <div className="d-flex align-items-center mt-4 offers mb-1">
             <i className="fa fa-check-square-o mt-1"></i>
-            <span className="ml-1 font-weight-bold">Descripcion: </span>
+            <span className="ml-1 font-weight-bold">Descripción: </span>
             <span className="ml-1">
               <br />
             </span>

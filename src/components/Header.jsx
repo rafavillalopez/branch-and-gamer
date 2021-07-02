@@ -3,12 +3,11 @@ import { Link } from "react-router-dom";
 import { setProductos, buscarProducto } from "../store/productos";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
-import { setUser } from "../store/loggedUserReducer";
-import { setLogginFalse } from "../store/authReducer";
+import { setUserVoid } from "../store/loggedUserReducer";
 
 export default function Header() {
     const dispatch = useDispatch();
-    let { loggedUser } = useSelector((state) => state);
+    let { isLogIn } = useSelector((state) => state);
 
     const buscar = function (e) {
         if (e.keyCode === 13) {
@@ -26,11 +25,9 @@ export default function Header() {
             });
     }
 
-    //NO SE si es la mejor forma de logOut pero funciona perfecto!
     function logOut() {
         window.localStorage.removeItem("branchToken");
-        dispatch(setUser(""));
-        dispatch(setLogginFalse());
+        dispatch(setUserVoid());
     }
 
     return (
@@ -58,7 +55,7 @@ export default function Header() {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarColor">
                     <ul className="navbar-nav d-flex justify-content-around w-100 align-items-center">
-                        <li className="nav-item  bg-light search-nav-item d-flex ">
+                        <li className="nav-item  bg-light search-nav-item d-flex justify-content-start">
                             <input
                                 type="text"
                                 id="search"
@@ -70,7 +67,7 @@ export default function Header() {
                         </li>
                         <div className="d-flex">
                             <li className="nav-item">
-                                {!loggedUser.name ? (
+                                {!isLogIn ? (
                                     <div className="nav-link">
                                         <Link to="/login">
                                             <span className="fa fa-user-o p-0"></span>
@@ -83,14 +80,14 @@ export default function Header() {
                                     </div>
                                 ) : (
                                     <div className="nav-link">
-                                        <button
-                                            onClick={logOut}
-                                            className="register-btn"
-                                        >
-                                            cerrar sesion
+                                        <button className="log-out-button" onClick={logOut}>
+                                            <span className="fa fa-user-o p-0"></span>
+                                            <img
+                                                src="https://img.icons8.com/ios-filled/30/000000/stormtrooper.png"
+                                                alt=""
+                                            />
+                                            <span className="text">LogOut</span>
                                         </button>
-                                        {/* {userLog.name} */}
-                                        {/* <button>Cerrar sesion</button> */}
                                     </div>
                                 )}
                             </li>

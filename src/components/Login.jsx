@@ -4,12 +4,13 @@ import { Alert } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import { setUser } from "../store/loggedUserReducer";
+import Navbar from './Navbar'
 
 export default function Login() {
   const [alert, setAlert] = useState(false);
   const dispatch = useDispatch();
   const [value, setValue] = useState({ email: "", password: "" });
-  const History = useHistory();
+  const history = useHistory();
 
   const onChange = ({ target }) => {
     setValue((value) => {
@@ -28,7 +29,7 @@ export default function Login() {
       .then((data) => {
         window.localStorage.setItem("branchToken", `Bearer ${data.token}`);
         dispatch(setUser());
-        History.push("/");
+        history.push("/");
       })
       .catch((err) => {
         setAlert(true);
@@ -38,7 +39,18 @@ export default function Login() {
 
   return (
     <div>
-      <div>
+    <div>
+      <Navbar />
+      <div class="register">
+        <Link
+          to="/"
+          className="goback"
+          style={{ textDecoration: "none" }}
+        >
+          Volver
+        </Link>
+      <div className='register-card'>
+        
         <form onSubmit={onSubmit}>
           <div className="log-text">Login</div>
           <div className="form-group d-flex align-items-center">
@@ -76,16 +88,18 @@ export default function Login() {
               }}
               variant={"danger"}
             >
-              email or password invalid
+              Email o contraseña inválidos
             </Alert>
           )}
           <input type="submit" value="Login" className="log-btn" />
-          <h6> Don't have an account? Click here!</h6>
+          <h6> ¿No tienes cuenta? ¡Click aquí!</h6>
           <Link to="/register">
-            <button className="register-btn">Register!</button>
+            <button className="register-btn">Registrarme</button>
           </Link>
         </form>
       </div>
+    </div>
+    </div>
     </div>
   );
 }
