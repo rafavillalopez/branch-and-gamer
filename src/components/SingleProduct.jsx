@@ -114,7 +114,7 @@ export default function SingleProduct() {
           <hr />
           <div className="d-flex align-items-center mt-2" />
           <div class="footer d-flex flex-column mt-5">
-            <div class="row r4">
+            {/* <div class="row r4">
               <div class="col-md-2 myt des">
                 <a href="#">Descripcion</a>
               </div>
@@ -129,7 +129,7 @@ export default function SingleProduct() {
                   <a href="#">Comprar</a>
                 </button>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

@@ -2,10 +2,8 @@ import * as React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setRegister } from "../store/user";
 import { Link, useHistory } from "react-router-dom";
-import "./register.css";
 import axios from "axios";
 import Navbar from "./Navbar";
-import Footer from "../components/Footer";
 
 export default function Register() {
   const History = useHistory();

@@ -1,19 +1,15 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Alert } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
-import { setToken } from "../store/user";
-import Navbar from "./Navbar";
 import { setUser } from "../store/loggedUserReducer";
-import "./register.css";
 
 export default function Login() {
   const [alert, setAlert] = useState(false);
   const dispatch = useDispatch();
   const [value, setValue] = useState({ email: "", password: "" });
   const History = useHistory();
-  let userLog = useSelector((state) => state.loggedUser);
 
   const onChange = ({ target }) => {
     setValue((value) => {

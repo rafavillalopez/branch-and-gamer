@@ -1,17 +1,16 @@
 /** @format */
 
 import * as React from "react";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
-import { Link, useHistory } from "react-router-dom";
+
+import { Link } from "react-router-dom";
 import "../assets/cart.css";
 
-import CartItems from "./CartItems";
+// import CartItems from "./CartItems";
 
 export default function Cart() {
-  const { isLogIn, carItems } = useSelector((state) => state);
+  // const { isLogIn, carItems } = useSelector((state) => state);
 
-  let orderTotal = 0;
+  // let orderTotal = 0;
 
   return (
     <div>

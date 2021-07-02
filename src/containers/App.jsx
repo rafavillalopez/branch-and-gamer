@@ -1,13 +1,8 @@
 import "./App.css";
 import React from "react";
-import ReactDOM from "react-dom";
-import { Route, Switch, Redirect } from "react-router-dom";
-import Header from "../components/Header";
-import Sidebar from "../components/Sidebar";
+import { Route, Switch } from "react-router-dom";
 import Register from "../components/Register";
 import Login from "../components/Login";
-import ProductBlock from "../components/ProductBlock";
-import ProductList from "../components/ProductList";
 import SingleProduct from "../components/SingleProduct";
 import Footer from "../components/Footer";
 import Home from "../components/Home";
@@ -16,7 +11,6 @@ import Cart from "../components/Cart";
 import User from "../components/User";
 import Contact from "../components/Contact";
 import About from "../components/About";
-import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { setUser } from "../store/loggedUserReducer";
 
