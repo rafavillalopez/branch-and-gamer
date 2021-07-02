@@ -1,8 +1,7 @@
 /** @format */
 import * as React from "react";
 import { useDispatch } from "react-redux";
-import { Link, useHistory } from "react-router-dom";
-import { setProductos, buscarProducto } from "../store/productos";
+import { setProductos } from "../store/productos";
 import axios from "axios";
 import { ListGroup } from "react-bootstrap";
 import "../assets/index.css";
