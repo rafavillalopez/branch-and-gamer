@@ -1,13 +1,8 @@
 import "./App.css";
 import React from "react";
-import ReactDOM from "react-dom";
-import { Route, Switch, Redirect } from "react-router-dom";
-import Header from "../components/Header";
-import Sidebar from "../components/Sidebar";
+import { Route, Switch } from "react-router-dom";
 import Register from "../components/Register";
 import Login from "../components/Login";
-import ProductBlock from "../components/ProductBlock";
-import ProductList from "../components/ProductList";
 import SingleProduct from "../components/SingleProduct";
 import Footer from "../components/Footer";
 import Home from "../components/Home";
@@ -16,36 +11,20 @@ import Cart from "../components/Cart";
 import User from "../components/User";
 import Contact from "../components/Contact";
 import About from "../components/About";
-import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { setUser } from "../store/loggedUserReducer";
-
 
 function App() {
   const dispatch = useDispatch();
 
   React.useEffect(() => {
-    console.log("LLEGUE A USEFECT");
     dispatch(setUser());
-  }, []);
+  }, [dispatch]);
 
-  let productos = useSelector((state) => state.productos);
   return (
-    <div className="App">
+    <>
       <Switch>
-        {/* RUTAS PARA VER LA INFO DE UN SOLO PRODUCTO */}
-        {productos.map((producto) => {
-          return (
-            <Route
-              exact
-              path={`/${producto.id}`}
-              render={() => {
-                return <SingleProduct producto={producto} />;
-              }}
-            />
-          );
-        })}
-
+        <Route path="/products/:id" component={SingleProduct} />
         <Route exact path="/" component={Home} />
         <Route exact path="/Login" component={Login} />
         <Route exact path="/Register" component={Register} />
@@ -55,8 +34,8 @@ function App() {
         <Route exact path="/Contact" component={Contact} />
         <Route exact path="/About" component={About} />
       </Switch>
-      <Footer/>
-    </div>
+      <Footer />
+    </>
   );
 }
 
