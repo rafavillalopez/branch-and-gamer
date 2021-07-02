@@ -17,7 +17,7 @@ const store = configureStore({
         //productos
         productos: productosReducer,
         productoIndividual: unSoloProductoReducer,
-        buscarProducto: buscarProductoReducer,
+        item: buscarProductoReducer,
 
         //registerToken
         token: tokenReducer,
