@@ -4,6 +4,7 @@ import { Alert } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import { setUser } from "../store/loggedUserReducer";
+import Navbar from './Navbar'
 
 export default function Login() {
   const [alert, setAlert] = useState(false);
@@ -38,7 +39,18 @@ export default function Login() {
 
   return (
     <div>
-      <div>
+    <div>
+      <Navbar />
+      <div class="register">
+        <Link
+          to="/"
+          className="goback"
+          style={{ textDecoration: "none" }}
+        >
+          Volver
+        </Link>
+      <div className='register-card'>
+        
         <form onSubmit={onSubmit}>
           <div className="log-text">Login</div>
           <div className="form-group d-flex align-items-center">
@@ -86,6 +98,8 @@ export default function Login() {
           </Link>
         </form>
       </div>
+    </div>
+    </div>
     </div>
   );
 }
