@@ -1,11 +1,20 @@
 import * as React from "react";
+import { Link } from "react-router-dom";
 import Navbar from '../components/Navbar'
 
 export default function Contact() {
     
     return (
-        <div>
-            <Navbar/>
+        <div >
+         <Navbar />
+        <br/>
+        <Link
+            to="/"
+            className="goback"
+            style={{ textDecoration: "none" , paddingBottom: '8px'}}
+        >
+            Volver
+        </Link>
         <div className='contacto'>
             <br/>
             <div>

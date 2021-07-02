@@ -51,7 +51,7 @@ export default function Register() {
                 <input
                   autocomplete="off"
                   type="text"
-                  placeholder="Name"
+                  placeholder="Nombre"
                   name="name"
                   onChange={handleChangeNombre}
                 />
@@ -75,7 +75,7 @@ export default function Register() {
                 <input
                   autocomplete="off"
                   type="password"
-                  placeholder="Password"
+                  placeholder="Contraseña"
                   name="password"
                   className="reg-pass"
                   onChange={handleChangePassword}

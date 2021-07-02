@@ -385,10 +385,12 @@ h6 {
   width: fit-content;
   display: flex;
   flex-direction: column;
+  text-align: center;
   border: 2px solid rgb(202, 202, 202);
   border-radius: 40px;
   padding: 20px;
   margin: 10% 20%;
+  box-shadow: 3px 3px 10px grey;
 }
 .search-nav-item {
   /* margin-left: 250px; */
