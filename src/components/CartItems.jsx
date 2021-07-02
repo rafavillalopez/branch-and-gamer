@@ -1,6 +1,7 @@
 /** @format */
 import React from "react";
 import "../assets/cart.css";
+import {Link} from "react-router-dom"
 
 export default function CartItems({ producto }) {
   return (
@@ -31,6 +32,10 @@ export default function CartItems({ producto }) {
             ${producto.quantity * producto.price}
           </div>
         </div>
+        <Link to="/"><button type="button" className="button cart_button_clear">
+        <img className="trash_item" src="https://img.icons8.com/ios-filled/48/000000/trash.png" />
+                  </button>
+                  </Link>
       </div>
     </li>
   );
