@@ -10,7 +10,7 @@ export default function Login() {
   const [alert, setAlert] = useState(false);
   const dispatch = useDispatch();
   const [value, setValue] = useState({ email: "", password: "" });
-  const History = useHistory();
+  const history = useHistory();
 
   const onChange = ({ target }) => {
     setValue((value) => {
@@ -29,7 +29,7 @@ export default function Login() {
       .then((data) => {
         window.localStorage.setItem("branchToken", `Bearer ${data.token}`);
         dispatch(setUser());
-        History.push("/");
+        history.push("/");
       })
       .catch((err) => {
         setAlert(true);
