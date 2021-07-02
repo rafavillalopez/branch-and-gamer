@@ -58,7 +58,7 @@ export default function Login() {
                   </div>{" "}
                   <input
                     onChange={onChange}
-                    autocomplete="off"
+                    autoComplete="off"
                     type="email"
                     placeholder="Email"
                     name="email"
@@ -70,13 +70,13 @@ export default function Login() {
                   </div>{" "}
                   <input
                     onChange={onChange}
-                    autocomplete="off"
+                    autoComplete="off"
                     type="password"
                     placeholder="Password"
                     name="password"
                   />
                 </div>
-                {true && (
+                {alert && (
                   <Alert
                     style={{
                       borderRadius: "30px",
@@ -87,11 +87,11 @@ export default function Login() {
                     }}
                     variant={"danger"}
                   >
-                    Email or password invalid
+                    email or password invalid
                   </Alert>
                 )}
                 <input type="submit" value="Login" className="log-btn" />
-                <h7> Don't have an account? Click here!</h7>
+                <h6> Don't have an account? Click here!</h6>
                 <Link to="/register">
                   <button className="register-btn">Register!</button>
                 </Link>

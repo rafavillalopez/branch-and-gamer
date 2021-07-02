@@ -1,6 +1,11 @@
 import React from "react";
 
-const useLocalStorage = (key, defaultValue, serialize, deserialize) => {
+const useLocalStorage = (
+  key,
+  defaultValue,
+  serialize = JSON.stringify,
+  deserialize = JSON.parse,
+) => {
   const reducer = (state, action) => {
     switch (action.type) {
       case "add":
@@ -25,7 +30,8 @@ const useLocalStorage = (key, defaultValue, serialize, deserialize) => {
         return state;
     }
   };
-  const init = () => deserialize(window.localStorage.getItem(key)) || defaultValue;
+  const init = () =>
+    deserialize(window.localStorage.getItem(key)) || defaultValue;
 
   const [state, dispatch] = React.useReducer(reducer, defaultValue, init);
 

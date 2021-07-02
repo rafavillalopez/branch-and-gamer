@@ -24,7 +24,6 @@ function App() {
   const dispatch = useDispatch();
 
   React.useEffect(() => {
-    console.log("LLEGUE A USEFECT");
     dispatch(setUser());
   }, [dispatch]);
 
