@@ -26,10 +26,10 @@ const store = configureStore({
     register: registerReducer,
     login: loginReducer,
 
-    //productos
-    productos: productosReducer,
-    productoIndividual: unSoloProductoReducer,
-    buscarProducto: buscarProductoReducer,
+        //productos
+        productos: productosReducer,
+        productoIndividual: unSoloProductoReducer,
+        item: buscarProductoReducer,
 
     token: tokenReducer,
     loggedUser: loggedUserReducer,

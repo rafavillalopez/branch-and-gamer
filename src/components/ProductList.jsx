@@ -5,9 +5,9 @@ import { setProductos } from "../store/productos";
 import ProductBlock from "./ProductBlock";
 
 export default function ProductList() {
-  const dispatch = useDispatch();
-  let productos = useSelector((state) => state.productos);
-  let item = useSelector((state) => state.buscarProducto);
+    const dispatch = useDispatch();
+    let productos = useSelector((state) => state.productos);
+    let item = useSelector((state) => state.item);
 
   React.useEffect(() => {
     axios
