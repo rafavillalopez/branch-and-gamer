@@ -1,12 +1,30 @@
 /** @format */
 
-import * as React from "react";
-import { useDispatch } from "react-redux";
-import { Link, useHistory } from "react-router-dom";
-import "../assets/index.css";
-import Footer from '../components/Footer'
+import React, { useState, useEffect } from "react";
+import { useHistory, useParams } from "react-router-dom";
+import axios from "axios";
 
-export default function SingleProduct({ producto }) {
+import "../assets/index.css";
+
+export default function SingleProduct() {
+  const { id } = useParams();
+  const history = useHistory();
+  const [producto, setProducto] = useState({});
+
+  console.log("AL MENOS A SINGLE PRODUCT");
+
+  useEffect(() => {
+    console.log("LLEGUE AQUI");
+    axios
+      .get(`/api/products/${id}`)
+      .then((response) => {
+        setProducto(response.data);
+      })
+      .catch(() => {
+        history.push("/");
+      });
+  }, [history, id]);
+
   let formatter = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
@@ -21,7 +39,7 @@ export default function SingleProduct({ producto }) {
                 <img
                   className="img-thumbnail"
                   src={producto.imageUrl}
-                  alt="Slide"
+                  alt={producto.title}
                   loading="lazy"
                 />
               </div>
@@ -35,8 +53,6 @@ export default function SingleProduct({ producto }) {
               <i className="fa fa-rupee text-success"></i>
               {formatter.format(producto.price)}
             </span>
-            <span className="mr-2 cut"></span>
-            <span className="text-success">25% OFF</span>
           </div>
           <div className="d-flex flex-row">
             <div className="icons mr-2">
@@ -97,7 +113,7 @@ export default function SingleProduct({ producto }) {
           <hr />
           <div className="d-flex align-items-center mt-2" />
           <div class="footer d-flex flex-column mt-5">
-            <div class="row r4">
+            {/* <div class="row r4">
               <div class="col-md-2 myt des">
                 <a href="#">Descripcion</a>
               </div>
@@ -112,11 +128,10 @@ export default function SingleProduct({ producto }) {
                   <a href="#">Comprar</a>
                 </button>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
-      <Footer/>
     </div>
   );
 }

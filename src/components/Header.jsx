@@ -1,13 +1,14 @@
 import * as React from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { setProductos, buscarProducto } from "../store/productos";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
+import { setUser } from "../store/loggedUserReducer";
+import { setLogginFalse } from "../store/authReducer";
 
 export default function Header() {
-    const history = useHistory();
     const dispatch = useDispatch();
-    let { loggedUser, item } = useSelector((state) => state);
+    let { loggedUser } = useSelector((state) => state);
 
     const buscar = function (e) {
         if (e.keyCode === 13) {
@@ -25,8 +26,11 @@ export default function Header() {
             });
     }
 
+    //NO SE si es la mejor forma de logOut pero funciona perfecto!
     function logOut() {
         window.localStorage.removeItem("branchToken");
+        dispatch(setUser(""));
+        dispatch(setLogginFalse());
     }
 
     return (
@@ -69,9 +73,12 @@ export default function Header() {
                                 {!loggedUser.name ? (
                                     <div className="nav-link">
                                         <Link to="/login">
-                                            <span class="fa fa-user-o p-0"></span>
-                                            <img src="https://img.icons8.com/ios-filled/30/000000/stormtrooper.png" />
-                                            <span class="text">Login</span>
+                                            <span className="fa fa-user-o p-0"></span>
+                                            <img
+                                                src="https://img.icons8.com/ios-filled/30/000000/stormtrooper.png"
+                                                alt=""
+                                            />
+                                            <span className="text">Login</span>
                                         </Link>
                                     </div>
                                 ) : (
@@ -90,9 +97,14 @@ export default function Header() {
                             <li className="nav-item ">
                                 <div className="nav-link">
                                     <Link to="/cart">
-                                        <span class="fa fa-shopping-cart"></span>
-                                        <img src="https://img.icons8.com/ios-glyphs/30/000000/fast-cart.png" />
-                                        <span class="textCart">Carrito</span>
+                                        <span className="fa fa-shopping-cart"></span>
+                                        <img
+                                            src="https://img.icons8.com/ios-glyphs/30/000000/fast-cart.png"
+                                            alt=""
+                                        />
+                                        <span className="textCart">
+                                            Carrito
+                                        </span>
                                     </Link>
                                 </div>{" "}
                             </li>

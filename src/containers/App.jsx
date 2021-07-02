@@ -9,37 +9,22 @@ import Favorites from "../components/Favorites";
 import Cart from "../components/Cart";
 import User from "../components/User";
 import Contact from "../components/Contact";
+import Footer from "../components/Footer";
 import About from "../components/About";
-import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { setUser } from "../store/loggedUserReducer";
-
 
 function App() {
   const dispatch = useDispatch();
 
   React.useEffect(() => {
-    console.log("LLEGUE A USEFECT");
     dispatch(setUser());
-  }, []);
+  }, [dispatch]);
 
-  let productos = useSelector((state) => state.productos);
   return (
-    <div className="App">
+    <>
       <Switch>
-        {/* RUTAS PARA VER LA INFO DE UN SOLO PRODUCTO */}
-        {productos.map((producto) => {
-          return (
-            <Route
-              exact
-              path={`/${producto.id}`}
-              render={() => {
-                return <SingleProduct producto={producto} />;
-              }}
-            />
-          );
-        })}
-
+        <Route path="/products/:id" component={SingleProduct} />
         <Route exact path="/" component={Home} />
         <Route exact path="/Login" component={Login} />
         <Route exact path="/Register" component={Register} />
@@ -49,7 +34,8 @@ function App() {
         <Route exact path="/Contact" component={Contact} />
         <Route exact path="/About" component={About} />
       </Switch>
-    </div>
+      <Footer />
+    </>
   );
 }
 
