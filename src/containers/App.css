@@ -392,7 +392,9 @@ h6 {
 }
 .search-nav-item {
     /* margin-left: 250px; */
-    width: 350px
+    width: 350px;
+    border: 1px solid #343a40;
+    border-radius: 20px;
 }
 .fa-shopping-cart {
         font-size: 20px;
