@@ -28,6 +28,10 @@
     color: #61dafb;
 }
 
+.home {
+    background-color: white;
+}
+
 .productList {
     margin-top: 10px;
     margin-left: 70px;
@@ -65,24 +69,23 @@
 
 .fav-btn {
     height: fit-content;
-    font-size: 20px;
+    font-size: 17px;
     color: rgb(212, 212, 212);
     background-color: none;
     margin-left: 25px;
     border: 1px solid lightgray;
-    border-radius: 25px;
-    padding: 5px 10px;
+    border-radius: 30px;
+    padding: 8px 12px 7px 12px;
 }
 
 .fav-btn:hover {
-    color: rgb(48, 92, 212);
     background-color: rgb(218, 233, 247);
     transform: scale(1.06);
 }
 
 .fav-btn:focus {
-    background-color: rgb(209, 224, 234);
-    color:rgb(202, 194, 194)
+    background-color: rgb(159, 172, 206);
+    color:rgb(53, 63, 151)
 }
 
 .block-btns {
@@ -99,7 +102,7 @@
     flex-direction: column;
     align-items: center;
     box-shadow: 3px 3px 10px grey;
-    background-color: rgb(251, 251, 251);
+    background-color:white;
 }
 
 .card-body {
@@ -129,7 +132,10 @@ br {
 
 .sideBar {
     width: 400px;
+    height: fit-content;
     margin-top: 25px;
+    box-shadow: 3px 3px 10px grey;
+    border-radius: 15px;
 }
 
 .categories {
