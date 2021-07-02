@@ -5,13 +5,13 @@ export default function Footer() {
 
     return(
         <div className='footer'>
-            <Link className='contacto' to='/about'>
+            <Link to='/about'>
                 Sobre nosotros
             </Link>
             <p>
                 Branch&Gamer fué creado por estudiantes de Plataforma 5 Argentina © 2021
             </p>
-            <Link className='contacto' to='/contact'>
+            <Link to='/contact'>
                 Contacto
             </Link>
         </div>

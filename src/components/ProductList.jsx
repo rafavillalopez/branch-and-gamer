@@ -4,11 +4,25 @@ import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import { setProductos, buscarProducto } from "../store/productos";
 import ProductBlock from "./ProductBlock";
+import Pagination from './Pagination'
 
 export default function ProductList() {
+
     const dispatch = useDispatch();
     let productos = useSelector((state) => state.productos);
     let item = useSelector((state) => state.item);
+
+    const [currentPage, setCurrentPage] = React.useState(1);
+    const [productosPorPagina] = React.useState(10);
+
+    const indexOfLastItem = currentPage * productosPorPagina;
+    const indexOfFirstItem = indexOfLastItem - productosPorPagina;
+    const currentProducts = productos.slice(indexOfFirstItem, indexOfLastItem);
+
+    const paginate = (pageNumber,e) => {
+        e.preventDefault()
+        setCurrentPage(pageNumber)
+    }
 
     React.useEffect(() => {
         axios
@@ -22,19 +36,35 @@ export default function ProductList() {
     return (
         <div className="productList w-100">
             {!item ? (
-                productos.length ? (
-                    productos.map((producto) => {
+                currentProducts.length ? (
+                    <>
+                    {
+                    currentProducts.map((producto) => {
                         return <ProductBlock producto={producto} />;
-                    })
+                    })}
+                        <Pagination
+                        productosPorPagina={productosPorPagina}
+                        productosTotales={productos.length}
+                        paginate={paginate}
+                    />
+                  </>
                 ) : (
                     <h3 className="no-product d-flex justify-content-center align-items-center w-100">
                         "No se encontró ningún producto."
                     </h3>
                 )
             ) : (
-                productos.map((producto) => {
+                <>
+                {
+                currentProducts.map((producto) => {
                     return <ProductBlock producto={producto} />;
-                })
+                })}
+                <Pagination
+                        productosPorPagina={productosPorPagina}
+                        productosTotales={productos.length}
+                        paginate={paginate}
+                    />
+                </>
             )}
         </div>
     );
