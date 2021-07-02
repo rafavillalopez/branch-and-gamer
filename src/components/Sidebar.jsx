@@ -26,7 +26,7 @@ export default function Sidebar() {
         <ListGroup.Item className='categories'>
          <h5 >Categorías</h5>
         </ListGroup.Item>
-        <button className='categories-item' onClick={() => handleFilter('pc')}>
+        <button className='categories-item' onClick={() => handleFilter('pc completa')}>
           PCs completas
         </button>
         <button className='categories-item' onClick={() => handleFilter('notebook')}>
@@ -62,7 +62,7 @@ export default function Sidebar() {
         <button className='categories-item' onClick={() => handleFilter('inmpresora')}>
           Impresoras
         </button>
-        <button className='categories-item' onClick={() => handleFilter('otro')}>
+        <button className='categories-item' onClick={() => handleFilter('otros')}>
           Otros
         </button>
       </ListGroup>

@@ -3,10 +3,8 @@ import axios from "axios";
 import { Alert } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
-
 import { setToken } from "../store/user";
 import Navbar from "./Navbar";
-import Footer from "../components/Footer";
 import "./register.css";
 
 export default function Login() {
@@ -100,7 +98,6 @@ export default function Login() {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

@@ -22,7 +22,7 @@ export default function Header() {
             <nav className="navbar navbar-expand-sm navbar-light bg-white border-bottom">
                 {" "}
                 <button className='logo-btn'onClick={inicio}>
-                    <img className='logo' src='https://i.postimg.cc/MK3vy7xt/Captura-de-Pantalla-2021-07-01-a-la-s-01-10-58.png' alt='Branch&Gamer'/>
+                    <img className='logo' src='https://i.postimg.cc/3J1SHX0X/b-g-logo.png' alt='Branch&Gamer'/>
                 </button>
                 <button
                     className="navbar-toggler"

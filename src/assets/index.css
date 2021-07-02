@@ -5,6 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: white;
+
 }
 
 code {
@@ -29,11 +31,10 @@ img .carouselContainer {
 }
 
 .d-block{
-
   height: 200px;
 }
-.text{
 
+.text{
   justify-content: flex-end;
   align-items:center;
   flex-direction: row;
