@@ -34,7 +34,6 @@ function App() {
         <Route exact path="/Contact" component={Contact} />
         <Route exact path="/About" component={About} />
       </Switch>
-      <Footer />
     </>
   );
 }
