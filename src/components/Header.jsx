@@ -55,7 +55,7 @@ export default function Header() {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarColor">
                     <ul className="navbar-nav d-flex justify-content-around w-100 align-items-center">
-                        <li className="nav-item rounded bg-light search-nav-item d-flex ">
+                        <li className="nav-item  bg-light search-nav-item d-flex justify-content-start">
                             <input
                                 type="text"
                                 id="search"
@@ -80,10 +80,7 @@ export default function Header() {
                                     </div>
                                 ) : (
                                     <div className="nav-link">
-                                        <button
-                                            className="log-out-button"
-                                            onClick={logOut}
-                                        >
+                                        <button className="log-out-button" onClick={logOut}>
                                             <span className="fa fa-user-o p-0"></span>
                                             <img
                                                 src="https://img.icons8.com/ios-filled/30/000000/stormtrooper.png"
@@ -106,7 +103,7 @@ export default function Header() {
                                             Carrito
                                         </span>
                                     </Link>
-                                </div>
+                                </div>{" "}
                             </li>
                         </div>
                     </ul>
