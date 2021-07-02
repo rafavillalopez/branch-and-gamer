@@ -20,7 +20,6 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { setUser } from "../store/loggedUserReducer";
 
-
 function App() {
   const dispatch = useDispatch();
 
@@ -28,23 +27,10 @@ function App() {
     dispatch(setUser());
   }, [dispatch]);
 
-  let productos = useSelector((state) => state.productos);
   return (
-    <div className="App">
+    <>
       <Switch>
-        {/* RUTAS PARA VER LA INFO DE UN SOLO PRODUCTO */}
-        {productos.map((producto) => {
-          return (
-            <Route
-              exact
-              path={`/${producto.id}`}
-              render={() => {
-                return <SingleProduct producto={producto} />;
-              }}
-            />
-          );
-        })}
-
+        <Route path="/products/:id" component={SingleProduct} />
         <Route exact path="/" component={Home} />
         <Route exact path="/Login" component={Login} />
         <Route exact path="/Register" component={Register} />
@@ -54,8 +40,8 @@ function App() {
         <Route exact path="/Contact" component={Contact} />
         <Route exact path="/About" component={About} />
       </Switch>
-      <Footer/>
-    </div>
+      <Footer />
+    </>
   );
 }
 

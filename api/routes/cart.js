@@ -24,6 +24,18 @@ router.post("/add", (req, res, next) => {
     .catch(next);
 });
 
+router.get("/items/:id", (req, res, next) => {
+  ProducstCarrito.findAll({
+    where: {
+      carritoId: req.params.id,
+    },
+  })
+    .then((producst) => {
+      res.status(200).json(producst);
+    })
+    .catch(next);
+});
+
 router.post("/:userId", (req, res, next) => {
   const { userId } = req.params;
   console.log(req.params);
@@ -76,7 +88,7 @@ router.put("/", (req, res, next) => {
       return productInCar[type]();
     })
     .then((updated) => {
-      res.sendStatus(204);
+      res.sendStatus(200).json(updated);
     })
     .catch(next);
 });

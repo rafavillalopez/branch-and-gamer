@@ -1,6 +1,7 @@
 import { createReducer, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { setLogginTrue } from "./authReducer";
+import { getItems } from "./cartReducer";
 import { setCart } from "./setCarReducer";
 
 import { setToken } from "./user";
@@ -17,6 +18,7 @@ export const setUser = createAsyncThunk("SET_USER", async (data, thunkAPI) => {
       thunkAPI.dispatch(setToken(token));
       thunkAPI.dispatch(setLogginTrue());
       thunkAPI.dispatch(setCart({ id: req.data.id, token }));
+      thunkAPI.dispatch(getItems({ id: req.data.id, token }));
 
       return req.data;
     }
@@ -26,8 +28,11 @@ export const setUser = createAsyncThunk("SET_USER", async (data, thunkAPI) => {
   }
 });
 
-const loggedUserReducer = createReducer({}, {
-  [setUser.fulfilled]: (state, action) => action.payload,
-});
+const loggedUserReducer = createReducer(
+  {},
+  {
+    [setUser.fulfilled]: (state, action) => action.payload,
+  }
+);
 
 export default loggedUserReducer;

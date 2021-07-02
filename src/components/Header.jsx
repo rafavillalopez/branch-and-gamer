@@ -57,9 +57,9 @@ export default function Header() {
                                 {!userLog.name ? (
                                     <div className="nav-link">
                                         <Link to="/login">
-                                            <span class="fa fa-user-o p-0"></span>
+                                            <span className="fa fa-user-o p-0"></span>
                                             <img src="https://img.icons8.com/ios-filled/30/000000/stormtrooper.png" />
-                                            <span class="text">Login</span>
+                                            <span className="text">Login</span>
                                         </Link>
                                     </div>
                                 ) : (
@@ -75,9 +75,9 @@ export default function Header() {
                             <li className="nav-item ">
                                 <div className="nav-link">
                                     <Link to="/cart">
-                                        <span class="fa fa-shopping-cart"></span>
+                                        <span className="fa fa-shopping-cart"></span>
                                         <img src="https://img.icons8.com/ios-glyphs/30/000000/fast-cart.png" />
-                                        <span class="textCart">Carrito</span>
+                                        <span className="textCart">Carrito</span>
                                     </Link>
                                 </div>{" "}
                             </li>

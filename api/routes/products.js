@@ -1,46 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { Product } = require("../models");
-const {Op} = require("sequelize")
-
-router.get("/", (req, res, next) => {
-    //Example query
-    //Req.query = {item : "mouse"}
-    
-    if(req.query.item){
-        const filter = req.query.item.split(" ")[0] //Solo la primera palabra del query
-        Product.findAll({
-            where : {
-                [Op.or]: [
-                    {
-                      title: {
-                        [Op.like]: `%${filter}%`
-                      }
-                    },
-                    {
-                      description: {
-                        [Op.like]: `%${filter}%`
-                      }
-                    },{
-                        marca : {
-                            [Op.like] : `%${filter}%`
-                        }
-                    }
-                  ]
-            }
-        })
-        .then((data)=>{
-            res.status(200).json(data)
-        })
-        .catch(next)
-    }else{   
-        Product.findAll()
-        .then((data) => {
-            res.status(200).json(data);
-        })
-        .catch(next);
-    }
-});
+const { Op } = require("sequelize");
 
 router.get("/:id", (req, res, next) => {
   Product.findByPk(req.params.id)
@@ -48,6 +9,46 @@ router.get("/:id", (req, res, next) => {
       res.status(200).json(data);
     })
     .catch(next);
+});
+
+router.get("/", (req, res, next) => {
+  //Example query
+  //Req.query = {item : "mouse"}
+
+  if (req.query.item) {
+    const filter = req.query.item.split(" ")[0]; //Solo la primera palabra del query
+    Product.findAll({
+      where: {
+        [Op.or]: [
+          {
+            title: {
+              [Op.like]: `%${filter}%`,
+            },
+          },
+          {
+            description: {
+              [Op.like]: `%${filter}%`,
+            },
+          },
+          {
+            marca: {
+              [Op.like]: `%${filter}%`,
+            },
+          },
+        ],
+      },
+    })
+      .then((data) => {
+        res.status(200).json(data);
+      })
+      .catch(next);
+  } else {
+    Product.findAll()
+      .then((data) => {
+        res.status(200).json(data);
+      })
+      .catch(next);
+  }
 });
 
 router.post("/", (req, res, next) => {

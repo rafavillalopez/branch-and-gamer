@@ -15,6 +15,7 @@ import logger from "redux-logger";
 import loggedUserReducer from "./loggedUserReducer";
 import authReducer from "./authReducer";
 import SetCartReducer from "./setCarReducer";
+import cartReducer from "./cartReducer";
 
 const store = configureStore({
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
@@ -34,6 +35,7 @@ const store = configureStore({
     loggedUser: loggedUserReducer,
     isLogIn: authReducer,
     cartInUse: SetCartReducer,
+    cartItems: cartReducer,
   },
 });
 
