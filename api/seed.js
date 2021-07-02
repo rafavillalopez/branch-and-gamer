@@ -1,5 +1,4 @@
-const { Product } = require("./models")
-console.log("empezando seed...")
+const { Product, User } = require("./models")
 
 const seed = [
     {
@@ -647,8 +646,23 @@ const seed = [
     },
 ]
 
-Promise.all(seed.map((producto) => {
-    return Product.create(producto)
-})).then(() => {
-    console.log("seed terminado!")
-})
+const usuario = [
+    {
+        "name": "Carlos Gonzales",
+        "email": "carlitos@branchgamer.com",
+        "password": "carlos2407",
+        "isAdmin": true
+    }
+]
+
+
+async function runSeed() {
+    console.log("empezando seed...")
+    await User.create(usuario[0])
+    await Promise.all(seed.map((producto) => {
+        return Product.create(producto)
+    }))
+    console.log("seed terminado")
+}
+
+runSeed()
