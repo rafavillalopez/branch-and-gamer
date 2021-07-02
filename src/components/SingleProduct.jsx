@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
+import {Link} from "react-router-dom"
 import axios from "axios";
 
 import "../assets/index.css";
@@ -12,7 +13,6 @@ export default function SingleProduct() {
   const [producto, setProducto] = useState({});
 
   console.log("AL MENOS A SINGLE PRODUCT");
-
   useEffect(() => {
     console.log("LLEGUE AQUI");
     axios
@@ -66,70 +66,34 @@ export default function SingleProduct() {
           </div>
           <div className="d-flex align-items-center mt-4 offers mb-1">
             <i className="fa fa-check-square-o mt-1"></i>
-            <span className="ml-1 font-weight-bold">Bank Offers</span>
+            <span className="ml-1 font-weight-bold">Descripcion: </span>
             <span className="ml-1">
-              20% Instant Discount on SBI Credit Cards
               <br />
             </span>
           </div>
           <div className="d-flex align-items-center offers mb-1">
             <i className="fa fa-check-square-o mt-1"></i>
-            <span className="ml-1 font-weight-bold">Bank Offers</span>
-            <span className="ml-1">
+            <span className="ml-1 font-weight-bold"></span>
+            <div>
+              5% Unlimited Cashback on Axis Bank Credit Card.
+              5% Unlimited Cashback on Axis Bank Credit Card.
+              5% Unlimited Cashback on Axis Bank Credit Card
+              5% Unlimited Cashback on Axis Bank Credit Card
+              5% Unlimited Cashback on Axis Bank Credit Card
               5% Unlimited Cashback on Axis Bank Credit Card
               <br />
-            </span>
-          </div>
-          <div className="d-flex align-items-center offers mb-1">
-            <i className="fa fa-check-square-o mt-1"></i>
-            <span className="ml-1 font-weight-bold">Bank Offers</span>
-            <span className="ml-1">
-              Extra 5% off* with Axis Bank Buzz Credit Card
-              <br />
-            </span>
-          </div>
-          <div className="d-flex align-items-center offers">
-            <i className="fa fa-check-square-o mt-1"></i>
-            <span className="ml-1 font-weight-bold">Bank Offers</span>
-            <span className="ml-1">
-              20% Instant Discount on pay with&nbsp;&nbsp;google wallet
-              <br />
-            </span>
+            </div>
           </div>
           <div className="d-flex align-items-center mt-5 delivery">
-            <i className="fa fa-map-marker"></i>
-            <span className="ml-2">
-              Delivery by 23 Jul, Tuesday
-              <br />
-            </span>
-            <span className="ml-2 mr-2">
-              |<br />
-            </span>
-            <span className="ml-2 mr-2 text-success">
-              FREE
-              <br />
-            </span>
+            <button type="button" className="button cart_button_clear">
+                    Adherir al carrito
+                  </button>
+                  <Link to="/"><button type="button" className="button cart_button_clear">
+                    Volver al inicio
+                  </button>
+                  </Link>
           </div>
           <hr />
-          <div className="d-flex align-items-center mt-2" />
-          <div class="footer d-flex flex-column mt-5">
-            {/* <div class="row r4">
-              <div class="col-md-2 myt des">
-                <a href="#">Descripcion</a>
-              </div>
-              <div class="col-md-2 myt">
-                <a href="#">Reseña</a>
-              </div>
-              <div class="col-md-2 mio offset-md-4">
-                <a href="#">Agregar al carrito</a>
-              </div>
-              <div class="col-md-2 myt">
-                <button type="button" class="btn btn-outline-light">
-                  <a href="#">Comprar</a>
-                </button>
-              </div>
-            </div> */}
-          </div>
         </div>
       </div>
     </div>
