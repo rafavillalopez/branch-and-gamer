@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import { setToken } from "../store/user";
 import Navbar from "./Navbar";
-import Footer from "../components/Footer";
 import "./register.css";
 
 export default function Login() {
