@@ -41,7 +41,7 @@ export default function ProductBlock({ producto}) {
                 <h3 className='price'>{formatter.format(producto.price)}</h3>
                 <div className='block-btns'>
                     <Button className='buy-btn' variant="primary" onClick={handleBuy}>Comprar</Button>
-                    <button type='submit' className='fav-btn'onClick={handleFav}>♥️</button>
+                    <button type='submit' className='fav-btn'onClick={handleFav}>♡</button>
                 </div>
             </Card>
         </div>

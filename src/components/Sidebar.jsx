@@ -29,7 +29,7 @@ export default function Sidebar() {
         <button className='categories-item' onClick={() => handleFilter('pc')}>
           PCs completas
         </button>
-        <button className='categories-item' onClick={() => handleFilter('laptop')}>
+        <button className='categories-item' onClick={() => handleFilter('notebook')}>
           Laptops
         </button>
         <button className='categories-item' onClick={() => handleFilter('monitor')}>
@@ -41,20 +41,26 @@ export default function Sidebar() {
         <button className='categories-item' onClick={() => handleFilter('mouse')}>
           Mouses
         </button>
-        <button className='categories-item' onClick={() => handleFilter('componente')}>
-          Componentes
+        <button className='categories-item' onClick={() => handleFilter('procesador')}>
+          Procesadores
+        </button>
+        <button className='categories-item' onClick={() => handleFilter('mother')}>
+          Mothers
+        </button>
+        <button className='categories-item' onClick={() => handleFilter('ram')}>
+          RAMs
+        </button>
+        <button className='categories-item' onClick={() => handleFilter('fuente')}>
+          Fuentes
         </button>
         <button className='categories-item' onClick={() => handleFilter('auriculares')}>
           Auriculares
         </button>
-        <button className='categories-item' onClick={() => handleFilter('conector')}>
+        <button className='categories-item' onClick={() => handleFilter('cable hdmi')}>
           Cables y conectores
         </button>
         <button className='categories-item' onClick={() => handleFilter('inmpresora')}>
           Impresoras
-        </button>
-        <button className='categories-item' onClick={() => handleFilter('tablet')}>
-          Tablets
         </button>
         <button className='categories-item' onClick={() => handleFilter('otro')}>
           Otros

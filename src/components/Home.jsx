@@ -7,7 +7,7 @@ import CarouselProducts from '../components/Carousel'
 
 export default function Home() {
   return (
-    <div className="Home">
+    <div className="home">
         <Header/>
         <CarouselProducts/>
         <div className='body-home'>
