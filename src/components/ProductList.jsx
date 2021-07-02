@@ -13,7 +13,7 @@ export default function ProductList() {
     let item = useSelector((state) => state.item);
 
     const [currentPage, setCurrentPage] = React.useState(1);
-    const [productosPorPagina] = React.useState(10);
+    const [productosPorPagina] = React.useState(12);
 
     const indexOfLastItem = currentPage * productosPorPagina;
     const indexOfFirstItem = indexOfLastItem - productosPorPagina;
