@@ -4,14 +4,14 @@ const useLocalStorage = (
   key,
   defaultValue,
   serialize = JSON.stringify,
-  deserialize = JSON.parse,
+  deserialize = JSON.parse
 ) => {
   const reducer = (state, action) => {
     switch (action.type) {
       case "add":
         return [...state, action.playload];
       case "remove":
-        return state.filter((item) => item.id === action.payload.id);
+        return state.filter((item) => item.id !== action.payload.id);
       case "quantityAdd":
         return state.map((item) => {
           if (item.id === action.payload.id) {
