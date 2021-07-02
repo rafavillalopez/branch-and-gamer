@@ -20,6 +20,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { setUser } from "../store/loggedUserReducer";
 
+
 function App() {
   const dispatch = useDispatch();
 
@@ -53,6 +54,7 @@ function App() {
         <Route exact path="/Contact" component={Contact} />
         <Route exact path="/About" component={About} />
       </Switch>
+      <Footer/>
     </div>
   );
 }

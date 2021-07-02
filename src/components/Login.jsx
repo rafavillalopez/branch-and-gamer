@@ -1,54 +1,49 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Alert } from "react-bootstrap";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
-
 import { setToken } from "../store/user";
 import Navbar from "./Navbar";
-import Footer from "../components/Footer";
 import "./register.css";
 
 export default function Login() {
-  const [alert, setAlert] = useState(false);
-  const dispatch = useDispatch();
-  const [value, setValue] = useState({ email: "", password: "" });
-  const History = useHistory();
+    const [alert, setAlert] = useState(false);
+    const dispatch = useDispatch();
+    const [value, setValue] = useState({ email: "", password: "" });
+    const History = useHistory();
+    let userLog = useSelector((state) => state.loggedUser);
 
-  const onChange = ({ target }) => {
-    setValue((value) => {
-      return {
-        ...value,
-        [target.name]: target.value,
-      };
-    });
-  };
+    const onChange = ({ target }) => {
+        setValue((value) => {
+            return {
+                ...value,
+                [target.name]: target.value,
+            };
+        });
+    };
 
-  const onSubmit = (e) => {
-    e.preventDefault();
-    axios
-      .post("/api/auth/login", value)
-      .then((res) => res.data)
-      .then((data) => {
-        dispatch(setToken(data.token));
-        window.localStorage.setItem("branchToken", `Bearer ${data.token}`);
-        History.push("/");
-      })
-      .catch((err) => {
-        setAlert(true);
-        setTimeout(() => setAlert(false), 1500);
-      });
-  };
+    const onSubmit = (e) => {
+        e.preventDefault();
+        axios
+            .post("/api/auth/login", value)
+            .then((res) => res.data)
+            .then((data) => {
+                dispatch(setToken(data.token));
+                window.localStorage.setItem(
+                    "branchToken",
+                    `Bearer ${data.token}`
+                );
+                History.push("/");
+            })
+            .catch((err) => {
+                setAlert(true);
+                setTimeout(() => setAlert(false), 1500);
+            });
+    };
 
-  return (
-    <div>
-      <div>
-        <Navbar />
-        <div class="register">
-          <Link to="/" className="goback" style={{ textDecoration: "none" }}>
-            Volver
-          </Link>
-          <div className="register-card">
+    return (
+        <div>
             <div>
               <form onSubmit={onSubmit}>
                 <div className="log-text">Login</div>
@@ -97,10 +92,6 @@ export default function Login() {
                 </Link>
               </form>
             </div>
-          </div>
         </div>
-      </div>
-      <Footer />
-    </div>
-  );
+    );
 }

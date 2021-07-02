@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 export default function Header() {
     const dispatch = useDispatch();
-
+    let userLog = useSelector((state) => state.loggedUser);
     const buscar = function (e) {
         if (e.keyCode === 13) {
             dispatch(buscarProducto(e.target.value.toLowerCase()));
@@ -17,12 +17,16 @@ export default function Header() {
         dispatch(buscarProducto(""));
     }
 
+    function logOut() {
+        window.localStorage.removeItem("branchToken");
+    }
+
     return (
         <div className="container">
             <nav className="navbar navbar-expand-sm navbar-light bg-white border-bottom">
                 {" "}
                 <button className='logo-btn'onClick={inicio}>
-                    <img className='logo' src='https://i.postimg.cc/MK3vy7xt/Captura-de-Pantalla-2021-07-01-a-la-s-01-10-58.png' alt='Branch&Gamer'/>
+                    <img className='logo' src='https://i.postimg.cc/3J1SHX0X/b-g-logo.png' alt='Branch&Gamer'/>
                 </button>
                 <button
                     className="navbar-toggler"
@@ -49,25 +53,34 @@ export default function Header() {
                             <span className="fa fa-search text-muted"></span>
                         </li>
                         <div className="d-flex">
-
-                        <li className="nav-item">
-                            <div className="nav-link">
-                                <Link to="/login">
-                                    <span class="fa fa-user-o p-0"></span>
-                                    <img src="https://img.icons8.com/ios-filled/30/000000/stormtrooper.png"/>
-                                    <span class="text" >Login</span>
-                                </Link>
-                            </div>{" "}
-                        </li>
-                        <li className="nav-item ">
-                            <div className="nav-link">
-                                <Link to="/cart">
-                                    <span class="fa fa-shopping-cart"></span>
-                                    <img src="https://img.icons8.com/ios-glyphs/30/000000/fast-cart.png"/>
-                                    <span class="textCart">Carrito</span>
-                                </Link>
-                            </div>{" "}
-                        </li>
+                            <li className="nav-item">
+                                {!userLog.name ? (
+                                    <div className="nav-link">
+                                        <Link to="/login">
+                                            <span class="fa fa-user-o p-0"></span>
+                                            <img src="https://img.icons8.com/ios-filled/30/000000/stormtrooper.png" />
+                                            <span class="text">Login</span>
+                                        </Link>
+                                    </div>
+                                ) : (
+                                    <div className="nav-link">
+                                        <button onClick={logOut} className="register-btn">
+                                            cerrar sesion
+                                        </button>
+                                        {/* {userLog.name} */}
+                                        {/* <button>Cerrar sesion</button> */}
+                                    </div>
+                                )}
+                            </li>
+                            <li className="nav-item ">
+                                <div className="nav-link">
+                                    <Link to="/cart">
+                                        <span class="fa fa-shopping-cart"></span>
+                                        <img src="https://img.icons8.com/ios-glyphs/30/000000/fast-cart.png" />
+                                        <span class="textCart">Carrito</span>
+                                    </Link>
+                                </div>{" "}
+                            </li>
                         </div>
                     </ul>
                 </div>
