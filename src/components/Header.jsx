@@ -32,7 +32,7 @@ export default function Header() {
 
     return (
         <div className="container">
-            <nav className="navbar navbar-expand-sm navbar-light bg-white border-bottom">
+            <nav className="navbar navbar-expand-md navbar-light bg-white border-bottom">
                 {" "}
                 <button className="logo-btn" onClick={inicio}>
                     <img
@@ -101,6 +101,16 @@ export default function Header() {
                                         />
                                         <span className="textCart">
                                             Carrito
+                                        </span>
+                                    </Link>
+                                </div>{" "}
+                            </li>
+                            <li className="nav-item ">
+                                <div className="nav-link">
+                                    <Link to="/admin">
+                                        <span className="fa fa-shopping-cart"></span>
+                                        <img src="https://img.icons8.com/ios-glyphs/30/000000/fantasy--v1.png"/>                                        <span className="textCart">
+                                            Admin
                                         </span>
                                     </Link>
                                 </div>{" "}
