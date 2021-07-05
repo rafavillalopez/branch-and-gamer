@@ -763,3 +763,24 @@ h6 {
         margin-top: 2%
     } */
 /* } */
+
+/* ------------boton eliminar en el cart------- */
+.svg-icon {
+    width: 35px;
+    height: 35px;
+}
+
+.svg-icon:hover {
+    transform: scale(1.2);
+}
+
+.svg-icon path,
+.svg-icon polygon,
+.svg-icon rect {
+    fill: black;
+}
+
+.svg-icon circle {
+    stroke: black;
+    stroke-width: 1;
+}
