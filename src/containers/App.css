@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap');
+
+*{
+  font-family: 'Montserrat', sans-serif;
+}
 .App {
   text-align: center;
   background-color: white;
@@ -306,6 +311,20 @@ nav {
   padding: 4px;
 }
 
+@media screen and (max-width : 765px){
+  .navbar-collapse{
+    position: absolute;
+      top: 4rem;
+      left:0 ;
+      z-index: 2;
+      background-color: white;
+      width: 100vw;
+      margin: 0;
+      padding: 2rem;
+  }
+}
+
+
 .form-group {
   margin-bottom: 5px;
 }
@@ -393,8 +412,10 @@ h6 {
   box-shadow: 3px 3px 10px grey;
 }
 .search-nav-item {
-  /* margin-left: 250px; */
-  width: 350px;
+    /* margin-left: 250px; */
+    width: 350px;
+    border: 1px solid #343a40;
+    border-radius: 20px;
 }
 .fa-shopping-cart {
   font-size: 20px;
@@ -432,6 +453,52 @@ h6 {
 .caroulselImage{
     height: 17.3rem;
 }
+.admin-content{
+  border: 1px solid rgb(201, 201, 201);
+  border-radius: 20px;
+  box-shadow: 3px 3px 10px grey;
+  background-color: #007bff;
+}
+
+.admin-navbar-container{
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.admin-navbar{
+  height: 2.8rem;
+  cursor: pointer;
+  margin: 0;
+  /* border: 2px solid rgb(201, 201, 201); */
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.admin-navbar-section{
+  color: white;
+  height: 100%;
+  font-weight: 500;
+  flex-direction: column;
+}
+.admin-navbar-section:hover{
+  color: #a9d3ff;
+}
+.navbar-active{
+  top: 2.1rem;
+  width: 33%;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.76);
+  position: absolute;
+}
+
+.admin-section-container{
+  min-height: 70vh;
+  background-color: white;
+  width: 100%;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
 
 @media (max-width: 930px) {
   .caroulselImage {
