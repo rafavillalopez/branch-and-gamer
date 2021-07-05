@@ -30,7 +30,7 @@ export default function ProductList() {
             .then((data) => {
                 dispatch(setProductos(data));
             });
-        console.log("TE VEOOOOOOOOO");
+        // console.log("TE VEOOOOOOOOO");
     }, [item, dispatch]);
 
     return (
@@ -49,7 +49,7 @@ export default function ProductList() {
                     </>
                 ) : (
                     <h3 className="no-product d-flex justify-content-center align-items-center w-100">
-                        "No se encontró ningún producto."
+                        No se encontró ningún producto.
                     </h3>
                 )
             ) : currentProducts.length ? (
