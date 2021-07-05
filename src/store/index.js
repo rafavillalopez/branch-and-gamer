@@ -16,6 +16,7 @@ import loggedUserReducer from "./loggedUserReducer";
 import authReducer from "./authReducer";
 import SetCartReducer from "./setCarReducer";
 import cartReducer from "./cartReducer";
+import adminUserReducer from "./admin"
 
 const store = configureStore({
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
@@ -36,6 +37,9 @@ const store = configureStore({
     isLogIn: authReducer,
     cartInUse: SetCartReducer,
     cartItems: cartReducer,
+
+    //admin
+    allUsers : adminUserReducer, 
   },
 });
 

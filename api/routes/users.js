@@ -15,6 +15,7 @@ router.put("/:id", (req, res, next)=>{
     })
     .then(([,data])=>{
         res.status(201).json(data)
+        console.log(data)
     })
     .catch(next)
 })

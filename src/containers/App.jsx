@@ -13,7 +13,7 @@ import Footer from "../components/Footer";
 import About from "../components/About";
 import { useDispatch } from "react-redux";
 import { setUser } from "../store/loggedUserReducer";
-import AdminPanel from "../components/AdminPanel";
+import AdminPanel from "../components/AdminPanel/index"
 
 function App() {
   const dispatch = useDispatch();
