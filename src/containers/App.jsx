@@ -13,6 +13,7 @@ import Footer from "../components/Footer";
 import About from "../components/About";
 import { useDispatch } from "react-redux";
 import { setUser } from "../store/loggedUserReducer";
+import AdminPanel from "../components/AdminPanel";
 
 function App() {
   const dispatch = useDispatch();
@@ -33,6 +34,8 @@ function App() {
         <Route exact path="/Me" component={User} />
         <Route exact path="/Contact" component={Contact} />
         <Route exact path="/About" component={About} />
+
+        <Route exact path="/Admin" component={AdminPanel} />
       </Switch>
     </>
   );
