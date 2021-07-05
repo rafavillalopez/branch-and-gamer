@@ -7,7 +7,7 @@ import { setUserVoid } from "../store/loggedUserReducer";
 
 export default function Header() {
     const dispatch = useDispatch();
-    let { isLogIn } = useSelector((state) => state);
+    let { isLogIn, loggedUser } = useSelector((state) => state);
 
     const buscar = function (e) {
         if (e.keyCode === 13) {
@@ -32,7 +32,7 @@ export default function Header() {
 
     return (
         <div className="container">
-            <nav className="navbar navbar-expand-sm navbar-light bg-white border-bottom">
+            <nav className="navbar navbar-expand-md navbar-light bg-white border-bottom">
                 {" "}
                 <button className="logo-btn" onClick={inicio}>
                     <img
@@ -80,7 +80,10 @@ export default function Header() {
                                     </div>
                                 ) : (
                                     <div className="nav-link">
-                                        <button className="log-out-button" onClick={logOut}>
+                                        <button
+                                            className="log-out-button"
+                                            onClick={logOut}
+                                        >
                                             <span className="fa fa-user-o p-0"></span>
                                             <img
                                                 src="https://img.icons8.com/ios-filled/30/000000/stormtrooper.png"
@@ -105,6 +108,21 @@ export default function Header() {
                                     </Link>
                                 </div>{" "}
                             </li>
+                            {isLogIn && loggedUser.isAdmin ? (
+                                <li className="nav-item ">
+                                    <div className="nav-link">
+                                        <Link to="/admin">
+                                            <span className="fa fa-shopping-cart"></span>
+                                            <img src="https://img.icons8.com/ios-glyphs/30/000000/fantasy--v1.png" />{" "}
+                                            <span className="textCart">
+                                                Admin
+                                            </span>
+                                        </Link>
+                                    </div>{" "}
+                                </li>
+                            ) : (
+                                ""
+                            )}
                         </div>
                     </ul>
                 </div>

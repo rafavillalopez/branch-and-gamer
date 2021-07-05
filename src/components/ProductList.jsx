@@ -52,7 +52,7 @@ export default function ProductList() {
             "No se encontró ningún producto."
           </h3>
         )
-      ) : (
+      ) : currentProducts.length ? (
         <>
           {currentProducts.map((producto, i) => {
             return <ProductBlock key={i} producto={producto} />;
@@ -63,6 +63,10 @@ export default function ProductList() {
             paginate={paginate}
           />
         </>
+      ) : (
+        <h3 className="no-product d-flex justify-content-center align-items-center w-100">
+          "No se encontró ningún producto."
+        </h3>
       )}
     </div>
   );
