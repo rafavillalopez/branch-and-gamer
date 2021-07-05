@@ -1,6 +1,5 @@
 import { createReducer, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { aumentarCantidad, disminuirCantidad } from "../utils";
 
 export const getItems = createAsyncThunk(
   "GET_ITEMS",
@@ -49,7 +48,6 @@ export const removeItem = createAsyncThunk(
       await axios.delete(`/api/cart/${cartInUse.id}/${data.id}`, {
         headers: { authorization: token },
       });
-      console.log("DATA", data);
       return data;
     } catch (err) {
       throw err;
@@ -73,7 +71,11 @@ export const quantityRemove = createAsyncThunk(
         headers: { authorization: token },
       });
 
-      return data;
+      const req = await axios.get(`/api/cart/items/${cartInUse.id}`, {
+        headers: { authorization: token },
+      });
+
+      return req.data;
     } catch (err) {
       throw err;
     }
@@ -96,7 +98,11 @@ export const quantityAdd = createAsyncThunk(
         headers: { authorization: token },
       });
 
-      return data;
+      const req = await axios.get(`/api/cart/items/${cartInUse.id}`, {
+        headers: { authorization: token },
+      });
+
+      return req.data;
     } catch (err) {
       throw err;
     }
@@ -108,8 +114,8 @@ const cartReducer = createReducer([], {
   [addItem.fulfilled]: (state, action) => [...state, action.payload],
   [removeItem.fulfilled]: (state, action) =>
     state.filter((item) => item.productId !== action.payload.id),
-  [quantityAdd.fulfilled]: aumentarCantidad,
-  [quantityRemove.fulfilled]: disminuirCantidad,
+  [quantityAdd.fulfilled]: (state, action) => action.payload,
+  [quantityRemove.fulfilled]: (state, action) => action.payload,
 });
 
 export default cartReducer;

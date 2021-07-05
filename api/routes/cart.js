@@ -38,7 +38,6 @@ router.get("/items/:id", (req, res, next) => {
 
 router.post("/:userId", (req, res, next) => {
   const { userId } = req.params;
-  console.log(req.params);
   Carrito.findOrCreate({
     where: {
       userId,
@@ -88,7 +87,7 @@ router.put("/", (req, res, next) => {
       return productInCar[type]();
     })
     .then((updated) => {
-      res.sendStatus(200).json(updated);
+      res.status(200).json(updated);
     })
     .catch(next);
 });
