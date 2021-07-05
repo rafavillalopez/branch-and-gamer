@@ -16,6 +16,7 @@ import loggedUserReducer from "./loggedUserReducer";
 import authReducer from "./authReducer";
 import SetCartReducer from "./setCarReducer";
 import cartReducer from "./cartReducer";
+import adminUserReducer from "./admin"
 import ordenesReducer from "./ordenesReducer";
 
 const store = configureStore({
@@ -42,6 +43,8 @@ const store = configureStore({
     cartInUse: SetCartReducer,
     cartItems: cartReducer,
 
+    //admin
+    allUsers : adminUserReducer, 
   },
 });
 

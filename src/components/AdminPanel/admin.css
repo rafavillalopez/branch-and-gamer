@@ -1,0 +1,17 @@
+.user-card{
+    min-height: 10rem;
+    background-color: #7295d9;
+    border-radius: 10px;
+}
+
+.user-card-img{
+    height: 100%;
+    background-color: antiquewhite;
+    border-radius: 10px;
+}
+
+.user-card-button{
+    height: 2.3rem;
+    margin: 0 .5rem;
+    border-radius:20px ;
+}

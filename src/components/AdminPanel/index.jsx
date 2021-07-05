@@ -1,5 +1,9 @@
 import React, { useState } from 'react'
 import {useSelector} from "react-redux"
+import Usuario from "./Usuario"
+import Productos from "./Productos"
+import Categorias from "./Categorias"
+import Ordenes from "./Ordenes"
 
 const AdminPanel = () => {
 
@@ -8,7 +12,6 @@ const AdminPanel = () => {
 
     const user = useSelector(state => state.loggedUser)
     const capitalizeUser = user ? user.name : null 
-
 
 
     const changeSection = (section) =>{
@@ -33,7 +36,6 @@ const AdminPanel = () => {
                                         onClick={()=> changeSection(e)}
                                     >
                                         <p className="m-0">{e}</p>
-                                        {/* {adminSections === {e} ? <span className="navbar-active" ></span> : null} */}
                                         {activeSection === e ? <span className="navbar-active" ></span> : null}
                                     </div>
                                 )
@@ -56,33 +58,9 @@ const AdminPanel = () => {
     )
 }
 
-const Usuario = () =>{
-    return (
-        <div >
-            <h3>Usuarios</h3>
-        </div>
-    )
-}
-const Productos = () =>{
-    return (
-        <div>
-            <h3>Productos</h3>
-        </div>
-    )
-}
-const Categorias = () =>{
-    return (
-        <div>
-            <h3>Categorias</h3>
-        </div>
-    )
-}
-const Ordenes = () =>{
-    return (
-        <div>
-            <h3>Ordenes</h3>
-        </div>
-    )
-}
+
+
+
+
 
 export default AdminPanel
