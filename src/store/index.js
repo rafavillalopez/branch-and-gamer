@@ -1,4 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
+import logger from "redux-logger";
 import {
   usuariosReducer,
   favoritosReducer,
@@ -11,7 +12,6 @@ import {
   unSoloProductoReducer,
   buscarProductoReducer,
 } from "./productos";
-import logger from "redux-logger";
 import loggedUserReducer from "./loggedUserReducer";
 import authReducer from "./authReducer";
 import SetCartReducer from "./setCarReducer";

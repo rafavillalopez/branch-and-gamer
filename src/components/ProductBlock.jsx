@@ -1,16 +1,18 @@
 import * as React from "react";
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import axios from "axios";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import axios from "axios";
-import { isInCarItems } from "../utils";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
+
+import { isInCarItems } from "../utils";
 import { addItem, removeItem } from "../store/cartReducer";
 
 export default function ProductBlock({ producto }) {
   const { cartItems } = useSelector((state) => state);
   const dispatch = useDispatch();
+
   const isInCar = isInCarItems(cartItems, producto.id);
 
   let formatter = new Intl.NumberFormat("en-US", {
@@ -59,7 +61,12 @@ export default function ProductBlock({ producto }) {
           >
             {isInCar ? "Eliminar del carrito" : "Añadir al carrito"}
           </Button>
-          <button type="submit" className="fav-btn" disabled onClick={handleFav}>
+          <button
+            type="submit"
+            className="fav-btn"
+            disabled
+            onClick={handleFav}
+          >
             ♡
           </button>
         </div>
