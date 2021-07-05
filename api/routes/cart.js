@@ -36,6 +36,14 @@ router.get("/items/:id", (req, res, next) => {
     .catch(next);
 });
 
+router.post("/", (req, res, next) => {
+  Carrito.create(
+    req.body
+  ).then((car) => {
+    res.status(201).json(car);
+  });
+});
+
 router.post("/:userId", (req, res, next) => {
   const { userId } = req.params;
   console.log(req.params);
@@ -48,6 +56,8 @@ router.post("/:userId", (req, res, next) => {
     res.status(201).json(car);
   });
 });
+
+
 
 router.delete("/:carritoId/:productId", (req, res, next) => {
   const { carritoId, productId } = req.params;

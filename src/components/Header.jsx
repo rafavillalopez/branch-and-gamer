@@ -123,6 +123,22 @@ export default function Header() {
                             ) : (
                                 ""
                             )}
+
+                            {isLogIn && !loggedUser.isAdmin ? (
+                                <li className="nav-item ">
+                                    <div className="nav-link">
+                                        <Link to="/perfil">
+                                            <span className="fa fa-shopping-cart"></span>
+                                            <img src="https://img.icons8.com/ios-glyphs/30/000000/fantasy--v1.png" />{" "}
+                                            <span className="textCart">
+                                                Perfil
+                                            </span>
+                                        </Link>
+                                    </div>{" "}
+                                </li>
+                            ) : (
+                                ""
+                            )}
                         </div>
                     </ul>
                 </div>
