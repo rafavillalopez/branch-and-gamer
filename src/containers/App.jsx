@@ -1,6 +1,6 @@
-import "./App.css";
 import React from "react";
 import { Route, Switch } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import Register from "../components/Register";
 import Login from "../components/Login";
 import SingleProduct from "../components/SingleProduct";
@@ -9,17 +9,19 @@ import Favorites from "../components/Favorites";
 import Cart from "../components/Cart";
 import User from "../components/User";
 import Contact from "../components/Contact";
-import Footer from "../components/Footer";
 import About from "../components/About";
-import { useDispatch } from "react-redux";
 import { setUser } from "../store/loggedUserReducer";
 import AdminPanel from "../components/AdminPanel";
+
+import "./App.css";
 
 function App() {
   const dispatch = useDispatch();
 
   React.useEffect(() => {
-    dispatch(setUser());
+    dispatch(setUser()).then((data) => {
+      console.log("DEVOLUCION DE SET USER", data);
+    });
   }, [dispatch]);
 
   return (

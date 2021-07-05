@@ -1,34 +1,22 @@
 /** @format */
 
-import React, { useState, useEffect } from "react";
-import { useHistory, useParams } from "react-router-dom";
-import {Link} from "react-router-dom"
-import axios from "axios";
+import React from "react";
+import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import "../assets/index.css";
 
 export default function SingleProduct() {
   const { id } = useParams();
-  const history = useHistory();
-  const [producto, setProducto] = useState({});
-
-  console.log("AL MENOS A SINGLE PRODUCT");
-  useEffect(() => {
-    console.log("LLEGUE AQUI");
-    axios
-      .get(`/api/products/${id}`)
-      .then((response) => {
-        setProducto(response.data);
-      })
-      .catch(() => {
-        history.push("/");
-      });
-  }, [history, id]);
+  const { productos } = useSelector((state) => state);
+  const [producto] = productos.filter((x) => Number(x.id) === Number(id));
 
   let formatter = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
   });
+
   return (
     <div className="container-fluid mt-5">
       <div className="row">
@@ -75,23 +63,23 @@ export default function SingleProduct() {
             <i className="fa fa-check-square-o mt-1"></i>
             <span className="ml-1 font-weight-bold"></span>
             <div>
-              5% Unlimited Cashback on Axis Bank Credit Card.
-              5% Unlimited Cashback on Axis Bank Credit Card.
-              5% Unlimited Cashback on Axis Bank Credit Card
-              5% Unlimited Cashback on Axis Bank Credit Card
-              5% Unlimited Cashback on Axis Bank Credit Card
-              5% Unlimited Cashback on Axis Bank Credit Card
+              5% Unlimited Cashback on Axis Bank Credit Card. 5% Unlimited
+              Cashback on Axis Bank Credit Card. 5% Unlimited Cashback on Axis
+              Bank Credit Card 5% Unlimited Cashback on Axis Bank Credit Card 5%
+              Unlimited Cashback on Axis Bank Credit Card 5% Unlimited Cashback
+              on Axis Bank Credit Card
               <br />
             </div>
           </div>
           <div className="d-flex align-items-center mt-5 delivery">
             <button type="button" className="button cart_button_clear">
-                    Adherir al carrito
-                  </button>
-                  <Link to="/"><button type="button" className="button cart_button_clear">
-                    Volver al inicio
-                  </button>
-                  </Link>
+              Adherir al carrito
+            </button>
+            <Link to="/">
+              <button type="button" className="button cart_button_clear">
+                Volver al inicio
+              </button>
+            </Link>
           </div>
           <hr />
         </div>

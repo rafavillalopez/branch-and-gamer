@@ -2,14 +2,15 @@
 
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-
 import { Link } from "react-router-dom";
-import "../assets/cart.css";
-import { getProductFromDb } from "../utils";
 
 import CartItems from "./CartItems";
+import { getProductFromDbAndSetQuantities } from "../utils";
+
+import "../assets/cart.css";
 
 export default function Cart() {
+
   const { cartItems } = useSelector((state) => state);
 
   const [itemsToRender, setItemsToRender] = useState([]);
@@ -17,7 +18,7 @@ export default function Cart() {
   let orderTotal = 0;
 
   useEffect(() => {
-    getProductFromDb(cartItems).then((dbproducts) => {
+    getProductFromDbAndSetQuantities(cartItems).then((dbproducts) => {
       setItemsToRender(dbproducts);
     });
   }, [cartItems]);
@@ -40,7 +41,7 @@ export default function Cart() {
               <div className="cart_items">
                 <ul className="cart_list">
                   {itemsToRender?.map((producto, i) => {
-                    orderTotal += producto.price;
+                    orderTotal += producto.price * producto.quantity;
                     return <CartItems key={i} producto={producto} />;
                   })}
                 </ul>
