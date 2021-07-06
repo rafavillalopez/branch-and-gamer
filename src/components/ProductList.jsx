@@ -43,6 +43,7 @@ export default function ProductList() {
       .then((data) => {
         dispatch(setProductos(data));
       });
+      console.log("TE VEO")
   }, [item, dispatch]);
 
   return (
