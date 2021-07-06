@@ -30,5 +30,6 @@ module.exports = {
   Valoration,
   Coment,
   Category,
-  ProductsCategories
+  ProductsCategories,
+  ProductsCarrito
 };
