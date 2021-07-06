@@ -12,12 +12,14 @@ import Contact from "../components/Contact";
 import About from "../components/About";
 import { setUser } from "../store/loggedUserReducer";
 import AdminPanel from "../components/AdminPanel";
+import Perfil from "../components/perfil/Perfil";
+import OrdenActual from "../components/OrdenActual";
 
 import "./App.css";
 import { getItems } from "../store/cartReducer";
 
 function App() {
-  const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
   React.useEffect(() => {
     dispatch(setUser()).then((data) => {
@@ -25,23 +27,25 @@ function App() {
     });
   }, [dispatch]);
 
-  return (
-    <>
-      <Switch>
-        <Route path="/products/:id" component={SingleProduct} />
-        <Route exact path="/" component={Home} />
-        <Route exact path="/Login" component={Login} />
-        <Route exact path="/Register" component={Register} />
-        <Route exact path="/Cart" component={Cart} />
-        <Route exact path="/Favorites" component={Favorites} />
-        <Route exact path="/Me" component={User} />
-        <Route exact path="/Contact" component={Contact} />
-        <Route exact path="/About" component={About} />
+    return (
+        <>
+            <Switch>
+                <Route path="/products/:id" component={SingleProduct} />
+                <Route exact path="/" component={Home} />
+                <Route exact path="/Login" component={Login} />
+                <Route exact path="/Register" component={Register} />
+                <Route exact path="/Cart" component={Cart} />
+                <Route exact path="/Favorites" component={Favorites} />
+                <Route exact path="/Me" component={User} />
+                <Route exact path="/Contact" component={Contact} />
+                <Route exact path="/About" component={About} />
+                <Route exact path="/perfil" component={Perfil} />
+                <Route exact path="/ordenActual" component={OrdenActual} />
 
-        <Route exact path="/Admin" component={AdminPanel} />
-      </Switch>
-    </>
-  );
+                <Route exact path="/Admin" component={AdminPanel} />
+            </Switch>
+        </>
+    );
 }
 
 export default App;

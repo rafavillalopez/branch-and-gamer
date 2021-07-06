@@ -1,9 +1,10 @@
-const { Product, User } = require("./models")
+const { Product, User, Category, ProductsCategories } = require("./models")
 
-const seed = [
+const productsSeed = [
     {
         "title": "mouse",
         "marca": "logitech",
+        "categoryId": 5,
         "price": 3000,
         "description": "mouse gamer de primera calidad",
         "quantity": 10,
@@ -13,6 +14,7 @@ const seed = [
     {
         "title": "mouse",
         "marca": "hyperex",
+        "categoryId": 5,
         "price": 5000,
         "description": "Mouse gamer de muy buena calidad!",
         "quantity": 17,
@@ -22,6 +24,7 @@ const seed = [
     {
         "title": "mouse",
         "marca": "logitech",
+        "categoryId": 5,
         "price": 7000,
         "description": "Mouse gamer super comodo",
         "quantity": 5,
@@ -31,6 +34,7 @@ const seed = [
     {
         "title": "mouse",
         "marca": "redragon",
+        "categoryId": 5,
         "price": 2500,
         "description": "mouse gamer muy piola",
         "quantity": 6,
@@ -38,98 +42,9 @@ const seed = [
         "imageUrl": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_13006_Mouse_Redragon_Invader_M719_RGB_10.000dpi_35f6cdc8-grn.jpg"
     },
     {
-        "title": "teclado",
-        "marca": "logitech",
-        "price": 15000,
-        "description": "teclado rgb gamer!",
-        "quantity": 11,
-        "colors": ["blue", "red"],
-        "imageUrl": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_4465_Teclado_Mecanico_Logitech_G413_Carbon_Mec__nico_US_40e6061e-grn.jpg"
-    },
-    {
-        "title": "teclado",
-        "marca": "redragon",
-        "price": 4000,
-        "description": "teclado gamer buenisimo re piola es clave re fachita",
-        "quantity": 5,
-        "colors": ["blue", "red"],
-        "imageUrl": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_8903_Teclado_Redragon_Kumara_K552_Mechanical_RGB_Espa__ol_Switch_Outemu_Red_2e7c11dd-grn.jpg"
-    },
-    {
-        "title": "teclado",
-        "marca": "hyperx",
-        "price": 11000,
-        "description": "teclado pa juga",
-        "quantity": 19,
-        "colors": ["blue", "red"],
-        "imageUrl": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_26224_Teclado_Mecanico_HyperX_Alloy_FPS_Pro_Cherry_MX_Blue_5ea0203d-grn.jpg"
-    },
-    {
-        "title": "teclado   ",
-        "marca": "logitech",
-        "price": 16000,
-        "description": "teclado gamer para jugar!!",
-        "quantity": 20,
-        "colors": ["blue", "red"],
-        "imageUrl": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_12000_Teclado_Logitech_G213_Prodigy_RGB_Gaming_Ingl__s_Internacional_d2a6c763-grn.jpg"
-    },
-    {
-        "title": "monitor",
-        "marca": "lg",
-        "price": 17000,
-        "description": "monitor full hd 4k ",
-        "quantity": 7,
-        "colors": ["blue", "red"],
-        "imageUrl": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_8683_Monitor_LG_LED_19___19M38A-B_VGA_4607eba4-grn.jpg"
-    },
-    {
-        "title": "monitor",
-        "marca": "samsung",
-        "price": 20000,
-        "description": "monitor full hd 4k 22 pulgadas",
-        "quantity": 11,
-        "colors": ["blue", "red"],
-        "imageUrl": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_26106_Monitor_Samsung_22__T350FH_FHD_IPS_75Hz_46500864-grn.jpg"
-    },
-    {
-        "title": "monitor",
-        "marca": "samsung",
-        "price": 35000,
-        "description": "monitor fullhd 4k para jugar con muy buena calidad",
-        "quantity": 18,
-        "colors": ["blue", "red"],
-        "imageUrl": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_25648_Monitor_Samsung_24__T350H_FHD_IPS_75Hz_1ccbba93-grn.jpg"
-    },
-    {
-        "title": "monitor",
-        "marca": "asus",
-        "price": 40000,
-        "description": "monitor fullhd 8k!!",
-        "quantity": 4,
-        "colors": ["blue", "red"],
-        "imageUrl": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_27034_Monitor_ASUS_21.5__Full_HD_1ms_HDMI_VGA_VP228HE-J_a797ab9e-grn.jpg"
-    },
-    {
-        "title": "monitor",
-        "marca": "samsung",
-        "price": 50000,
-        "description": "monitor 4k curvo!",
-        "quantity": 9,
-        "colors": ["blue", "red"],
-        "imageUrl": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_8720_Monitor_Samsung_24___Curvo_F390_3a4722ad-grn.jpg"
-    },
-    {
-        "title": "monitor",
-        "marca": "lg",
-        "price": 18000,
-        "description": "monitor re lindo",
-        "quantity": 19,
-        "colors": ["blue", "red"],
-        "imageUrl": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_13403_Monitor_LG_27__TN_75Hz_AMD_FreeSync_Full_HD_27MK400H-B_ae7d85cd-grn.jpg"
-    },
-    {
         "title": "mouse",
         "marca": "redragon",
+        "categoryId": 5,
         "price": 4000,
         "description": "mouse gamer para no parar de jugar",
         "quantity": 18,
@@ -139,6 +54,7 @@ const seed = [
     {
         "title": "mouse",
         "marca": "logitech",
+        "categoryId": 5,
         "price": 5000,
         "description": "mouse inalambrico gamer",
         "quantity": 4,
@@ -146,26 +62,49 @@ const seed = [
         "imageUrl": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_21243_Mouse_Inalambrico_Logitech_G305_Lightspeed_Blue_9c250057-grn.jpg"
     },
     {
-        "title": "hdmi",
-        "marca": "nisuta",
-        "price": 700,
-        "description": "cable hdmi para conectar donde vos quieras",
-        "quantity": 1500,
+        "title": "teclado",
+        "marca": "logitech",
+        "categoryId": 4,
+        "price": 15000,
+        "description": "teclado rgb gamer!",
+        "quantity": 11,
         "colors": ["blue", "red"],
-        "imageUrl": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_19679_Cable_HDMI_Nisuta_3m_Dorado_V2.0_con_Filtros_2160P_4K_x_2K_4af7cdc5-grn.jpg"
+        "imageUrl": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_4465_Teclado_Mecanico_Logitech_G413_Carbon_Mec__nico_US_40e6061e-grn.jpg"
     },
     {
-        "title": " cable usb 3.0",
-        "marca": "nisuta",
-        "price": 1000,
-        "description": "cable usb 3.0 para cargar tu celu o lo que quieras ",
-        "quantity": 1000,
+        "title": "teclado",
+        "marca": "redragon",
+        "categoryId": 4,
+        "price": 4000,
+        "description": "teclado gamer buenisimo re piola es clave re fachita",
+        "quantity": 5,
         "colors": ["blue", "red"],
-        "imageUrl": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_15037_Cable_USB_3.1_tip_C_a_USB_3.0_1m_Nisuta_0e42250e-grn.jpg"
+        "imageUrl": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_8903_Teclado_Redragon_Kumara_K552_Mechanical_RGB_Espa__ol_Switch_Outemu_Red_2e7c11dd-grn.jpg"
+    },
+    {
+        "title": "teclado",
+        "marca": "hyperx",
+        "categoryId": 4,
+        "price": 11000,
+        "description": "teclado pa juga",
+        "quantity": 19,
+        "colors": ["blue", "red"],
+        "imageUrl": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_26224_Teclado_Mecanico_HyperX_Alloy_FPS_Pro_Cherry_MX_Blue_5ea0203d-grn.jpg"
+    },
+    {
+        "title": "teclado   ",
+        "marca": "logitech",
+        "categoryId": 4,
+        "price": 16000,
+        "description": "teclado gamer para jugar!!",
+        "quantity": 20,
+        "colors": ["blue", "red"],
+        "imageUrl": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_12000_Teclado_Logitech_G213_Prodigy_RGB_Gaming_Ingl__s_Internacional_d2a6c763-grn.jpg"
     },
     {
         "title": "teclado",
         "marca": "logitech",
+        "categoryId": 4,
         "price": 2999,
         "description": "teclado inalambrico",
         "quantity": 100,
@@ -175,6 +114,7 @@ const seed = [
     {
         "title": "teclado",
         "marca": "redragon",
+        "categoryId": 4,
         "price": 15000,
         "description": "teclado gamer rgb!",
         "quantity": 19,
@@ -182,8 +122,110 @@ const seed = [
         "imageUrl": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_9318_Teclado_Mecanico_Redragon_K550_YAMA_White_Retroiluminado_RGB_Espa__ol_03de67c4-grn.jpg"
     },
     {
+        "title": "teclado",
+        "marca": "hyperx",
+        "categoryId": 4,
+        "price": 8000,
+        "description": "teclado gamer rgb",
+        "quantity": 99,
+        "colors": ["blue", "red"],
+        "imageUrl": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_26679_Teclado_Mecanico_HyperX_Alloy_Origins_Core_Switch_HyperX_Blue_5dfa8f9a-grn.jpg"
+    },
+
+    {
+        "title": "teclado",
+        "marca": "logitech",
+        "categoryId": 4,
+        "price": 9000,
+        "description": "teclado gamer rgb",
+        "quantity": 99,
+        "colors": ["blue", "red"],
+        "imageUrl": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_4468_Teclado_Logitech_G213_Prodigy_RGB_Gaming_Espa__ol_ES_7f6b69a5-grn.jpg"
+    },
+    {
+        "title": "monitor",
+        "marca": "lg",
+        "categoryId": 3,
+        "price": 17000,
+        "description": "monitor full hd 4k ",
+        "quantity": 7,
+        "colors": ["blue", "red"],
+        "imageUrl": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_8683_Monitor_LG_LED_19___19M38A-B_VGA_4607eba4-grn.jpg"
+    },
+    {
+        "title": "monitor",
+        "marca": "samsung",
+        "categoryId": 3,
+        "price": 20000,
+        "description": "monitor full hd 4k 22 pulgadas",
+        "quantity": 11,
+        "colors": ["blue", "red"],
+        "imageUrl": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_26106_Monitor_Samsung_22__T350FH_FHD_IPS_75Hz_46500864-grn.jpg"
+    },
+    {
+        "title": "monitor",
+        "marca": "samsung",
+        "categoryId": 3,
+        "price": 35000,
+        "description": "monitor fullhd 4k para jugar con muy buena calidad",
+        "quantity": 18,
+        "colors": ["blue", "red"],
+        "imageUrl": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_25648_Monitor_Samsung_24__T350H_FHD_IPS_75Hz_1ccbba93-grn.jpg"
+    },
+    {
+        "title": "monitor",
+        "marca": "asus",
+        "categoryId": 3,
+        "price": 40000,
+        "description": "monitor fullhd 8k!!",
+        "quantity": 4,
+        "colors": ["blue", "red"],
+        "imageUrl": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_27034_Monitor_ASUS_21.5__Full_HD_1ms_HDMI_VGA_VP228HE-J_a797ab9e-grn.jpg"
+    },
+    {
+        "title": "monitor",
+        "marca": "samsung",
+        "categoryId": 3,
+        "price": 50000,
+        "description": "monitor 4k curvo!",
+        "quantity": 9,
+        "colors": ["blue", "red"],
+        "imageUrl": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_8720_Monitor_Samsung_24___Curvo_F390_3a4722ad-grn.jpg"
+    },
+    {
+        "title": "monitor",
+        "marca": "lg",
+        "categoryId": 3,
+        "price": 18000,
+        "description": "monitor re lindo",
+        "quantity": 19,
+        "colors": ["blue", "red"],
+        "imageUrl": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_13403_Monitor_LG_27__TN_75Hz_AMD_FreeSync_Full_HD_27MK400H-B_ae7d85cd-grn.jpg"
+    },
+    {
+        "title": "hdmi",
+        "marca": "nisuta",
+        "categoryId": 11,
+        "price": 700,
+        "description": "cable hdmi para conectar donde vos quieras",
+        "quantity": 1500,
+        "colors": ["blue", "red"],
+        "imageUrl": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_19679_Cable_HDMI_Nisuta_3m_Dorado_V2.0_con_Filtros_2160P_4K_x_2K_4af7cdc5-grn.jpg"
+    },
+    {
+        "title": " cable usb 3.0",
+        "marca": "nisuta",
+        "categoryId": 11,
+        "price": 1000,
+        "description": "cable usb 3.0 para cargar tu celu o lo que quieras ",
+        "quantity": 1000,
+        "colors": ["blue", "red"],
+        "imageUrl": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_15037_Cable_USB_3.1_tip_C_a_USB_3.0_1m_Nisuta_0e42250e-grn.jpg"
+    },
+    {
         "title": "mother",
         "marca": "asus",
+        "categoryId": 7,
         "price": 7000,
         "description": "mother asus gamer",
         "quantity": 12,
@@ -193,6 +235,7 @@ const seed = [
     {
         "title": "mother",
         "marca": "asrock",
+        "categoryId": 7,
         "price": 8000,
         "description": "mother gamer asrock m-atx",
         "quantity": 18,
@@ -202,6 +245,7 @@ const seed = [
     {
         "title": "mother",
         "marca": "asrock",
+        "categoryId": 7,
         "price": 18000,
         "description": "mother asrock gamer para cualquier pc",
         "quantity": 34,
@@ -211,6 +255,7 @@ const seed = [
     {
         "title": "mother",
         "marca": "asus",
+        "categoryId": 7,
         "price": 9000,
         "description": "mother asus gamer rgb",
         "quantity": 18,
@@ -229,6 +274,7 @@ const seed = [
     {
         "title": "mother",
         "marca": "msi",
+        "categoryId": 7,
         "price": 9000,
         "description": "mother msi gamer ",
         "quantity": 90,
@@ -238,6 +284,7 @@ const seed = [
     {
         "title": "mother",
         "marca": "gigabyte",
+        "categoryId": 7,
         "price": 10000,
         "description": "mother gigabyte gamer",
         "quantity": 17,
@@ -247,6 +294,7 @@ const seed = [
     {
         "title": "mother",
         "marca": "asrock",
+        "categoryId": 7,
         "price": 10000,
         "description": "mother asrock gamer",
         "quantity": 24,
@@ -254,27 +302,9 @@ const seed = [
         "imageUrl": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_12882_Mother_Asrock_B450M_Steel_Legend_AM4_RGB_Dual_M.2_Dual_USB_3.1__15d7a4e2-grn.jpg"
     },
     {
-        "title": "teclado",
-        "marca": "hyperx",
-        "price": 8000,
-        "description": "teclado gamer rgb",
-        "quantity": 99,
-        "colors": ["blue", "red"],
-        "imageUrl": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_26679_Teclado_Mecanico_HyperX_Alloy_Origins_Core_Switch_HyperX_Blue_5dfa8f9a-grn.jpg"
-    },
-
-    {
-        "title": "teclado",
-        "marca": "logitech",
-        "price": 9000,
-        "description": "teclado gamer rgb",
-        "quantity": 99,
-        "colors": ["blue", "red"],
-        "imageUrl": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_4468_Teclado_Logitech_G213_Prodigy_RGB_Gaming_Espa__ol_ES_7f6b69a5-grn.jpg"
-    },
-    {
         "title": "pc completa intel i3",
         "marca": "intel",
+        "categoryId": 1,
         "price": 65000,
         "description": 'lorem ipsum dolor sit amet, consectetur adipiscing elit. multa sunt dicta ab antiquis de contemnendis ac despiciendis rebus humanis; ea possunt paria non esse. venit ad extremum;',
         "quantity": 10,
@@ -284,6 +314,7 @@ const seed = [
     {
         "title": "pc completa Intel i5",
         "marca": "intel",
+        "categoryId": 1,
         "price": 85000,
         "description": 'lorem ipsum dolor sit amet, consectetur adipiscing elit. multa sunt dicta ab antiquis de contemnendis ac despiciendis rebus humanis; ea possunt paria non esse. venit ad extremum;',
         "quantity": 10,
@@ -293,6 +324,7 @@ const seed = [
     {
         "title": "pc completa Intel i7",
         "marca": "intel",
+        "categoryId": 1,
         "price": 103000,
         "description": 'lorem ipsum dolor sit amet, consectetur adipiscing elit. multa sunt dicta ab antiquis de contemnendis ac despiciendis rebus humanis; ea possunt paria non esse. venit ad extremum;',
         "quantity": 10,
@@ -302,6 +334,7 @@ const seed = [
     {
         "title": "pc completa Intel i9",
         "marca": "intel",
+        "categoryId": 1,
         "price": 125000,
         "description": 'lorem ipsum dolor sit amet, consectetur adipiscing elit. multa sunt dicta ab antiquis de contemnendis ac despiciendis rebus humanis; ea possunt paria non esse. venit ad extremum;',
         "quantity": 10,
@@ -311,6 +344,7 @@ const seed = [
     {
         "title": "pc completa amd",
         "marca": "amd",
+        "categoryId": 1,
         "price": 95000,
         "description": 'lorem ipsum dolor sit amet, consectetur adipiscing elit. multa sunt dicta ab antiquis de contemnendis ac despiciendis rebus humanis; ea possunt paria non esse. venit ad extremum;',
         "quantity": 10,
@@ -320,6 +354,7 @@ const seed = [
     {
         "title": "pc completa amd",
         "marca": "amd",
+        "categoryId": 1,
         "price": 75000,
         "description": 'lorem ipsum dolor sit amet, consectetur adipiscing elit. multa sunt dicta ab antiquis de contemnendis ac despiciendis rebus humanis; ea possunt paria non esse. venit ad extremum;',
         "quantity": 10,
@@ -333,6 +368,7 @@ const seed = [
     {
         "title": "procesador intel i5",
         "marca": "intel",
+        "categoryId": 6,
         "price": 13000,
         "description": 'lorem ipsum dolor sit amet, consectetur adipiscing elit. multa sunt dicta ab antiquis de contemnendis ac despiciendis rebus humanis; ea possunt paria non esse. venit ad extremum;',
         "quantity": 5,
@@ -342,6 +378,7 @@ const seed = [
     {
         "title": "procesador intel i7",
         "marca": "intel",
+        "categoryId": 6,
         "price": 18000,
         "description": 'lorem ipsum dolor sit amet, consectetur adipiscing elit. multa sunt dicta ab antiquis de contemnendis ac despiciendis rebus humanis; ea possunt paria non esse. venit ad extremum;',
         "quantity": 5,
@@ -351,6 +388,7 @@ const seed = [
     {
         "title": "procesador intel i9",
         "marca": "intel",
+        "categoryId": 6,
         "price": 36000,
         "description": 'lorem ipsum dolor sit amet, consectetur adipiscing elit. multa sunt dicta ab antiquis de contemnendis ac despiciendis rebus humanis; ea possunt paria non esse. venit ad extremum;',
         "quantity": 5,
@@ -360,6 +398,7 @@ const seed = [
     {
         "title": "procesador amd",
         "marca": "amd",
+        "categoryId": 6,
         "price": 15000,
         "description": 'lorem ipsum dolor sit amet, consectetur adipiscing elit. multa sunt dicta ab antiquis de contemnendis ac despiciendis rebus humanis; ea possunt paria non esse. venit ad extremum;',
         "quantity": 5,
@@ -369,6 +408,7 @@ const seed = [
     {
         "title": "procesador amd",
         "marca": "amd",
+        "categoryId": 6,
         "price": 15000,
         "description": 'lorem ipsum dolor sit amet, consectetur adipiscing elit. multa sunt dicta ab antiquis de contemnendis ac despiciendis rebus humanis; ea possunt paria non esse. venit ad extremum;',
         "quantity": 5,
@@ -382,6 +422,7 @@ const seed = [
     {
         "title": "memoria ram",
         "marca": "hyperx",
+        "categoryId": 8,
         "price": 10000,
         "description": 'lorem ipsum dolor sit amet, consectetur adipiscing elit. multa sunt dicta ab antiquis de contemnendis ac despiciendis rebus humanis; ea possunt paria non esse. venit ad extremum;',
         "quantity": 5,
@@ -391,6 +432,7 @@ const seed = [
     {
         "title": "memoria ram",
         "marca": "kingston",
+        "categoryId": 8,
         "price": 8000,
         "description": 'lorem ipsum dolor sit amet, consectetur adipiscing elit. multa sunt dicta ab antiquis de contemnendis ac despiciendis rebus humanis; ea possunt paria non esse. venit ad extremum;',
         "quantity": 5,
@@ -400,6 +442,7 @@ const seed = [
     {
         "title": "memoria ram",
         "marca": "hyperx",
+        "categoryId": 8,
         "price": 12000,
         "description": 'lorem ipsum dolor sit amet, consectetur adipiscing elit. multa sunt dicta ab antiquis de contemnendis ac despiciendis rebus humanis; ea possunt paria non esse. venit ad extremum;',
         "quantity": 5,
@@ -409,6 +452,7 @@ const seed = [
     {
         "title": "fuente",
         "marca": "corsair",
+        "categoryId": 9,
         "price": 17000,
         "description": 'lorem ipsum dolor sit amet, consectetur adipiscing elit. multa sunt dicta ab antiquis de contemnendis ac despiciendis rebus humanis; ea possunt paria non esse. venit ad extremum;',
         "quantity": 5,
@@ -418,6 +462,7 @@ const seed = [
     {
         "title": "fuente",
         "marca": "atx",
+        "categoryId": 9,
         "price": 17000,
         "description": 'lorem ipsum dolor sit amet, consectetur adipiscing elit. multa sunt dicta ab antiquis de contemnendis ac despiciendis rebus humanis; ea possunt paria non esse. venit ad extremum;',
         "quantity": 5,
@@ -427,6 +472,7 @@ const seed = [
     {
         "title": "auriculares",
         "marca": "kotion each",
+        "categoryId": 10,
         "price": 8000,
         "description": 'lorem ipsum dolor sit amet, consectetur adipiscing elit. multa sunt dicta ab antiquis de contemnendis ac despiciendis rebus humanis; ea possunt paria non esse. venit ad extremum;',
         "quantity": 5,
@@ -437,6 +483,7 @@ const seed = [
     {
         "title": "auriculares",
         "marca": "boomen",
+        "categoryId": 10,
         "price": 13000,
         "description": 'lorem ipsum dolor sit amet, consectetur adipiscing elit. multa sunt dicta ab antiquis de contemnendis ac despiciendis rebus humanis; ea possunt paria non esse. venit ad extremum;',
         "quantity": 5,
@@ -447,6 +494,7 @@ const seed = [
     {
         "title": "auriculares",
         "marca": "gaming hd",
+        "categoryId": 10,
         "price": 10000,
         "description": 'lorem ipsum dolor sit amet, consectetur adipiscing elit. multa sunt dicta ab antiquis de contemnendis ac despiciendis rebus humanis; ea possunt paria non esse. venit ad extremum;',
         "quantity": 5,
@@ -456,6 +504,7 @@ const seed = [
     {
         "title": "notebook lenovo 14 amd pro",
         "marca": "lenovo",
+        "categoryId": 2,
         "price": 49200,
         "description": "muy buena compu",
         "quantity": 10,
@@ -468,6 +517,7 @@ const seed = [
     {
         "title": "notebook Lenovo 15 intel",
         "marca": "lenovo",
+        "categoryId": 2,
         "price": 75000,
         "description": "alta compu",
         "quantity": 10,
@@ -480,6 +530,7 @@ const seed = [
     {
         "title": "notebook hp 14 intel i3 pro",
         "marca": "hp",
+        "categoryId": 2,
         "price": 85000,
         "description": "computadora hp intel i3",
         "quantity": 10,
@@ -492,6 +543,7 @@ const seed = [
     {
         "title": "notebook vivobook 14 intel i5",
         "marca": "vivobook",
+        "categoryId": 2,
         "price": 95000,
         "description": "vivobook 14, pedazo de notebook",
         "quantity": 10,
@@ -505,6 +557,7 @@ const seed = [
     {
         "title": "notebook asus r30 amd pro",
         "marca": "ASUS",
+        "categoryId": 2,
         "price": 85260,
         "description": "notebook asus r30 pro, alta notebook",
         "quantity": 12,
@@ -518,6 +571,7 @@ const seed = [
     {
         "title": "notebook zenbook",
         "marca": "zenbook",
+        "categoryId": 2,
         "price": 90000,
         "description": "pedazo de compu",
         "quantity": 15,
@@ -530,6 +584,7 @@ const seed = [
     {
         "title": "notebook zenbook 16",
         "marca": "lenovo",
+        "categoryId": 2,
         "price": 105000,
         "description": "notebook zenbook 16",
         "quantity": 11,
@@ -542,6 +597,7 @@ const seed = [
     {
         "title": "notebook asus rz-16 ",
         "marca": "asus",
+        "categoryId": 2,
         "price": 130000,
         "description": "pero que pedazo de compu!!!",
         "quantity": 8,
@@ -554,6 +610,7 @@ const seed = [
     {
         "title": "notebook lenovo ideapad 5 ryzen 5",
         "marca": "ideapad",
+        "categoryId": 2,
         "price": 49200,
         "description": "una compu del carajo!!!",
         "quantity": 10,
@@ -567,6 +624,7 @@ const seed = [
     {
         "title": "notebook asus ryzen 7",
         "marca": "asus",
+        "categoryId": 2,
         "price": 135000,
         "description": "muy buena compu",
         "quantity": 18,
@@ -581,6 +639,7 @@ const seed = [
     {
         "title": "impresora",
         "marca": "hp",
+        "categoryId": 12,
         "price": 8000,
         "description": "imprime re piola",
         "quantity": 100,
@@ -594,6 +653,7 @@ const seed = [
     }, {
         "title": "impresora",
         "marca": "epson",
+        "categoryId": 12,
         "price": 5000,
         "description": "imprime bien",
         "quantity": 11,
@@ -607,6 +667,7 @@ const seed = [
     }, {
         "title": "impresora",
         "marca": "xerox",
+        "categoryId": 12,
         "price": 1000,
         "description": "imprime maso menos",
         "quantity": 15,
@@ -620,6 +681,7 @@ const seed = [
     }, {
         "title": "impresora",
         "marca": "brother",
+        "categoryId": 12,
         "price": 200,
         "description": "imprime hasta ahi",
         "quantity": 100,
@@ -633,6 +695,7 @@ const seed = [
     }, {
         "title": "impresora",
         "marca": "hp",
+        "categoryId": 12,
         "price": 9500,
         "description": "imprime re bien los colores!",
         "quantity": 16,
@@ -646,7 +709,7 @@ const seed = [
     },
 ]
 
-const usuario = [
+const userSeed = [
     {
         "name": "Carlos Gonzales",
         "email": "carlitos@branchgamer.com",
@@ -655,14 +718,70 @@ const usuario = [
     }
 ]
 
+const categorySeed = [
+    {
+        "name": "completa" //1
+    },
+    {
+        "name": "laptop" //2
+    },
+    {
+        "name": "monitor" //3
+    },
+    {
+        "name": "teclado" //4
+    },
+    {
+        "name": "mouse" //5
+    },
+    {
+        "name": "procesador" //6
+    },
+    {
+        "name": "mother" //7
+    },
+    {
+        "name": "ram" //8
+    },
+    {
+        "name": "fuente" //9
+    },
+    {
+        "name": "auricular" //10
+    },
+    {
+        "name": "conector" //11
+    },
+    {
+        "name": "impresora" //12
+    }
+]
+
+
 
 async function runSeed() {
-    console.log("empezando seed...")
-    await User.create(usuario[0])
-    await Promise.all(seed.map((producto) => {
-        return Product.create(producto)
-    }))
-    console.log("seed terminado")
+
+    console.log("------------------\nEmpezando seed...\n------------------")
+
+    await User.create(userSeed[0])
+    await Promise.all(productsSeed.map(producto => Product.create(producto)))
+    await Promise.all(categorySeed.map(category => Category.create(category)))
+
+    let arrCat = []
+    for(let i=1 ; i<7 ; i++){arrCat.push({productId: i, categoryId: 5})}
+    for(let i=7 ; i<14 ; i++){arrCat.push({productId: i, categoryId: 4})}
+    for(let i=14 ; i<20 ; i++){arrCat.push({productId: i, categoryId: 3})}
+    for(let i=20 ; i<22 ; i++){arrCat.push({productId: i, categoryId: 11})}
+    for(let i=22 ; i<30 ; i++){arrCat.push({productId: i, categoryId: 7})}
+    for(let i=30 ; i<36 ; i++){arrCat.push({productId: i, categoryId: 1})}
+    for(let i=36 ; i<41 ; i++){arrCat.push({productId: i, categoryId: 6})}
+    for(let i=41 ; i<44 ; i++){arrCat.push({productId: i, categoryId: 8})}
+    for(let i=44 ; i<46 ; i++){arrCat.push({productId: i, categoryId: 9})}
+    for(let i=46 ; i<49 ; i++){arrCat.push({productId: i, categoryId: 10})}
+    for(let i=49 ; i<59 ; i++){arrCat.push({productId: i, categoryId: 12})}
+
+    await ProductsCategories.bulkCreate(arrCat)
+
 }
 
 runSeed()

@@ -14,10 +14,21 @@ export default function ProductList() {
   const [currentPage, setCurrentPage] = React.useState(1);
   const [productosPorPagina] = React.useState(12);
 
+  const shuffle = (arr) => {
+    let currentIndex = arr.length,  randomIndex;
+    while (0 !== currentIndex) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+      [arr[currentIndex], arr[randomIndex]] = 
+      [arr[randomIndex], arr[currentIndex]];
+    }
+    return arr;
+  }
+
   let indexOfLastItem = currentPage * productosPorPagina;
   let indexOfFirstItem = indexOfLastItem - productosPorPagina;
   if (indexOfFirstItem >= productos.length) indexOfFirstItem = 0;
-  let currentProducts = productos.slice(indexOfFirstItem, indexOfLastItem);
+  let currentProducts = shuffle(productos.slice(indexOfFirstItem, indexOfLastItem));
 
   const paginate = (pageNumber, e) => {
     e.preventDefault();
@@ -50,7 +61,7 @@ export default function ProductList() {
           </>
         ) : (
           <h3 className="no-product d-flex justify-content-center align-items-center w-100">
-            "No se encontró ningún producto."
+            No se encontró ningún producto.
           </h3>
         )
       ) : currentProducts.length ? (

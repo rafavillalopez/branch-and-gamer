@@ -5,13 +5,14 @@ const Valoration = require("./Valoration");
 const Coment = require("./Coment");
 const Category = require("./Category");
 const ProductsCarrito = require("./ProducstCarrito");
+const ProductsCategories = require("./ProductsCategories");
 
 // RELATIONS
 
 User.belongsToMany(Product, { through: "favorites" });
 
-Product.belongsToMany(Category, { through: "pruductscategories" });
-Category.belongsToMany(Product, { through: "pruductscategories" });
+Product.belongsToMany(Category, { through: ProductsCategories });
+Category.belongsToMany(Product, { through: ProductsCategories });
 
 User.hasMany(Coment);
 Product.hasMany(Coment);
@@ -29,4 +30,6 @@ module.exports = {
   Valoration,
   Coment,
   Category,
+  ProductsCategories,
+  ProductsCarrito
 };

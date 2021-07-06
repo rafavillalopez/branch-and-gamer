@@ -1,7 +1,4 @@
-import {
-  createReducer,
-  createAsyncThunk,
-} from "@reduxjs/toolkit";
+import { createReducer, createAsyncThunk, createAction } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const setCart = createAsyncThunk("SET_CART", async (data, thunkAPI) => {
@@ -18,13 +15,11 @@ export const setCart = createAsyncThunk("SET_CART", async (data, thunkAPI) => {
   }
 });
 
+export const setCartVoid = createAction("AbadaKedabra")
 
-
-const SetCartReducer = createReducer(
-  {},
-  {
-    [setCart.fulfilled]: (state, action) => action.payload,
-  }
-);
+const SetCartReducer = createReducer({}, {
+  [setCart.fulfilled]: (state, action) => action.payload,
+  [setCartVoid]: (state, action) => {}
+});
 
 export default SetCartReducer;
