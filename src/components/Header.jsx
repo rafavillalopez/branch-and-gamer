@@ -96,14 +96,14 @@ export default function Header() {
                             </li>
                             <li className="nav-item ">
                                 <div className="nav-link">
-                                    <Link to="/cart">
+                                    <Link to="/cart" style={{textDecoration: "none"}}>
                                         <span className="fa fa-shopping-cart"></span>
                                         <img
                                             src="https://img.icons8.com/ios-glyphs/30/000000/fast-cart.png"
                                             alt=""
                                         />
-                                        <span className="textCart">
-                                            Carrito
+                                        <span className="text">
+                                        &nbsp;&nbsp;&nbsp;&nbsp;Carrito
                                         </span>
                                     </Link>
                                 </div>{" "}
@@ -111,11 +111,11 @@ export default function Header() {
                             {isLogIn && loggedUser.isAdmin ? (
                                 <li className="nav-item ">
                                     <div className="nav-link">
-                                        <Link to="/admin">
+                                        <Link to="/admin"  style={{textDecoration: "none"}}>
                                             <span className="fa fa-shopping-cart"></span>
-                                            <img src="https://img.icons8.com/ios-glyphs/30/000000/fantasy--v1.png" />{" "}
-                                            <span className="textCart">
-                                                Admin
+                                                 <img src="https://img.icons8.com/ios-glyphs/30/000000/fantasy--v1.png" />{" "}
+                                            <span className="text">
+                                            &nbsp;&nbsp;&nbsp;&nbsp;Admin
                                             </span>
                                         </Link>
                                     </div>{" "}
@@ -127,7 +127,7 @@ export default function Header() {
                             {isLogIn && !loggedUser.isAdmin ? (
                                 <li className="nav-item ">
                                     <div className="nav-link">
-                                        <Link to="/perfil">
+                                        <Link to="/perfil" style={{textDecoration: "none"}}>
                                             <span className="fa fa-shopping-cart"></span>
                                             <img src="https://img.icons8.com/ios-glyphs/30/000000/fantasy--v1.png" />{" "}
                                             <span className="textCart">

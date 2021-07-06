@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { isInCarItems } from "../utils";
 import { addItem, removeItem } from "../store/cartReducer";
 import "../assets/index.css";
+import Navbar from './Navbar'
 
 export default function SingleProduct() {
     const { id } = useParams();
@@ -28,6 +29,16 @@ export default function SingleProduct() {
         dispatch(removeItem({ id: Number(id) }));
     };
     return (
+        <div >
+        <Navbar />
+       <br/>
+       <Link
+           to="/"
+           className="goback"
+           style={{ textDecoration: "none" , paddingBottom: '8px'}}
+       >
+           Volver
+       </Link>
         <div className="container-fluid mt-5">
             <div className="row">
                 <div className="col-md-5">
@@ -110,6 +121,7 @@ export default function SingleProduct() {
                     <hr />
                 </div>
             </div>
+        </div>
         </div>
     );
 }

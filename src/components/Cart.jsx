@@ -30,13 +30,13 @@ export default function Cart() {
                     <div className="col-lg-10 offset-lg-1">
                         <div className="cart_container">
                             <div className="cart_title">
-                                Shopping Cart
+                                Mi carrito
                                 <small>
                                     {" "}
                                     ({itemsToRender
                                         ? itemsToRender.length
                                         : 1}{" "}
-                                    item/s in your cart){" "}
+                                    item/s){" "}
                                 </small>
                             </div>
                             <div className="cart_items">

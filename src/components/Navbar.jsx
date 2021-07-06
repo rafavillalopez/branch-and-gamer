@@ -19,7 +19,7 @@ export default function Navbar() {
 
     return (
         <div>
-            <nav className="navbar navbar-expand-sm navbar-light bg-white border-bottom">
+            <nav className="navbar-expand-sm navbar-light bg-white border-bottom">
                 {" "}
                 <button className="logo-btn" onClick={inicio}>
                     <img
@@ -45,7 +45,7 @@ export default function Navbar() {
                         <li className="nav-item">
                             {!isLogIn ? (
                                 <div className="nav-link">
-                                    <Link to="/login">
+                                    <Link to="/login" style={{textDecoration: "none"}}>
                                         <span className="fa fa-user-o p-0"></span>
                                         <img
                                             src="https://img.icons8.com/ios-filled/30/000000/stormtrooper.png"
@@ -72,13 +72,13 @@ export default function Navbar() {
                         </li>
                         <li className="nav-item ">
                             <div className="nav-link" href="#">
-                                <Link to="/cart">
+                                <Link to="/cart" style={{textDecoration: "none"}}>
                                     <span class="fa fa-shopping-cart"></span>
                                     <img
                                         src="https://img.icons8.com/ios-glyphs/30/000000/fast-cart.png"
                                         alt=""
                                     />
-                                    <span class="textCart">Carrito</span>
+                                    <span class="text">&nbsp;&nbsp;&nbsp;&nbsp;Carrito</span>
                                 </Link>
                             </div>{" "}
                         </li>
