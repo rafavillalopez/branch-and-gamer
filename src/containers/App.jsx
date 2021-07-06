@@ -16,13 +16,16 @@ import Perfil from "../components/perfil/Perfil";
 import OrdenActual from "../components/OrdenActual";
 
 import "./App.css";
+import { getItems } from "../store/cartReducer";
 
 function App() {
     const dispatch = useDispatch();
 
-    React.useEffect(() => {
-        dispatch(setUser());
-    }, [dispatch]);
+  React.useEffect(() => {
+    dispatch(setUser()).then((data) => {
+      if (!data.payload.id) dispatch(getItems());
+    });
+  }, [dispatch]);
 
     return (
         <>

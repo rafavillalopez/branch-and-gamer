@@ -2,13 +2,14 @@ import * as React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { setProductos } from "../store/productos";
+
 import ProductBlock from "./ProductBlock";
 import Pagination from "./Pagination";
 
 export default function ProductList() {
   const dispatch = useDispatch();
   let productos = useSelector((state) => state.productos);
-  let item = useSelector((state) => state.item);
+  let { item } = useSelector((state) => state);
 
   const [currentPage, setCurrentPage] = React.useState(1);
   const [productosPorPagina] = React.useState(12);
@@ -33,6 +34,7 @@ export default function ProductList() {
     e.preventDefault();
     setCurrentPage(pageNumber);
   };
+
 
   React.useEffect(() => {
     axios
