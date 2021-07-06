@@ -1,21 +1,34 @@
-import { createReducer, createAsyncThunk, createAction } from "@reduxjs/toolkit";
+import {
+  createReducer,
+  createAsyncThunk,
+  createAction,
+} from "@reduxjs/toolkit";
 import axios from "axios";
+import { getItems } from "./cartReducer";
 
 export const setCart = createAsyncThunk("SET_CART", async (data, thunkAPI) => {
-  const { id, token } = data;
+  try {
+    const { id, token } = data;
 
-  const req = await axios.post(`/api/cart/${id}`, {
-    headers: { authorization: token },
-  });
+    const req = await axios.post(`/api/cart/${id}`, {
+      headers: { authorization: token },
+    });
 
-  return req.data;
+    thunkAPI.dispatch(getItems({ id: req.data.id, token }));
+    return req.data;
+  } catch (err) {
+    throw err;
+  }
 });
 
-export const setCartVoid = createAction("AbadaKedabra")
+export const setCartVoid = createAction("AbadaKedabra");
 
-const SetCartReducer = createReducer({}, {
-  [setCart.fulfilled]: (state, action) => action.payload,
-  [setCartVoid]: (state, action) => {}
-});
+const SetCartReducer = createReducer(
+  {},
+  {
+    [setCart.fulfilled]: (state, action) => action.payload,
+    [setCartVoid]: (state, action) => {},
+  }
+);
 
 export default SetCartReducer;
