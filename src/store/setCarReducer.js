@@ -1,5 +1,10 @@
-import { createReducer, createAsyncThunk, createAction } from "@reduxjs/toolkit";
+import {
+  createReducer,
+  createAsyncThunk,
+  createAction,
+} from "@reduxjs/toolkit";
 import axios from "axios";
+import { getItems } from "./cartReducer";
 
 export const setCart = createAsyncThunk("SET_CART", async (data, thunkAPI) => {
   try {
@@ -9,17 +14,21 @@ export const setCart = createAsyncThunk("SET_CART", async (data, thunkAPI) => {
       headers: { authorization: token },
     });
 
+    thunkAPI.dispatch(getItems({ id: req.data.id, token }));
     return req.data;
   } catch (err) {
     throw err;
   }
 });
 
-export const setCartVoid = createAction("AbadaKedabra")
+export const setCartVoid = createAction("AbadaKedabra");
 
-const SetCartReducer = createReducer({}, {
-  [setCart.fulfilled]: (state, action) => action.payload,
-  [setCartVoid]: (state, action) => {}
-});
+const SetCartReducer = createReducer(
+  {},
+  {
+    [setCart.fulfilled]: (state, action) => action.payload,
+    [setCartVoid]: (state, action) => {},
+  }
+);
 
 export default SetCartReducer;
