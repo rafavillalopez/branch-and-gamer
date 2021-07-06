@@ -1,25 +1,25 @@
 import useLocalStorage from "../hooks/useLocalStorage";
 
-const useCart = () => {
+const useCarrito = () => {
   const [cart, dispatch] = useLocalStorage("cart-items-no-log", []);
 
   const addToCart = (id) => {
-    dispatch({ type: "add", playload: { productId: id, quantity: 1 } });
+    dispatch({ type: "add", payload: { productId: id, quantity: 1 } });
   };
 
   const removeFromCart = (id) => {
-    dispatch({ type: "remove", playload: { id } });
+    dispatch({ type: "remove", payload: { id } });
   };
 
   const addOneToCart = (id) => {
-    dispatch({ type: "quantityAdd", playload: { id } });
+    dispatch({ type: "quantityAdd", payload: { id } });
   };
 
   const removeOneFromCart = (id) => {
-    dispatch({ type: "quantityRemove", playload: { id } });
+    dispatch({ type: "quantityRemove", payload: { id } });
   };
 
   return { cart, addToCart, removeFromCart, addOneToCart, removeOneFromCart };
 };
 
-export default useCart;
+export default useCarrito;

@@ -14,13 +14,14 @@ import { setUser } from "../store/loggedUserReducer";
 import AdminPanel from "../components/AdminPanel";
 
 import "./App.css";
+import { getItems } from "../store/cartReducer";
 
 function App() {
   const dispatch = useDispatch();
 
   React.useEffect(() => {
     dispatch(setUser()).then((data) => {
-      console.log("DEVOLUCION DE SET USER", data);
+      if (!data.payload.id) dispatch(getItems());
     });
   }, [dispatch]);
 

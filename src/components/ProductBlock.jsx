@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import axios from "axios";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
@@ -12,7 +12,6 @@ import { addItem, removeItem } from "../store/cartReducer";
 export default function ProductBlock({ producto }) {
   const { cartItems } = useSelector((state) => state);
   const dispatch = useDispatch();
-
   const isInCar = isInCarItems(cartItems, producto.id);
 
   let formatter = new Intl.NumberFormat("en-US", {
