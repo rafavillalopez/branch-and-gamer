@@ -122,11 +122,13 @@ router.get("/buy", validateToken, async (req, res) => {
   const [ , user ] = await Promise.all([promesa1, promesa2])
 
   //Mailing
-  transporter.sendEmail({
-    from: '"Bienvenido a la tecnología." <branchandgamer@gmail.com>',
+  transporter.sendMail({
+    from: '"Branch&Gamer" <branchandgamer@gmail.com>',
     to: user.email,
     subject: 'Bienvenido a la tecnología.',
-    html: `<h2> Bienvenido, ${user.name}! \nLa compra fué realizada con éxito.</h2>`
+    html: `<h3> Bienvenido, ${user.name}! <br/> 
+            La compra fué realizada con éxito.</h3> <br/> <br/> 
+            <img src="https://i.postimg.cc/3J1SHX0X/b-g-logo.png" alt="Branch&Gamer"/>`
   }).catch(() => res.status(400).json({ message: 'Algo malió sal' }))
 
   res.status(200).json()
