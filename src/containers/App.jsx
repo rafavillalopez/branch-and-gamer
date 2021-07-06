@@ -13,6 +13,7 @@ import About from "../components/About";
 import { setUser } from "../store/loggedUserReducer";
 import AdminPanel from "../components/AdminPanel";
 import Perfil from "../components/perfil/Perfil";
+import OrdenActual from "../components/OrdenActual";
 
 import "./App.css";
 
@@ -36,6 +37,7 @@ function App() {
                 <Route exact path="/Contact" component={Contact} />
                 <Route exact path="/About" component={About} />
                 <Route exact path="/perfil" component={Perfil} />
+                <Route exact path="/ordenActual" component={OrdenActual} />
 
                 <Route exact path="/Admin" component={AdminPanel} />
             </Switch>
