@@ -90,13 +90,16 @@ export default function SingleProduct() {
                         <i className="fa fa-check-square-o mt-1"></i>
                         <span className="ml-1 font-weight-bold"></span>
                         <div>
-                            5% Unlimited Cashback on Axis Bank Credit Card. 5%
-                            Unlimited Cashback on Axis Bank Credit Card. 5%
-                            Unlimited Cashback on Axis Bank Credit Card 5%
-                            Unlimited Cashback on Axis Bank Credit Card 5%
-                            Unlimited Cashback on Axis Bank Credit Card 5%
-                            Unlimited Cashback on Axis Bank Credit Card
+                            {producto.description}
                             <br />
+                            <br />
+                            CÓMO COMPRAR EN NUESTRA TIENDA OFICIAL:
+                            <br />
+                            1. Selecciona el producto que deseas adquirir y haz Click en Añadir al carrito.
+                            <br />
+                            2. Gestiona el Envío: carga la dirección completa del domicilio donde quieres recibir tu compra.
+                            <br />
+                            3. Elige la forma de pago: contamos con todos los métodos de pago.
                         </div>
                     </div>
                     <div className="d-flex align-items-center mt-5 delivery">
