@@ -21,6 +21,10 @@ export default function SingleProduct() {
         currency: "USD",
     });
 
+    const mayus = (arr) => {
+        return arr.charAt(0).toUpperCase() + arr.slice(1);
+      }
+
     const handleAdd = () => {
         dispatch(addItem({ id: Number(id) }));
     };
@@ -52,7 +56,7 @@ export default function SingleProduct() {
                                 <img
                                     className="img-thumbnail"
                                     src={producto.imageUrl}
-                                    alt={producto.title}
+                                    alt={mayus(producto.title)}
                                     loading="lazy"
                                 />
                             </div>
@@ -60,7 +64,8 @@ export default function SingleProduct() {
                     </div>
                 </div>
                 <div className="col-md-7">
-                    <h4>{producto.title}</h4>
+                    <h2>{mayus(producto.title)}</h2>
+                    <h4 style={{color: "gray"}}>{mayus(producto.marca)}</h4>
                     <div className="price">
                         <span className="mr-2">
                             <i className="fa fa-rupee text-success"></i>

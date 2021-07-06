@@ -11,8 +11,11 @@ export const setCart = createAsyncThunk("SET_CART", async (data, thunkAPI) => {
   return req.data;
 });
 
+export const setCartVoid = createAction("AbadaKedabra")
+
 const SetCartReducer = createReducer({}, {
   [setCart.fulfilled]: (state, action) => action.payload,
+  [setCartVoid]: (state, action) => {}
 });
 
 export default SetCartReducer;
