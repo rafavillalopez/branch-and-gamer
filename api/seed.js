@@ -761,7 +761,7 @@ const categorySeed = [
 
 async function runSeed() {
 
-    console.log("Empezando seed...")
+    console.log("------------------\nEmpezando seed...\n------------------")
 
     await User.create(userSeed[0])
     await Promise.all(productsSeed.map(producto => Product.create(producto)))

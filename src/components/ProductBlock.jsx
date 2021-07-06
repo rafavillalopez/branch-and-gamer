@@ -20,6 +20,10 @@ export default function ProductBlock({ producto }) {
     currency: "USD",
   });
 
+  const mayus = (arr) => {
+    return arr.charAt(0).toUpperCase() + arr.slice(1);
+  }
+
   const handleAdd = () => {
     dispatch(addItem({ id: producto.id }));
   };
@@ -49,8 +53,8 @@ export default function ProductBlock({ producto }) {
           />
           <br />
           <br />
-          <Card.Title className="card-title">{producto.title}</Card.Title>
-          <Card.Text className="card-title">{producto.marca}</Card.Text>
+          <Card.Title className="card-title">{mayus(producto.title)}</Card.Title>
+          <Card.Text className="card-title">{mayus(producto.marca)}</Card.Text>
         </Link>
         <h3 className="price">{formatter.format(producto.price)}</h3>
         <div className="block-btns">

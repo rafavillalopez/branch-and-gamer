@@ -1,5 +1,5 @@
 const express = require("express");
-const { Carrito, User, ProducstCarrito } = require("../models");
+const { Carrito, User, ProductsCarrito } = require("../models");
 const router = express.Router();
 const transporter = require('../mailer')
 const { isAdmin, validateToken } = require('../middlewares')
@@ -13,7 +13,7 @@ usurio logueado, por eso al entrar deberian aprobar un middleware de JWT y asegu
 //Añadir un item al carrito 
 router.post("/add", (req, res, next) => {
   const { carritoId, productId } = req.body;
-  ProducstCarrito.findOrCreate({
+  ProductsCarrito.findOrCreate({
     where: {
       carritoId,
       productId,
@@ -27,7 +27,7 @@ router.post("/add", (req, res, next) => {
 
 //Devuelve todos los items de un carrito
 router.get("/items/:id", (req, res, next) => {
-  ProducstCarrito.findAll({
+  ProductsCarrito.findAll({
     where: {
       carritoId: req.params.id,
     },
@@ -63,7 +63,7 @@ router.post("/:userId", (req, res, next) => {
 //Eliminar un item del carrito (loggeado)
 router.delete("/:carritoId/:productId", (req, res, next) => {
   const { carritoId, productId } = req.params;
-  ProducstCarrito.destroy({
+  ProductsCarrito.destroy({
     where: {
       carritoId,
       productId,
@@ -91,7 +91,7 @@ router.put("/", (req, res, next) => {
 
   const { carritoId, productId, type } = req.body;
 
-  ProducstCarrito.findOne({
+  ProductsCarrito.findOne({
     where: {
       carritoId,
       productId,
@@ -112,18 +112,15 @@ router.get("/buy", validateToken, async (req, res) => {
   if(!req.user) return res.status(401).json({ message: 'Usuario no loggeado' })
 
   const { id } = req.user
-  //Busco el user con el id.
-  //busco carrito con el userId y el estado "inUse" y lo cambio a pendiente
-  //envio mail de notificacion "compra pendiente"
+  
   let promesa1 = Carrito.findOne({ where: { userId: id, state: "inUse"}})
-    .then(carrito => carrito.update({ state: "pending" }))
+    .then(carrito => carrito.update({ state: "pendiente" }))
 
-  let promesa2 = User.findeOne({ where: { id: id }})
+  let promesa2 = User.findOne({ where: { id: id }})
     .then(data => data)
 
   const [ , user ] = await Promise.all([promesa1, promesa2])
 
-  //Buscar ProductsCarrito con este id
   //Mailing
   transporter.sendEmail({
     from: '"Bienvenido a la tecnología." <branchandgamer@gmail.com>',
@@ -132,7 +129,6 @@ router.get("/buy", validateToken, async (req, res) => {
     html: `<h2> Bienvenido, ${user.name}! \nLa compra fué realizada con éxito.</h2>`
   }).catch(() => res.status(400).json({ message: 'Algo malió sal' }))
 
-  //Termino y devuelvo
   res.status(200).json()
 })
 
