@@ -114,7 +114,7 @@ router.get("/buy", validateToken, async (req, res) => {
   const { id } = req.user
   
   let promesa1 = Carrito.findOne({ where: { userId: id, state: "inUse"}})
-    .then(carrito => carrito.update({ state: "pending" }))
+    .then(carrito => carrito.update({ state: "pendiente" }))
 
   let promesa2 = User.findOne({ where: { id: id }})
     .then(data => data)
