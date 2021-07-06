@@ -1,4 +1,4 @@
-import { createReducer, createAsyncThunk } from "@reduxjs/toolkit";
+import { createReducer, createAsyncThunk, createAction } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const getItems = createAsyncThunk(
@@ -109,7 +109,10 @@ export const quantityAdd = createAsyncThunk(
   }
 );
 
+export const setCarritoItemsVacio = createAction("set_CarritoItemsVacio")
+
 const cartReducer = createReducer([], {
+  [setCarritoItemsVacio]: (state, action) => [],
   [getItems.fulfilled]: (state, action) => action.payload,
   [addItem.fulfilled]: (state, action) => [...state, action.payload],
   [removeItem.fulfilled]: (state, action) =>
