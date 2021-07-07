@@ -13,6 +13,8 @@ export default function Historial() {
         dispatch(setOrdenes());
     }, []);
 
+
+    
     return (
         <div>
             <Table striped bordered hover variant="blue">
