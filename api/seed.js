@@ -266,6 +266,7 @@ const productsSeed = [
         "title": "mother",
         "marca": "gigabyte",
         "price": 9000,
+        "categoryId": 7,
         "description": "mother gigabyte gamer rgb",
         "quantity": 13,
         "colors": ["blue", "red"],

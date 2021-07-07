@@ -41,6 +41,7 @@ export default function ProductList() {
       .get(`/api/products?item=${item}`)
       .then((res) => res.data)
       .then((data) => {
+        console.log("data LIST: ", data)
         dispatch(setProductos(data));
       });
   }, [item, dispatch]);

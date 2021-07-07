@@ -101,3 +101,26 @@ export default function Sidebar() {
         </div>
     );
 }
+
+
+    
+// const handleFilter = (categoryId) => {
+//     let productArr = []
+//      axios
+//         .get(`/api/products?categoryId=${categoryId}`)
+//         .then((res) => res.data)
+//         .then((data) => { data.map(arrData => 
+//             axios.get(`/api/products?id=${arrData.productId}`)
+//             .then((datas) => productArr.push(datas.data)))
+//             })
+//             .then(() => aux())
+//             .catch(err => console.log("ERROR: ",err))
+// };
+
+// const aux = (productArr) => {
+//     // console.log("(Antes del dispatch) DATA Arr: ", productArr)
+//     if(productArr[0]) {
+//         console.log("(En dispatch) DATA Arr: ", productArr)
+//         return dispatch(setProductos(productArr))
+//     }
+// }
