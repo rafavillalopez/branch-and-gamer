@@ -28,7 +28,7 @@ export default function ProductList() {
   let indexOfLastItem = currentPage * productosPorPagina;
   let indexOfFirstItem = indexOfLastItem - productosPorPagina;
   if (indexOfFirstItem >= productos.length) indexOfFirstItem = 0;
-  let currentProducts = shuffle(productos.slice(indexOfFirstItem, indexOfLastItem));
+  let currentProducts = productos.slice(indexOfFirstItem, indexOfLastItem);
 
   const paginate = (pageNumber, e) => {
     e.preventDefault();
@@ -41,8 +41,7 @@ export default function ProductList() {
       .get(`/api/products?item=${item}`)
       .then((res) => res.data)
       .then((data) => {
-        console.log("data LIST: ", data)
-        dispatch(setProductos(data));
+        dispatch(setProductos(shuffle(data)));
       });
   }, [item, dispatch]);
 

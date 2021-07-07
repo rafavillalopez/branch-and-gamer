@@ -13,6 +13,7 @@ export default function Navbar() {
         window.localStorage.removeItem("branchToken");
         dispatch(setUserVoid());
     }
+    
     const inicio = () => {
         history.push("/");
     };
