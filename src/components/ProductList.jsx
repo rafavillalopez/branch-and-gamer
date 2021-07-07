@@ -43,7 +43,7 @@ export default function ProductList() {
             .get(`/api/products?item=${item}`)
             .then((res) => res.data)
             .then((data) => {
-                dispatch(setProductos(data));
+                dispatch(setProductos(shuffle(data)));
             });
     }, [item, dispatch]);
 
