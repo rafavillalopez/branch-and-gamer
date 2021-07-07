@@ -7,7 +7,7 @@ export default function CartItems({ producto }) {
   return (
     <li className="cart_item clearfix">
       <div className="cart_item_image">
-        <img src={producto.imageUrl} alt={producto.title} />
+        <img src={producto.imageUrl} alt={producto.title} alt=""/>
       </div>
       <div className="cart_item_info d-flex flex-md-row flex-column justify-content-between">
         <div className="cart_item_name cart_info_col">
@@ -33,7 +33,7 @@ export default function CartItems({ producto }) {
           </div>
         </div>
         <Link to="/"><button type="button" className="button cart_button_clear">
-        <img className="trash_item" src="https://img.icons8.com/ios-filled/48/000000/trash.png" />
+        <img className="trash_item" src="https://img.icons8.com/ios-filled/48/000000/trash.png" alt=""/>
                   </button>
                   </Link>
       </div>

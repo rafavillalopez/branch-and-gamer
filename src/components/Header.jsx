@@ -113,7 +113,7 @@ export default function Header() {
                                     <div className="nav-link">
                                         <Link to="/admin">
                                             <span className="fa fa-shopping-cart"></span>
-                                            <img src="https://img.icons8.com/ios-glyphs/30/000000/fantasy--v1.png" />{" "}
+                                            <img src="https://img.icons8.com/ios-glyphs/30/000000/fantasy--v1.png" alt="" />{" "}
                                             <span className="textCart">
                                                 Admin
                                             </span>
