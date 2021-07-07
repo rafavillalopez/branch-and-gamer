@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import InfoUsuario from "./InfoUsuario";
 import Historial from "./Historial";
 import { Link, useHistory } from "react-router-dom";
+import { setOrdenes } from "../../store/ordenesReducer";
 
 const PerfilPanel = () => {
+    const dispatch = useDispatch();
     const [activeSection, setActiveSection] = useState("Info De Usuario");
     const perfilSections = ["Info De Usuario", "Historial De Compra"];
 
@@ -14,6 +16,10 @@ const PerfilPanel = () => {
     const changeSection = (section) => {
         setActiveSection(section);
     };
+
+    React.useEffect(() => {
+        dispatch(setOrdenes());
+    }, []);
 
     return (
         <div>
