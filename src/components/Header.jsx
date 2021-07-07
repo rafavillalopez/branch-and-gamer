@@ -1,13 +1,17 @@
-import * as React from "react";
-import { Link } from "react-router-dom";
+/** @format */
+
+import React from "react";
+import { Link, useHistory } from "react-router-dom";
 import { setProductos, buscarProducto } from "../store/productos";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { setUserVoid } from "../store/loggedUserReducer";
 
 export default function Header() {
+  const history = useHistory();
+
   const dispatch = useDispatch();
-  let { isLogIn, loggedUser } = useSelector((state) => state);
+  let { isLogIn, loggedUser, googleLogin } = useSelector((state) => state);
 
   const buscar = function (e) {
     if (e.keyCode === 13) {
@@ -31,7 +35,6 @@ export default function Header() {
     window.localStorage.removeItem("branchToken");
     dispatch(setUserVoid());
   }
-
   return (
     <div className="container">
       <nav className="navbar navbar-expand-md navbar-light bg-white border-bottom">
@@ -97,7 +100,13 @@ export default function Header() {
                   </div>
                 ) : (
                   <div className="nav-link">
-                    <button className="log-out-button" onClick={logOut}>
+                    <button
+                      className="log-out-button"
+                      onClick={() => {
+                        if (googleLogin) history.push("/login");
+                        else logOut();
+                      }}
+                    >
                       <span className="fa fa-user-o p-0"></span>
                       <svg
                         class="svg-icon"

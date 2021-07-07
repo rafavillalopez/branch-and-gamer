@@ -10,7 +10,7 @@ import { setOrdenActual } from "../store/ordenActual";
 export default function OrdenActual() {
     const dispatch = useDispatch();
     const history = useHistory();
-    let { cartItems} = useSelector((state) => state);
+    let { cartItems, loggedUser, token } = useSelector((state) => state);
     const [itemsToRender, setItemsToRender] = React.useState([]);
 
     React.useEffect(() => {
@@ -25,7 +25,7 @@ export default function OrdenActual() {
         });
     };
 
-    return (    
+    return (
         <div>
             <br />
             <div className="about">
@@ -65,8 +65,13 @@ export default function OrdenActual() {
                 </p>
 
                 <button
+                    className="goback"
                     onClick={setEstado}
-                    style={{ textDecoration: "none", paddingBottom: "8px" }}
+                    style={{
+                        textDecoration: "none",
+                        paddingBottom: "8px",
+                        backgroundColor: "lightgray",
+                    }}
                 >
                     ¡Confirmar Compra!
                 </button>
