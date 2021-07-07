@@ -4,8 +4,6 @@ import { capitalizeFirstLetter } from "../utils/index";
 import "../assets/cart.css";
 import { useDispatch } from "react-redux";
 import { quantityAdd, quantityRemove, removeItem } from "../store/cartReducer";
-import { useSelector } from "react-redux";
-import useCarrito from "../hooks/useCarrito";
 
 export default function CartItems({ producto }) {
     const dispatch = useDispatch();
