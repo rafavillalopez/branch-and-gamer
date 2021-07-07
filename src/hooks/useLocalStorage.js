@@ -9,19 +9,19 @@ const useLocalStorage = (
   const reducer = (state, action) => {
     switch (action.type) {
       case "add":
-        return [...state, action.playload];
+        return [...state, action.payload];
       case "remove":
-        return state.filter((item) => item.id !== action.payload.id);
+        return state.filter((item) => item.productId !== action.payload.id);
       case "quantityAdd":
         return state.map((item) => {
-          if (item.id === action.payload.id) {
+          if (item.productId === action.payload.id) {
             return { ...item, quantity: item.quantity + 1 };
           }
           return item;
         });
       case "quantityRemove":
         return state.map((item) => {
-          if (item.id === action.payload.id) {
+          if (item.productId === action.payload.id) {
             return { ...item, quantity: item.quantity + 1 };
           }
           return item;
@@ -37,6 +37,7 @@ const useLocalStorage = (
 
   React.useEffect(() => {
     window.localStorage.setItem(key, serialize(state));
+    console.log('SE HIZO')
   }, [key, serialize, state]);
 
   return [state, dispatch];

@@ -1,22 +1,20 @@
 import axios from "axios";
 
-export const aumentarCantidad = (state, action) => {
-  return state.map((item) => {
-    if (item.id === action.payload.id) {
+export const addOneToQuantity = (arr, id) =>
+  arr.map((item) => {
+    if (item.productId === id) {
       return { ...item, quantity: item.quantity + 1 };
     }
     return item;
   });
-};
 
-export const disminuirCantidad = (state, action) => {
-  return state.map((item) => {
-    if (item.id === action.payload.id) {
+export const removeOneFromQuantity = (arr, id) =>
+  arr.map((item) => {
+    if (item.productId === id) {
       return { ...item, quantity: item.quantity - 1 };
     }
     return item;
   });
-};
 
 export const isInCarItems = (carItems, id) => {
   return carItems.some((item) => {
@@ -24,7 +22,7 @@ export const isInCarItems = (carItems, id) => {
   });
 };
 
-export const getProductFromDb = async (array) => {
+export const getProductFromDbAndSetQuantities = async (array) => {
   const products = await Promise.all(
     array.map((x) => axios.get(`/api/products/${x.productId}`))
   );
@@ -37,3 +35,13 @@ export const getProductFromDb = async (array) => {
 
   return r;
 };
+
+export const capitalizeFirstLetter = (string) => {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};
+
+export const getCartItems = (id, token) => {
+  return axios.get(`/api/cart/items/${id}`, {
+    headers: { authorization: token },
+  }).then(res => res.data)
+}

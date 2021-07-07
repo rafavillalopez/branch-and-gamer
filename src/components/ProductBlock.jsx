@@ -59,7 +59,7 @@ export default function ProductBlock({ producto }) {
           >
             {isInCar ? "Eliminar del carrito" : "Añadir al carrito"}
           </Button>
-          <button type="submit" className="fav-btn" disabled onClick={handleFav}>
+          <button type="submit" className="fav-btn" onClick={handleFav}>
             ♡
           </button>
         </div>

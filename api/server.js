@@ -34,9 +34,9 @@ const url = "http://localhost:";
 
 db.sync({ force: false })
   .then(() => {
-    console.log(`Coneeccion a base de datos completa`);
+    console.log(`Coneexion a base de datos completa`);
     app.listen(PORT, () => {
-      console.log(`estamos conectados y escuchando en ${url + PORT}`);
+      console.log(`Estamos conectados y escuchando en ${url + PORT}`);
     });
   })
   .catch((err) => console.log(err));
