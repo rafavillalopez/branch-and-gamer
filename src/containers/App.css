@@ -537,6 +537,13 @@ h6 {
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
 }
+/* .g-signin{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -50px;
+} */
 
 @media (max-width: 930px) {
     .caroulselImage {
