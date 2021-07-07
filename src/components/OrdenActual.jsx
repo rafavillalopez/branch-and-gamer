@@ -1,15 +1,16 @@
 import * as React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Table from "react-bootstrap/Table";
 import { getProductFromDbAndSetQuantities } from "../utils";
 import { useSelector, useDispatch } from "react-redux";
 import { setCarritoItemsVacio } from "../store/cartReducer";
-import { setCarritoUsuario } from "../store/setCarReducer";
+import { setCart } from "../store/setCarReducer";
 import { setOrdenActual } from "../store/ordenActual";
 
 export default function OrdenActual() {
     const dispatch = useDispatch();
-    let { cartItems } = useSelector((state) => state);
+    const history = useHistory();
+    let { cartItems} = useSelector((state) => state);
     const [itemsToRender, setItemsToRender] = React.useState([]);
 
     React.useEffect(() => {
@@ -18,14 +19,13 @@ export default function OrdenActual() {
         });
     }, [cartItems]);
 
-    //ESTO ESTA MAL , (Por que borra los items del estado pero no del BACK )
     const setEstado = () => {
         dispatch(setOrdenActual()).then(() => {
-            dispatch(setCarritoItemsVacio());
+            history.push("/");
         });
     };
 
-    return (
+    return (    
         <div>
             <br />
             <div className="about">
@@ -41,7 +41,7 @@ export default function OrdenActual() {
                             <tr>
                                 <th>Cantidad</th>
                                 <th>Producto</th>
-                                <th>Precio</th>
+                                <th>Precio/u</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -63,14 +63,13 @@ export default function OrdenActual() {
                         </tbody>
                     </Table>
                 </p>
-                <Link
-                    to="/"
-                    className="goback"
-                    style={{ textDecoration: "none", paddingBottom: "8px" }}
+
+                <button
                     onClick={setEstado}
+                    style={{ textDecoration: "none", paddingBottom: "8px" }}
                 >
-                    ¡OK!
-                </Link>
+                    ¡Confirmar Compra!
+                </button>
             </div>
         </div>
     );

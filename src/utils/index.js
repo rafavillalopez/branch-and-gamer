@@ -39,3 +39,9 @@ export const getProductFromDbAndSetQuantities = async (array) => {
 export const capitalizeFirstLetter = (string) => {
   return string.charAt(0).toUpperCase() + string.slice(1);
 };
+
+export const getCartItems = (id, token) => {
+  return axios.get(`/api/cart/items/${id}`, {
+    headers: { authorization: token },
+  }).then(res => res.data)
+}
