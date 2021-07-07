@@ -3,9 +3,11 @@ import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import Table from "react-bootstrap/Table";
 import { setOrdenes } from "../../store/ordenesReducer";
+import { getProductFromDbAndSetQuantities } from "../../utils";
 
 export default function Historial() {
     const dispatch = useDispatch();
+    const { ordenes } = useSelector((state) => state);
 
     React.useEffect(() => {
         dispatch(setOrdenes());
@@ -26,7 +28,6 @@ export default function Historial() {
                         <td>1</td>
                         <td>
                             <p>mouse</p>
-                             
                         </td>
                         <td>2000</td>
                     </tr>
