@@ -1,8 +1,8 @@
 import React from "react";
-import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import Table from "react-bootstrap/Table";
 import { setOrdenConItems } from "../../store/ordenConItems";
+import { Link } from "react-router-dom";
 
 export default function Historial() {
     const dispatch = useDispatch();
@@ -12,7 +12,7 @@ export default function Historial() {
         dispatch(setOrdenConItems());
     }, []);
     return (
-        <div style={{ fontFamily: "font-weight" , fontSize: "15px"}}>
+        <div style={{ fontFamily: "font-weight", fontSize: "15px" }}>
             <Table striped bordered hover variant="blue">
                 <thead>
                     <tr>
@@ -46,7 +46,11 @@ export default function Historial() {
                                           }, 0)}
                                       </td>
 
-                                      <td>Pendiente</td>
+                                      <td>
+                                          <Link to="/valoraciones">
+                                              ¡Valoraciones!
+                                          </Link>
+                                      </td>
                                   </tr>
                               );
                           })

@@ -18,6 +18,7 @@ import Error404 from "../components/Error404.jsx";
 
 import "./App.css";
 import { getItems } from "../store/cartReducer";
+import Valoraciones from "../components/Valoraciones";
 
 function App() {
     const { isLogIn, loggedUser } = useSelector((state) => state);
@@ -43,6 +44,7 @@ function App() {
                 <Route exact path="/About" component={About} />
                 <Route exact path="/perfil" component={Perfil} />
                 <Route exact path="/ordenActual" component={OrdenActual} />
+                <Route exact path="/valoraciones" component={Valoraciones} />
 
                 <Route
                     exact
