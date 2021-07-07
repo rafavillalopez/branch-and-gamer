@@ -21,41 +21,39 @@ import { getItems } from "../store/cartReducer";
 import Valoraciones from "../components/Valoraciones";
 
 function App() {
-    const { isLogIn, loggedUser } = useSelector((state) => state);
-    const dispatch = useDispatch();
+  const { isLogIn, loggedUser } = useSelector((state) => state);
+  const dispatch = useDispatch();
 
-    React.useEffect(() => {
-        dispatch(setUser()).then((data) => {
-            if (!data.payload.id) dispatch(getItems());
-        });
-    }, [dispatch]);
+  React.useEffect(() => {
+    dispatch(setUser()).then((data) => {
+      if (!data.payload.id) dispatch(getItems());
+    });
+  }, [dispatch]);
 
-    return (
-        <>
-            <Switch>
-                <Route path="/products/:id" component={SingleProduct} />
-                <Route exact path="/" component={Home} />
-                <Route exact path="/Login" component={Login} />
-                <Route exact path="/Register" component={Register} />
-                <Route exact path="/Cart" component={Cart} />
-                <Route exact path="/Favorites" component={Favorites} />
-                <Route exact path="/Me" component={User} />
-                <Route exact path="/Contact" component={Contact} />
-                <Route exact path="/About" component={About} />
-                <Route exact path="/perfil" component={Perfil} />
-                <Route exact path="/ordenActual" component={OrdenActual} />
-                <Route exact path="/valoraciones" component={Valoraciones} />
+  return (
+    <>
+      <Switch>
+        <Route path="/products/:id" component={SingleProduct} />
+        <Route path="/valoraciones/:id" component={Valoraciones} />
+        <Route exact path="/" component={Home} />
+        <Route exact path="/Login" component={Login} />
+        <Route exact path="/Register" component={Register} />
+        <Route exact path="/Cart" component={Cart} />
+        <Route exact path="/Favorites" component={Favorites} />
+        <Route exact path="/Me" component={User} />
+        <Route exact path="/Contact" component={Contact} />
+        <Route exact path="/About" component={About} />
+        <Route exact path="/perfil" component={Perfil} />
+        <Route exact path="/ordenActual" component={OrdenActual} />
 
-                <Route
-                    exact
-                    path="/Admin"
-                    component={
-                        isLogIn && loggedUser.isAdmin ? AdminPanel : Error404
-                    }
-                />
-            </Switch>
-        </>
-    );
+        <Route
+          exact
+          path="/Admin"
+          component={isLogIn && loggedUser.isAdmin ? AdminPanel : Error404}
+        />
+      </Switch>
+    </>
+  );
 }
 
 export default App;
