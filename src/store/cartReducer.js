@@ -1,12 +1,18 @@
-import { createReducer, createAsyncThunk, createAction } from "@reduxjs/toolkit";
+import {
+  createReducer,
+  createAsyncThunk,
+  createAction,
+} from "@reduxjs/toolkit";
 import axios from "axios";
 import { addOneToQuantity, removeOneFromQuantity } from "../utils";
+import mergeCarritos from "../utils/mergeCarritos";
 
 export const getItems = createAsyncThunk(
   "GET_ITEMS",
   async (data, thunkAPI) => {
     try {
       const { isLogIn } = thunkAPI.getState();
+      const localCarrito = JSON.parse(window.localStorage.getItem("cart-items-no-log")) || [];
 
       if (isLogIn) {
         const { token, id } = data;
@@ -15,12 +21,13 @@ export const getItems = createAsyncThunk(
           headers: { authorization: token },
         });
 
+        if(localCarrito.length) return mergeCarritos(req.data, localCarrito, token, id)
+        
         return req.data;
+
       } else {
         const items =
           JSON.parse(window.localStorage.getItem("cart-items-no-log")) || [];
-
-        console.log("ITEMS", items);
 
         return items;
       }
@@ -115,9 +122,8 @@ export const quantityRemove = createAsyncThunk(
 
         return req.data;
       } else {
-        const items = JSON.parse(
-          window.localStorage.getItem("cart-items-no-log")
-        );
+        const items =
+          JSON.parse(window.localStorage.getItem("cart-items-no-log")) 
 
         const newItems = removeOneFromQuantity(items, data.id);
 
@@ -125,7 +131,6 @@ export const quantityRemove = createAsyncThunk(
           "cart-items-no-log",
           JSON.stringify(newItems)
         );
-        console.log("NEWITEMS", newItems);
         return newItems;
       }
     } catch (err) {
@@ -166,7 +171,6 @@ export const quantityAdd = createAsyncThunk(
           "cart-items-no-log",
           JSON.stringify(newItems)
         );
-        console.log("NEWITEMS", newItems);
         return newItems;
       }
     } catch (err) {
@@ -175,7 +179,7 @@ export const quantityAdd = createAsyncThunk(
   }
 );
 
-export const setCarritoItemsVacio = createAction("set_CarritoItemsVacio")
+export const setCarritoItemsVacio = createAction("set_CarritoItemsVacio");
 
 const cartReducer = createReducer([], {
   [setCarritoItemsVacio]: (state, action) => [],

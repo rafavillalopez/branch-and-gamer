@@ -15,6 +15,7 @@ export const setCart = createAsyncThunk("SET_CART", async (data, thunkAPI) => {
     });
 
     thunkAPI.dispatch(getItems({ id: req.data.id, token }));
+    
     return req.data;
   } catch (err) {
     throw err;
