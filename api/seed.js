@@ -266,6 +266,7 @@ const productsSeed = [
         "title": "mother",
         "marca": "gigabyte",
         "price": 9000,
+        "categoryId": 7,
         "description": "mother gigabyte gamer rgb",
         "quantity": 13,
         "colors": ["blue", "red"],
@@ -720,40 +721,40 @@ const userSeed = [
 
 const categorySeed = [
     {
-        "name": "completa" //1
+        "name": "completa" //1 ***
     },
     {
-        "name": "laptop" //2
+        "name": "laptop" //2 ***
     },
     {
-        "name": "monitor" //3
+        "name": "monitor" //3 ***
     },
     {
-        "name": "teclado" //4
+        "name": "teclado" //4 ***
     },
     {
-        "name": "mouse" //5
+        "name": "mouse" //5 ***
     },
     {
-        "name": "procesador" //6
+        "name": "procesador" //6 ***
     },
     {
-        "name": "mother" //7
+        "name": "mother" //7 ***
     },
     {
-        "name": "ram" //8
+        "name": "ram" //8 ***
     },
     {
-        "name": "fuente" //9
+        "name": "fuente" //9 ***
     },
     {
-        "name": "auricular" //10
+        "name": "auricular" //10 ***
     },
     {
-        "name": "conector" //11
+        "name": "conector" //11 ***
     },
     {
-        "name": "impresora" //12
+        "name": "impresora" //12 ***
     }
 ]
 
@@ -769,16 +770,17 @@ async function runSeed() {
 
     let arrCat = []
     for(let i=1 ; i<7 ; i++){arrCat.push({productId: i, categoryId: 5})}
-    for(let i=7 ; i<14 ; i++){arrCat.push({productId: i, categoryId: 4})}
-    for(let i=14 ; i<20 ; i++){arrCat.push({productId: i, categoryId: 3})}
-    for(let i=20 ; i<22 ; i++){arrCat.push({productId: i, categoryId: 11})}
-    for(let i=22 ; i<30 ; i++){arrCat.push({productId: i, categoryId: 7})}
-    for(let i=30 ; i<36 ; i++){arrCat.push({productId: i, categoryId: 1})}
-    for(let i=36 ; i<41 ; i++){arrCat.push({productId: i, categoryId: 6})}
-    for(let i=41 ; i<44 ; i++){arrCat.push({productId: i, categoryId: 8})}
-    for(let i=44 ; i<46 ; i++){arrCat.push({productId: i, categoryId: 9})}
-    for(let i=46 ; i<49 ; i++){arrCat.push({productId: i, categoryId: 10})}
-    for(let i=49 ; i<59 ; i++){arrCat.push({productId: i, categoryId: 12})}
+    for(let i=7 ; i<15 ; i++){arrCat.push({productId: i, categoryId: 4})}
+    for(let i=15 ; i<21 ; i++){arrCat.push({productId: i, categoryId: 3})}
+    for(let i=21 ; i<23 ; i++){arrCat.push({productId: i, categoryId: 11})}
+    for(let i=23 ; i<30 ; i++){arrCat.push({productId: i, categoryId: 7})}
+    for(let i=31 ; i<37 ; i++){arrCat.push({productId: i, categoryId: 1})}
+    for(let i=37 ; i<42 ; i++){arrCat.push({productId: i, categoryId: 6})}
+    for(let i=42 ; i<45 ; i++){arrCat.push({productId: i, categoryId: 8})}
+    for(let i=45 ; i<47 ; i++){arrCat.push({productId: i, categoryId: 9})}
+    for(let i=47 ; i<50 ; i++){arrCat.push({productId: i, categoryId: 10})}
+    for(let i=50 ; i<60 ; i++){arrCat.push({productId: i, categoryId: 2})}
+    for(let i=60 ; i<65 ; i++){arrCat.push({productId: i, categoryId: 12})}
 
     await ProductsCategories.bulkCreate(arrCat)
 

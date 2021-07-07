@@ -28,12 +28,10 @@ export default function ProductList() {
         return arr;
     };
 
-    let indexOfLastItem = currentPage * productosPorPagina;
-    let indexOfFirstItem = indexOfLastItem - productosPorPagina;
-    if (indexOfFirstItem >= productos.length) indexOfFirstItem = 0;
-    let currentProducts = shuffle(
-        productos.slice(indexOfFirstItem, indexOfLastItem)
-    );
+  let indexOfLastItem = currentPage * productosPorPagina;
+  let indexOfFirstItem = indexOfLastItem - productosPorPagina;
+  if (indexOfFirstItem >= productos.length) indexOfFirstItem = 0;
+  let currentProducts = productos.slice(indexOfFirstItem, indexOfLastItem);
 
     const paginate = (pageNumber, e) => {
         e.preventDefault();
