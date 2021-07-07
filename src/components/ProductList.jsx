@@ -9,7 +9,7 @@ import Pagination from "./Pagination";
 export default function ProductList() {
   const dispatch = useDispatch();
   let productos = useSelector((state) => state.productos);
-  let { item } = useSelector((state) => state);
+  let  item  = useSelector((state) => state.item);
 
   const [currentPage, setCurrentPage] = React.useState(1);
   const [productosPorPagina] = React.useState(12);

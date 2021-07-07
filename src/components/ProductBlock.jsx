@@ -1,12 +1,11 @@
-import React from "react";
-import axios from "axios";
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
+import * as React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
-
+import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
+import axios from "axios";
 import { isInCarItems } from "../utils";
+import { useDispatch } from "react-redux";
 import { addItem, removeItem } from "../store/cartReducer";
 
 export default function ProductBlock({ producto }) {
@@ -18,10 +17,6 @@ export default function ProductBlock({ producto }) {
     style: "currency",
     currency: "USD",
   });
-
-  const mayus = (arr) => {
-    return arr.charAt(0).toUpperCase() + arr.slice(1);
-  }
 
   const handleAdd = () => {
     dispatch(addItem({ id: producto.id }));
@@ -52,8 +47,8 @@ export default function ProductBlock({ producto }) {
           />
           <br />
           <br />
-          <Card.Title className="card-title">{mayus(producto.title)}</Card.Title>
-          <Card.Text className="card-title">{mayus(producto.marca)}</Card.Text>
+          <Card.Title className="card-title">{producto.title}</Card.Title>
+          <Card.Text className="card-title">{producto.marca}</Card.Text>
         </Link>
         <h3 className="price">{formatter.format(producto.price)}</h3>
         <div className="block-btns">
@@ -64,12 +59,7 @@ export default function ProductBlock({ producto }) {
           >
             {isInCar ? "Eliminar del carrito" : "Añadir al carrito"}
           </Button>
-          <button
-            type="submit"
-            className="fav-btn"
-            disabled
-            onClick={handleFav}
-          >
+          <button type="submit" className="fav-btn" onClick={handleFav}>
             ♡
           </button>
         </div>
