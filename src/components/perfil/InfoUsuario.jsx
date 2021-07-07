@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Media from "react-bootstrap/Media";
 
 export default function InfoUsuario() {
