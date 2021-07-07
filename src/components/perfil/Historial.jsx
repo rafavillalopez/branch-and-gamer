@@ -6,19 +6,20 @@ import { setOrdenConItems } from "../../store/ordenConItems";
 
 export default function Historial() {
     const dispatch = useDispatch();
-    const { ordenConItems } = useSelector((state) => state);
+    const { ordenConItems, ordenes } = useSelector((state) => state);
 
     React.useEffect(() => {
         dispatch(setOrdenConItems());
     }, []);
     return (
-        <div>
+        <div style={{ fontFamily: "font-weight" , fontSize: "15px"}}>
             <Table striped bordered hover variant="blue">
                 <thead>
                     <tr>
-                        <th>#</th>
+                        <th>Numero De Orden</th>
                         <th>Producto/s</th>
-                        <th>Precio</th>
+                        <th>Precio Final</th>
+                        <th>Estado De Compra</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -31,7 +32,9 @@ export default function Historial() {
                                           <p>
                                               {orden.products
                                                   .map((producto) => {
-                                                      return `${producto.quantity} ${producto.title} ${producto.marca}`;
+                                                      return `${producto.quantity}
+                                                              ${producto.title}
+                                                              ${producto.marca}`;
                                                   })
                                                   .join(", ")}
                                           </p>
@@ -42,6 +45,8 @@ export default function Historial() {
                                                   b.price * b.quantity);
                                           }, 0)}
                                       </td>
+
+                                      <td>Pendiente</td>
                                   </tr>
                               );
                           })
