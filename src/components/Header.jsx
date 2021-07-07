@@ -1,13 +1,19 @@
-import * as React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link , useHistory} from "react-router-dom";
 import { setProductos, buscarProducto } from "../store/productos";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { setUserVoid } from "../store/loggedUserReducer";
 
 export default function Header() {
+
+    const [showloginButton, setShowloginButton] = useState(true);
+    const [showlogoutButton, setShowlogoutButton] = useState(false);
+    const history = useHistory();
+
+  
     const dispatch = useDispatch();
-    let { isLogIn, loggedUser } = useSelector((state) => state);
+    let { isLogIn, loggedUser, googleLogin } = useSelector((state) => state);
 
     const buscar = function (e) {
         if (e.keyCode === 13) {
@@ -28,9 +34,17 @@ export default function Header() {
     }
 
     function logOut() {
+        setShowloginButton(true);
+        setShowlogoutButton(false);
         window.localStorage.removeItem("branchToken");
         dispatch(setUserVoid());
     }
+    const onSignoutSuccess = () => {
+        alert("You have been logged out successfully");
+        console.clear();
+        setShowloginButton(true);
+        setShowlogoutButton(false);
+      };
 
     return (
         <div className="container">
@@ -99,7 +113,10 @@ export default function Header() {
                                     <div className="nav-link">
                                         <button
                                             className="log-out-button"
-                                            onClick={logOut}
+                                            onClick={()=>{
+                                                if(googleLogin) history.push("/login")
+                                                else logOut()
+                                            }}
                                         >
                                             <span className="fa fa-user-o p-0"></span>
                                             <svg

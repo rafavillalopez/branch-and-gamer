@@ -50,7 +50,8 @@ export default function Login(props) {
           Volver
         </Link>
         <div className="register-card">
-          <form onSubmit={onSubmit}>
+          <form onSubmit={onSubmit}
+          >
             <div className="log-text">Login</div>
             <div className="form-group d-flex align-items-center">
               <div className="icon">
@@ -98,11 +99,13 @@ export default function Login(props) {
             <br />
             <LoginGoogle/>
             <br />
+            <br />
             <h6> ¿No tienes cuenta? ¡Click aquí!</h6>
             <Link to="/register">
               <button className="register-btn">Registrarme</button>
             </Link>
           </form>
+          
         </div>
         {/* </div> */}
       </div>

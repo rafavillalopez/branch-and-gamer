@@ -8,6 +8,7 @@ import { Alert } from "react-bootstrap";
 import { setRegister } from "../store/user";
 import { Link, useHistory } from "react-router-dom";
 import { setUser } from "../store/loggedUserReducer";
+import { setGoogleTrue, setGooglefalse } from "../store/googleReducer";
 import "../containers/App.css";
 
 import { GoogleLogin, GoogleLogout } from "react-google-login";
@@ -20,7 +21,7 @@ function RegisterGoogle() {
   const [showlogoutButton, setShowlogoutButton] = useState(false);
   const history = useHistory();
 
-  let usuario = useSelector((state) => state.register);
+  let {usuario } = useSelector((state) => state.register);
   const dispatch = useDispatch();
   const onLoginSuccess = (res) => {
     console.log("Login Success:", res.profileObj);
@@ -42,6 +43,7 @@ function RegisterGoogle() {
       .then((data) => {
         window.localStorage.setItem("branchToken", `Bearer ${data.token}`);
         dispatch(setUser());
+        dispatch(setGoogleTrue())
         history.push("/");
       })
       .catch((err) => {
@@ -60,6 +62,8 @@ function RegisterGoogle() {
     console.clear();
     setShowloginButton(true);
     setShowlogoutButton(false);
+    dispatch(setGooglefalse())
+
   };
 
   return (
@@ -81,7 +85,7 @@ function RegisterGoogle() {
           clientId={clientId}
           buttonText="Desloguearme"
           onLogoutSuccess={onSignoutSuccess}
-          onClick
+          // onClick
         ></GoogleLogout>
       ) : null}
     </div>
