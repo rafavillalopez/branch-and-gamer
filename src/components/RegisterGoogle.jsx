@@ -3,10 +3,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
-import { Alert } from "react-bootstrap";
-
-import { setRegister } from "../store/user";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { setUser } from "../store/loggedUserReducer";
 import { setGoogleTrue, setGooglefalse } from "../store/googleReducer";
 import "../containers/App.css";
@@ -20,8 +17,6 @@ function RegisterGoogle() {
   const [showloginButton, setShowloginButton] = useState(true);
   const [showlogoutButton, setShowlogoutButton] = useState(false);
   const history = useHistory();
-
-  let {usuario } = useSelector((state) => state.register);
   const dispatch = useDispatch();
   const onLoginSuccess = (res) => {
     console.log("Login Success:", res.profileObj);
@@ -47,8 +42,6 @@ function RegisterGoogle() {
         history.push("/");
       })
       .catch((err) => {
-        // setAlert(true);
-        // setTimeout(() => setAlert(false), 1500);
         console.log(err);
       });
   };
@@ -58,7 +51,7 @@ function RegisterGoogle() {
   };
 
   const onSignoutSuccess = () => {
-    alert("You have been logged out successfully");
+    alert("Has sido registrado satisfactoriamente !");
     console.clear();
     setShowloginButton(true);
     setShowlogoutButton(false);
@@ -85,7 +78,6 @@ function RegisterGoogle() {
           clientId={clientId}
           buttonText="Desloguearme"
           onLogoutSuccess={onSignoutSuccess}
-          // onClick
         ></GoogleLogout>
       ) : null}
     </div>

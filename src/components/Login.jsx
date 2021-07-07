@@ -23,7 +23,6 @@ export default function Login(props) {
       };
     });
   };
-  
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -45,13 +44,11 @@ export default function Login(props) {
     <div>
       <div>
         <Navbar />
-        {/* <div class=""> */}
         <Link to="/" className="goback" style={{ textDecoration: "none" }}>
           Volver
         </Link>
         <div className="register-card">
-          <form onSubmit={onSubmit}
-          >
+          <form onSubmit={onSubmit}>
             <div className="log-text">Login</div>
             <div className="form-group d-flex align-items-center">
               <div className="icon">
@@ -92,12 +89,8 @@ export default function Login(props) {
               </Alert>
             )}
             <input type="submit" value="Login" className="log-btn" />
-            <img
-              // src="https://img.icons8.com/color/48/000000/google-logo.png"
-              // alt=""
-            />
             <br />
-            <LoginGoogle/>
+            <LoginGoogle />
             <br />
             <br />
             <h6> ¿No tienes cuenta? ¡Click aquí!</h6>
@@ -105,9 +98,7 @@ export default function Login(props) {
               <button className="register-btn">Registrarme</button>
             </Link>
           </form>
-          
         </div>
-        {/* </div> */}
       </div>
     </div>
   );

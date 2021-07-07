@@ -1,40 +1,21 @@
 /** @format */
 
-import React, { useState } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import { setUserVoid } from "../store/loggedUserReducer";
-import { LoginGoogle } from "./LoginGoogle";
-
 export default function Navbar() {
   const history = useHistory();
   const dispatch = useDispatch();
-  const [showloginButton, setShowloginButton] = useState(true);
-  const [showlogoutButton, setShowlogoutButton] = useState(false);
-
   let { isLogIn, googleLogin } = useSelector((state) => state);
   const inicio = () => {
     history.push("/");
   };
   function logOut() {
-    // alert("Ha cerrado sesion correctamente");
-    // console.clear();
-    setShowloginButton(true);
-    setShowlogoutButton(false);
     window.localStorage.removeItem("branchToken");
     dispatch(setUserVoid());
   }
-
-  // const onSignoutSuccess = () => {
-  //     alert("Ha cerrado sesion correctamente");
-  //     console.clear();
-  //     setShowloginButton(true);
-  //     setShowlogoutButton(false);
-  //     window.localStorage.removeItem("branchToken");
-  //     dispatch(setUserVoid());
-  // };
-
-
+  
   return (
     <div>
       <nav className="navbar-expand-sm navbar-light bg-white border-bottom">
