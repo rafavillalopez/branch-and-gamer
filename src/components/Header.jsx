@@ -39,6 +39,8 @@ export default function Header() {
             .then((data) => {
                 dispatch(setProductos(shuffle(data)));
             });
+        }
+
   const buscar = function (e) {
     if (e.keyCode === 13) {
       dispatch(buscarProducto(e.target.value.toLowerCase()));
@@ -61,6 +63,7 @@ export default function Header() {
     window.localStorage.removeItem("branchToken");
     dispatch(setUserVoid());
   }
+
   return (
     <div className="container">
       <nav className="navbar navbar-expand-md navbar-light bg-white border-bottom">
