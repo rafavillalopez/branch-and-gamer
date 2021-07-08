@@ -93,7 +93,7 @@ export default function Header() {
               </span>
 
               <svg
-                class="svg-icon"
+                className="svg-icon"
                 viewBox="0 0 20 20"
                 style={{ height: "30px", paddingTop: "5px" }}
                 inputs={inputs}
@@ -109,7 +109,7 @@ export default function Header() {
                     <Link to="/login" style={{ textDecoration: "none" }}>
                       <span className="fa fa-user-o p-0"></span>
                       <svg
-                        class="svg-icon"
+                        className="svg-icon"
                         viewBox="0 0 20 20"
                         style={{ height: "30px" }}
                       >
@@ -129,7 +129,7 @@ export default function Header() {
                     >
                       <span className="fa fa-user-o p-0"></span>
                       <svg
-                        class="svg-icon"
+                        className="svg-icon"
                         viewBox="0 0 20 20"
                         style={{ height: "30px" }}
                       >
@@ -145,7 +145,7 @@ export default function Header() {
                   <Link to="/cart" style={{ textDecoration: "none" }}>
                     <span className="fa fa-shopping-cart"></span>
                     <svg
-                      class="svg-icon"
+                      className="svg-icon"
                       viewBox="0 0 20 20"
                       style={{ height: "30px" }}
                     >
@@ -175,7 +175,7 @@ export default function Header() {
                     <Link to="/perfil" style={{ textDecoration: "none" }}>
                       <span className="fa fa-shopping-cart"></span>
                       <svg
-                        class="svg-icon"
+                        className="svg-icon"
                         viewBox="0 0 20 20"
                         style={{ height: "30px" }}
                       >
