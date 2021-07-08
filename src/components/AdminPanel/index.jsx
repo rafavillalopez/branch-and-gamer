@@ -59,8 +59,7 @@ S18.707,9.212,18.271,9.212z"
                                 {adminSections.map((e) => {
                                     return (
                                         <div
-                                            className="col-4 d-flex justify-content-center align-items-center 
-                                        admin-navbar-section "
+                                            className="col-4 d-flex justify-content-center align-items-center admin-navbar-section "
                                             onClick={() => changeSection(e)}
                                         >
                                             <p className="m-0">{e}</p>
