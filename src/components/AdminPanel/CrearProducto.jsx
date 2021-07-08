@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from "react-redux"
 import { crearProducto } from "../../store/productos"
-import { Alert } from "react-bootstrap"
+import { Alert, Form  } from "react-bootstrap"
 
 const CrearProducto = () => {
 
@@ -64,13 +64,33 @@ const CrearProducto = () => {
 
                         <div className="col-12 col-md-6 mb-4">
                             <div className="row align-items-center">
-                                <label className="col-3 d-flex justify-content-start" htmlFor="">Categoría</label>
+                                {/* <label className="col-3 d-flex justify-content-start" htmlFor="">Categoría</label>
                                 <input className="col-9 col-md-7 crer-producto-input"
                                     type="number"
                                     name="categoryId"
                                     required
                                     onChange={handleInput}
-                                />
+                                /> */}
+                                <Form>
+                                <Form.Group controlId="exampleForm.SelectCustom">
+                                    <Form.Control as="select" name="categoryId" onClick={handleInput} custom>
+                                        <option disabled >Selecciona una categoría</option>
+                                        <option value="1" >Pc's completas</option>
+                                        <option value="2" >Laptops</option>
+                                        <option value="3" >Monitores</option>
+                                        <option value="4" >Teclados</option>
+                                        <option value="5" >Mouses</option>
+                                        <option value="6" >Procesadores</option>
+                                        <option value="7" >Mothers</option>
+                                        <option value="8" >Memorias Ram</option>
+                                        <option value="9" >Fuentes</option>
+                                        <option value="10" >Auriculares</option>
+                                        <option value="11" >Cables</option>
+                                        <option value="12" >Impresoras</option>
+                                    </Form.Control>
+                                </Form.Group>
+                                </Form>
+
                             </div>
                         </div>
 
