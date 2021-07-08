@@ -1,128 +1,61 @@
 const express = require("express");
-const { Carrito, User, ProductsCarrito, Valoration } = require("../models");
+const { Valoration } = require("../models");
+const { validateToken } = require("../middlewares");
+
 const router = express.Router();
-const { isAdmin, validateToken } = require("../middlewares");
+
+// ROUTE => /API/VALORACIONES
 
 //Añadir una valoracion
-router.post("/add", validateToken, async (req, res, next) => {
+
+router.post("/", validateToken, async (req, res, next) => {
   try {
     const userId = req.user.id;
     const { productId, value } = req.body;
-    const val = await Valoration.create({ value });
+    const val1 = await Valoration.findOne({
+      where: { userId, productId },
+    });
 
+    if (val1) return res.status(400).json({ msg: "already posted" });
 
+    const val = await Valoration.create({ value, userId, productId });
+    res.status(200).json(val);
   } catch (err) {
     next(err);
   }
 });
 
-// //Devuelve todos los items de un carrito
-// router.get("/items/:id", (req, res, next) => {
-//   ProductsCarrito.findAll({
-//     where: {
-//       carritoId: req.params.id,
-//     },
-//   })
-//     .then((producst) => {
-//       res.status(200).json(producst);
-//     })
-//     .catch(next);
-// });
+//Devuelve todos las valoraciones de un usuario, el recibido en el token
+router.get("/user", validateToken, async (req, res, next) => {
+  try {
+    const userId = req.user.id;
+    const valorations = await Valoration.findAll({
+      where: {
+        userId,
+      },
+      attributes: ["value", "productId"],
+    });
+    console.log("VALORATION OF USER", valorations);
+    res.status(200).json(valorations);
+  } catch (err) {
+    next(err);
+  }
+});
 
-// //Ruta de prueba para crear carrito (no se usa)
-// router.post("/", isAdmin, (req, res, next) => {
-//   Carrito.create(req.body).then((car) => {
-//     res.status(201).json(car);
-//   });
-// });
-
-// //Crea un carrito para un usuario loggeado
-// router.post("/:userId", (req, res, next) => {
-//   const { userId } = req.params;
-//   Carrito.findOrCreate({
-//     where: {
-//       userId,
-//       state: "inUse",
-//     },
-//   }).then(([car]) => {
-//     res.status(201).json(car);
-//   });
-// });
-
-// //Eliminar un item del carrito (loggeado)
-// router.delete("/:carritoId/:productId", (req, res, next) => {
-//   const { carritoId, productId } = req.params;
-//   ProductsCarrito.destroy({
-//     where: {
-//       carritoId,
-//       productId,
-//     },
-//   })
-//     .then((response) => {
-//       res.json({ msg: `Deleted ${response} product from ${carritoId}` });
-//     })
-//     .catch(next);
-// });
-
-// //Modificar la cantidad de un item en el carrito
-// router.put("/", (req, res, next) => {
-//   /* En esta ruta se pueden agregar o remover uno (1) de un mismo producto en el carrito, necesita una key "type: 'add'", o type: 'remove', que define el metodo a usar, tambien necesita el carritoId y el productId en el body
-
-//   Ejemplo:
-
-// {
-//   "carritoId": 1,
-//   "productId" : 3,
-//   "type": "remove" / "add"
-// }
-
-//   */
-
-//   const { carritoId, productId, type } = req.body;
-
-//   ProductsCarrito.findOne({
-//     where: {
-//       carritoId,
-//       productId,
-//     },
-//   })
-//     .then((productInCar) => {
-//       return productInCar[type]();
-//     })
-//     .then((updated) => {
-//       res.status(200).json(updated);
-//     })
-//     .catch(next);
-// });
-
-// //Compro carrito y envío mail
-// router.get("/buy", validateToken, async (req, res) => {
-//   if (!req.user)
-//     return res.status(401).json({ message: "Usuario no loggeado" });
-
-//   const { id } = req.user;
-
-//   let promesa1 = Carrito.findOne({
-//     where: { userId: id, state: "inUse" },
-//   }).then((carrito) => carrito.update({ state: "pendiente" }));
-
-//   let promesa2 = User.findOne({ where: { id: id } }).then((data) => data);
-
-//   const [, user] = await Promise.all([promesa1, promesa2]);
-
-//   //Mailing
-//   transporter
-//     .sendMail({
-//       from: '"Branch&Gamer" <branchandgamer@gmail.com>',
-//       to: user.email,
-//       subject: "Bienvenido a la tecnología.",
-//       html: `<h3> Bienvenido, ${user.name}! <br/>
-//             La compra fué realizada con éxito.</h3> <br/> <br/>
-//             <img src="https://i.postimg.cc/3J1SHX0X/b-g-logo.png" alt="Branch&Gamer"/>`,
-//     })
-//     .catch(() => res.status(400).json({ message: "Algo malió sal" }));
-
-//   res.status(200).json();
-// });
+//Devuelve todos las valoraciones de un producto
+router.get("/:id", async (req, res, next) => {
+  try {
+    const valorations = await Valoration.findAll({
+      where: {
+        productId: req.params.id,
+      },
+      attributes: ["value"],
+    });
+    console.log("VALORATIONs", valorations);
+    res.status(200).json(valorations);
+  } catch (err) {
+    next(err);
+  }
+});
 
 module.exports = router;

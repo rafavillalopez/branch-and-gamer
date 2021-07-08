@@ -784,4 +784,6 @@ async function runSeed() {
 
 }
 
-runSeed()
+runSeed().then(()=> {
+    console.log("------------------\nSeed Finalizado\n------------------");
+})

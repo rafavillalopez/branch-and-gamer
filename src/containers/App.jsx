@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+
 import Register from "../components/Register";
 import Login from "../components/Login";
 import SingleProduct from "../components/SingleProduct";
@@ -10,15 +11,16 @@ import Cart from "../components/Cart";
 import User from "../components/User";
 import Contact from "../components/Contact";
 import About from "../components/About";
-import { setUser } from "../store/loggedUserReducer";
 import AdminPanel from "../components/AdminPanel";
 import Perfil from "../components/perfil/Perfil";
 import OrdenActual from "../components/OrdenActual";
 import Error404 from "../components/Error404.jsx";
+import ValorationsContainer from "../components/ValorationsContainer";
+
+import { setUser } from "../store/loggedUserReducer";
+import { getItems } from "../store/cartReducer";
 
 import "./App.css";
-import { getItems } from "../store/cartReducer";
-import Valoraciones from "../components/Valoraciones";
 
 function App() {
   const { isLogIn, loggedUser } = useSelector((state) => state);
@@ -34,7 +36,7 @@ function App() {
     <>
       <Switch>
         <Route path="/products/:id" component={SingleProduct} />
-        <Route path="/valoraciones/:id" component={Valoraciones} />
+        <Route path="/valoraciones/:id" component={ValorationsContainer} />
         <Route exact path="/" component={Home} />
         <Route exact path="/Login" component={Login} />
         <Route exact path="/Register" component={Register} />
@@ -45,7 +47,6 @@ function App() {
         <Route exact path="/About" component={About} />
         <Route exact path="/perfil" component={Perfil} />
         <Route exact path="/ordenActual" component={OrdenActual} />
-
         <Route
           exact
           path="/Admin"

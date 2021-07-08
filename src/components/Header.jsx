@@ -148,27 +148,7 @@ export default function Header() {
                   </Link>
                 </div>{" "}
               </li>
-              {isLogIn && loggedUser.isAdmin ? (
-                <li className="nav-item ">
-                  <div className="nav-link">
-                    <Link to="/admin" style={{ textDecoration: "none" }}>
-                      <span className="fa fa-shopping-cart"></span>
-                      <img
-                        src="https://img.icons8.com/ios/50/000000/admin-settings-male.png"
-                        style={{ height: "30px" }}
-                        alt=""
-                      />
-                      <span className="text">
-                        &nbsp;&nbsp;&nbsp;&nbsp;Admin
-                      </span>
-                    </Link>
-                  </div>{" "}
-                </li>
-              ) : (
-                ""
-              )}
-
-              {isLogIn && !loggedUser.isAdmin ? (
+              {isLogIn ? (
                 <li className="nav-item ">
                   <div className="nav-link">
                     <Link to="/perfil" style={{ textDecoration: "none" }}>
@@ -182,6 +162,26 @@ export default function Header() {
                       </svg>
                       <span className="text">
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Perfil
+                      </span>
+                    </Link>
+                  </div>{" "}
+                </li>
+              ) : (
+                ""
+              )}
+
+              {isLogIn && loggedUser.isAdmin ? (
+                <li className="nav-item ">
+                  <div className="nav-link">
+                    <Link to="/admin" style={{ textDecoration: "none" }}>
+                      <span className="fa fa-shopping-cart"></span>
+                      <img
+                        src="https://img.icons8.com/ios/50/000000/admin-settings-male.png"
+                        style={{ height: "30px" }}
+                        alt=""
+                      />
+                      <span className="text">
+                        &nbsp;&nbsp;&nbsp;&nbsp;Admin
                       </span>
                     </Link>
                   </div>{" "}
