@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, { useState} from 'react'
 import {Table, Button} from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
 import { setProductos } from "../../store/productos";
@@ -11,10 +11,8 @@ const ModificarProducto = () => {
 
     const productos = useSelector(state => state.productos)
     const dispatch = useDispatch()
-    let item = useSelector((state) => state.item);
     const token = useSelector(state => state.token)
     const [inputProduct, setInputProduct] = useState({})
-    const [rowSelected, setRowSelected] = useState()
 
     React.useEffect(() => {
         axios

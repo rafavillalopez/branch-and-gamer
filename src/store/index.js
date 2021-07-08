@@ -9,7 +9,6 @@ import {
 } from "./user";
 import {
   productosReducer,
-  unSoloProductoReducer,
   buscarProductoReducer,
   crearProductoReducer
 } from "./productos";
@@ -17,11 +16,13 @@ import loggedUserReducer from "./loggedUserReducer";
 import authReducer from "./authReducer";
 import SetCartReducer from "./setCarReducer";
 import cartReducer from "./cartReducer";
-import adminUserReducer from "./admin"
+import adminUserReducer from "./admin";
 import ordenesReducer from "./ordenesReducer";
 import ordenActualReducer from "./ordenActual";
 import ordenConItemsReducer from "./ordenConItems";
 import googleReducer from "./googleReducer";
+import selectedProductReducer from "./selectedProductReducer";
+import valorationsReducer from "./valorationsReducer";
 import categoriesReducer from "./categories";
 
 const store = configureStore({
@@ -44,8 +45,10 @@ const store = configureStore({
 
     //productos
     productos: productosReducer,
-    productoIndividual: unSoloProductoReducer,
+    selectedProduct: selectedProductReducer,
+    valoration: valorationsReducer,
     item: buscarProductoReducer,
+
     //carrito
     cartInUse: SetCartReducer,
     cartItems: cartReducer,

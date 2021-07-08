@@ -40,8 +40,19 @@ export const capitalizeFirstLetter = (string) => {
   return string.charAt(0).toUpperCase() + string.slice(1);
 };
 
-export const getCartItems = (id, token) => {
-  return axios.get(`/api/cart/items/${id}`, {
+export const getCartItems = async (id, token) => {
+  const res = await axios.get(`/api/cart/items/${id}`, {
     headers: { authorization: token },
-  }).then(res => res.data)
-}
+  });
+  return res.data;
+};
+
+export const isInUserValorations = (valorations, id) => {
+  return valorations.some((item) => {
+    return item.productId === id;
+  });
+};
+
+export const average = (array) => {
+  if (array.length) return array.reduce((a, b) => a + b) / array.length;
+};

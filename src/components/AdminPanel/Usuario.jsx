@@ -17,7 +17,7 @@ const Usuario = () => {
 
     useEffect(() => {
         dispatch(getAllUsers(token))
-    }, [user, dispatch])
+    }, [user, dispatch, token])
 
     const handleInput = (e) => {    
         setUserInputs((value) => {

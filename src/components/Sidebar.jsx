@@ -19,10 +19,8 @@ export default function Sidebar() {
                 axios.get(`/api/products/${arrData.productId}`)
                 .then((datas) => productArr.push(datas.data))))
                 .then(() => {
-                    // productArr.shift()
                     dispatch(setProductos(productArr))
                 })})
-                // .then(() => console.log(productArr))
     };
 
     return (

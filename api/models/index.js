@@ -18,8 +18,9 @@ User.hasMany(Coment);
 Product.hasMany(Coment);
 
 Product.hasMany(Valoration);
+User.hasMany(Valoration);
 
-User.hasMany(Carrito)
+User.hasMany(Carrito);
 Carrito.belongsToMany(Product, { through: ProductsCarrito });
 Product.belongsToMany(Carrito, { through: ProductsCarrito });
 
@@ -31,5 +32,5 @@ module.exports = {
   Coment,
   Category,
   ProductsCategories,
-  ProductsCarrito
+  ProductsCarrito,
 };

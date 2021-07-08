@@ -7,7 +7,6 @@ import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import  RegisterGoogle from "../components/RegisterGoogle";
 import Navbar from "./Navbar";
-import LoginGoogle from "./LoginGoogle";
 
 export default function Register() {
   const History = useHistory();
@@ -103,22 +102,7 @@ export default function Register() {
                 />
               </div>
               <RegisterGoogle/>
-              {/* <GoogleLogin
-                clientId="1000128027001-1hm0fsrjmpmkldp3qeb8uvci632jp77i.apps.googleusercontent.com"
-                render={(renderProps) => (
-                  <button
-                    className="register-btn"
-                    onClick={renderProps.onClick}
-                    disabled={renderProps.disabled}
-                  >
-                    Registrate con Google
-                  </button>
-                )}
-                buttonText="Login"
-                onSuccess={responseGoogle}
-                onFailure={responseGoogle}
-                cookiePolicy={"single_host_origin"}
-              /> */}
+         
               <img
                 src="https://img.icons8.com/color/48/000000/google-logo.png"
                 alt=""
@@ -126,30 +110,7 @@ export default function Register() {
               <br />
               <br />
               <input type="submit" value="Enviar" className="register-btn" />
-              {/* <div className="terms mb-2">
-                    {" "}
-                    By clicking "Signup", you acknowledge that you have read the{" "}
-                    <a href="#">Privacy Policy</a> and agree to the{" "}
-                    <a href="#">Terms of Service</a>.
-                </div>
-                <div className="connect border-bottom mt-4 mb-4"></div>
-                <ul className="p-0 social-links">
-                    <li>
-                        <a href="#">
-                            <span className="fab fa-facebook-f"></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span className="fab fa-google"></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span className="fab fa-github"></span>
-                        </a>
-                    </li>
-                </ul> */}
+       
             </form>
           </div>
         </div>

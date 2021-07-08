@@ -43,9 +43,6 @@
     margin: 0.8rem;
 }
 
-.modificar-usuario-controles{
-    /* background-color: aquamarine; */
-}
 .admin-navbar-section-products{
     background-color: #343a40;
     color: antiquewhite;
@@ -80,11 +77,6 @@
     width: 100%;
 }
 
-.modificar-producto-row{
-    /* height : 2rem; 
-    display: inline-block;
-    overflow: auto; */
-}
 
 .modificar-producto-th{
     max-width:12rem;
