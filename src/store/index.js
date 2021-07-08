@@ -11,6 +11,7 @@ import {
   productosReducer,
   unSoloProductoReducer,
   buscarProductoReducer,
+  crearProductoReducer
 } from "./productos";
 import loggedUserReducer from "./loggedUserReducer";
 import authReducer from "./authReducer";
@@ -37,14 +38,15 @@ const store = configureStore({
     productos: productosReducer,
     productoIndividual: unSoloProductoReducer,
     item: buscarProductoReducer,
-
-
+    
+    
     //carrito
     cartInUse: SetCartReducer,
     cartItems: cartReducer,
-
+    
     //admin
     allUsers : adminUserReducer, 
+    productoCreado : crearProductoReducer,
   },
 });
 

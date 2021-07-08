@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { Product } = require("../models");
+const { Product,ProductsCategories } = require("../models");
 const { Op } = require("sequelize");
 
 router.get("/:id", (req, res, next) => {
@@ -14,8 +14,23 @@ router.get("/:id", (req, res, next) => {
 router.get("/", (req, res, next) => {
   //Example query
   //Req.query = {item : "mouse"}
+  if(req.query.id){
+    Product.findByPk(req.query.id)
+      .then(data => {
+        res.status(200).json(data)
+      })
+  }
 
-  if (req.query.item) {
+  else if(req.query.categoryId){
+    ProductsCategories.findAll({
+      where : {
+        categoryId : req.query.categoryId
+      }
+    })
+    .then(data => res.status(200).json(data))
+  }
+  
+  else if (req.query.item) {
     const filter = req.query.item.split(" ")[0]; //Solo la primera palabra del query
     Product.findAll({
       where: {
@@ -42,6 +57,7 @@ router.get("/", (req, res, next) => {
         res.status(200).json(data);
       })
       .catch(next);
+      
   } else {
     Product.findAll()
       .then((data) => {
@@ -51,9 +67,18 @@ router.get("/", (req, res, next) => {
   }
 });
 
+// router.post("/", (req, res, next) => {
+//   Product.create(req.body)
+//     .then((data) => {
+//       res.status(201).json(data);
+//     })
+//     .catch(next);
+// });
+
 router.post("/", (req, res, next) => {
   Product.create(req.body)
     .then((data) => {
+      ProductsCategories.create({productId: data.id, categoryId: req.body.categoryId})
       res.status(201).json(data);
     })
     .catch(next);

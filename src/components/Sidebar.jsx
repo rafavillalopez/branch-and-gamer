@@ -7,17 +7,12 @@ import { ListGroup } from "react-bootstrap";
 import "../assets/index.css";
 
 export default function Sidebar() {
-    
+
     const dispatch = useDispatch();
 
-    const handleFilter = (item) => {
-        axios
-            .get(`/api/products?item=${item}`)
-            .then((res) => res.data)
-            .then((data) => {
-                dispatch(setProductos(data));
-            });
-    };
+    let [productState, setProductState] = React.useState([])
+
+    const handleFilter = (categoryId) => {}
 
     return (
         <div className="sideBar">
@@ -27,73 +22,73 @@ export default function Sidebar() {
                 </ListGroup.Item>
                 <button
                     className="categories-item"
-                    onClick={() => handleFilter("pc completa")}
+                    onClick={() => handleFilter(1)}
                 >
                     PCs completas
                 </button>
                 <button
                     className="categories-item"
-                    onClick={() => handleFilter("notebook")}
+                    onClick={() => handleFilter(2)}
                 >
                     Laptops
                 </button>
                 <button
                     className="categories-item"
-                    onClick={() => handleFilter("monitor")}
+                    onClick={() => handleFilter(3)}
                 >
                     Monitores
                 </button>
                 <button
                     className="categories-item"
-                    onClick={() => handleFilter("teclado")}
+                    onClick={() => handleFilter(4)}
                 >
                     Teclados
                 </button>
                 <button
                     className="categories-item"
-                    onClick={() => handleFilter("mouse")}
+                    onClick={() => handleFilter(5)}
                 >
                     Mouses
                 </button>
                 <button
                     className="categories-item"
-                    onClick={() => handleFilter("procesador")}
+                    onClick={() => handleFilter(6)}
                 >
                     Procesadores
                 </button>
                 <button
                     className="categories-item"
-                    onClick={() => handleFilter("mother")}
+                    onClick={() => handleFilter(7)}
                 >
                     Mothers
                 </button>
                 <button
                     className="categories-item"
-                    onClick={() => handleFilter("ram")}
+                    onClick={() => handleFilter(8)}
                 >
                     RAMs
                 </button>
                 <button
                     className="categories-item"
-                    onClick={() => handleFilter("fuente")}
+                    onClick={() => handleFilter(9)}
                 >
                     Fuentes
                 </button>
                 <button
                     className="categories-item"
-                    onClick={() => handleFilter("auriculares")}
+                    onClick={() => handleFilter(10)}
                 >
                     Auriculares
                 </button>
                 <button
                     className="categories-item"
-                    onClick={() => handleFilter("cable hdmi")}
+                    onClick={() => handleFilter(11)}
                 >
                     Cables y conectores
                 </button>
                 <button
                     className="categories-item"
-                    onClick={() => handleFilter("impresora")}
+                    onClick={() => handleFilter(12)}
                 >
                     Impresoras
                 </button>

@@ -24,18 +24,27 @@ const Usuario = () => {
           return {
             ...value,
             [e.target.name]: e.target.value,
-          };
+        };
         });
-      };
+    };
 
     const editUserChange = (userId) =>{
         dispatch(editUser({userId, userInputs}))
-        dispatch(getAllUsers(token))
+        .then(()=>{
+            const inputs = document.getElementsByTagName("input")
+            for(let i = 0; i<inputs.valueOf().length; i++){
+                inputs.valueOf()[i].value = " "
+            }
+            setUserInputs({})
+            dispatch(getAllUsers(token))
+        })
     }
 
     const createUserAdmin = (userId) =>{
         dispatch(setAdminUser({userId, token}))
-        dispatch(getAllUsers(token))
+        .then(()=>{
+            dispatch(getAllUsers(token))
+        })
     }
 
     return (
@@ -43,7 +52,7 @@ const Usuario = () => {
             <h3>Usuarios</h3>
 
             {allUsers.length ?
-            allUsers.map(user=>{
+            allUsers.map((user, index)=>{
                 return (
                     <>
                     <div className="row" key={user.id} >
@@ -75,12 +84,15 @@ const Usuario = () => {
                                         <div className="col-12 d-flex mt-2 align-items-bottom">
                                             <div>
                                                 <label className="mb-1 p-0" htmlFor="">Nombre: </label>
-                                                <input type="text" name="name" onChange={handleInput} />
+                                                <input 
+                                                type="text" 
+                                                name="name"
+                                                onChange={handleInput} />
                                             </div>
 
                                             <div>
                                                 <label className="mb-1 p-0" htmlFor="">Email: </label>
-                                                <input type="text" name="email" onChange={handleInput} />
+                                                <input  type="text" name="email" onChange={handleInput} />
                                             </div>
                                         </div>
 
