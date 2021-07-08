@@ -35,7 +35,7 @@ const CrearProducto = () => {
 
     return (
         <div className="w-100 crear-producto-section " >
-            <h4>Crear un nuevo producto</h4>
+            <h4 className="admin-section-title" >Crear un nuevo producto</h4>
             <div className="col-12">
                 <form action="" onSubmit={handleSubmit} className="crear-producto-form">
                     <div className="row w-100">

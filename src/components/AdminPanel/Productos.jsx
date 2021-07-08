@@ -10,8 +10,8 @@ const Productos = () => {
         setActiveSection(section)
     }
     return (
-        <>
-                <div className="row h-100 m-0 w-100 admin-navbar-section-products   " >
+        <div className="mw-100">
+                <div className="row  m-0 w-100 admin-navbar-section-products" >
                     {adminSections.map(e => {
                         return (
                             <div className="col-6 d-flex justify-content-center align-items-center 
@@ -29,7 +29,7 @@ const Productos = () => {
                     {activeSection === "Modificar" ? <ModificarProducto /> : null}
                 </>
 
-        </>
+        </div>
     )
 }
 

@@ -33,7 +33,7 @@ const ModificarProducto = () => {
     const handleSend = (productId) =>{
         dispatch(modificarProducto({inputProduct, productId, token }))
         .then(()=>{
-            document.getElementById(productId).style.backgroundColor = "#59aebb"
+            setTimeout(() => document.getElementById(productId).style.backgroundColor = "#59aebb" , 500);
         })
     }
 
