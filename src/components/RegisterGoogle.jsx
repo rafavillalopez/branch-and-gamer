@@ -1,7 +1,7 @@
 /** @format */
 
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { setUser } from "../store/loggedUserReducer";

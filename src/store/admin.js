@@ -20,10 +20,11 @@ export const setAdminUser = createAsyncThunk("SET_ADMIN_USER", (user)=>{
     })
 })
 
+
 const adminUserReducer = createReducer({}, {
     [getAllUsers.fulfilled] : (state, action) => action.payload, 
-    [editUser.fulfilled] : (state, action) => action.payload,
-    [setAdminUser.fulfilled] : (state, action) => action.payload
+    // [editUser.fulfilled] : (state, action) => action.payload,
+    [setAdminUser.fulfilled] : (state, action) => action.payload,
 })
 
 export default adminUserReducer

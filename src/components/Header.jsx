@@ -8,9 +8,24 @@ import axios from "axios";
 import { setUserVoid } from "../store/loggedUserReducer";
 
 export default function Header() {
-  const history = useHistory();
-
   const dispatch = useDispatch();
+  const history = useHistory();
+  const [inputs, setInputs] = React.useState("");
+
+  const shuffle = (arr) => {
+    let currentIndex = arr.length,
+      randomIndex;
+    while (0 !== currentIndex) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+      [arr[currentIndex], arr[randomIndex]] = [
+        arr[randomIndex],
+        arr[currentIndex],
+      ];
+    }
+    return arr;
+  };
+
   let { isLogIn, loggedUser, googleLogin } = useSelector((state) => state);
 
   const buscar = function (e) {
@@ -20,14 +35,16 @@ export default function Header() {
     }
   };
 
-  const buscar2 = (e) => {};
+  const buscarConLaLupita = () => {
+    dispatch(buscarProducto(inputs.target.value.toLowerCase()));
+  };
 
   function inicio() {
     axios
       .get(`/api/products`)
       .then((res) => res.data)
       .then((data) => {
-        dispatch(setProductos(data));
+        dispatch(setProductos(shuffle(data)));
       });
   }
 
@@ -35,6 +52,7 @@ export default function Header() {
     window.localStorage.removeItem("branchToken");
     dispatch(setUserVoid());
   }
+
   return (
     <div className="container">
       <nav className="navbar navbar-expand-md navbar-light bg-white border-bottom">
@@ -67,6 +85,7 @@ export default function Header() {
                 className="bg-light pl-3"
                 placeholder="Busca un producto"
                 onKeyUp={buscar}
+                onChange={(data) => setInputs(data)}
               />
 
               <span className="fa fa-search text-muted">
@@ -77,7 +96,8 @@ export default function Header() {
                 class="svg-icon"
                 viewBox="0 0 20 20"
                 style={{ height: "30px", paddingTop: "5px" }}
-                onClick={buscar2}
+                inputs={inputs}
+                onClick={buscarConLaLupita}
               >
                 <path d="M18.125,15.804l-4.038-4.037c0.675-1.079,1.012-2.308,1.01-3.534C15.089,4.62,12.199,1.75,8.584,1.75C4.815,1.75,1.982,4.726,2,8.286c0.021,3.577,2.908,6.549,6.578,6.549c1.241,0,2.417-0.347,3.44-0.985l4.032,4.026c0.167,0.166,0.43,0.166,0.596,0l1.479-1.478C18.292,16.234,18.292,15.968,18.125,15.804 M8.578,13.99c-3.198,0-5.716-2.593-5.733-5.71c-0.017-3.084,2.438-5.686,5.74-5.686c3.197,0,5.625,2.493,5.64,5.624C14.242,11.548,11.621,13.99,8.578,13.99 M16.349,16.981l-3.637-3.635c0.131-0.11,0.721-0.695,0.876-0.884l3.642,3.639L16.349,16.981z"></path>
               </svg>
@@ -86,7 +106,7 @@ export default function Header() {
               <li className="nav-item">
                 {!isLogIn ? (
                   <div className="nav-link">
-                    <Link to="/login">
+                    <Link to="/login" style={{ textDecoration: "none" }}>
                       <span className="fa fa-user-o p-0"></span>
                       <svg
                         class="svg-icon"
@@ -148,6 +168,7 @@ export default function Header() {
                   </Link>
                 </div>{" "}
               </li>
+
               {isLogIn ? (
                 <li className="nav-item ">
                   <div className="nav-link">
@@ -169,7 +190,6 @@ export default function Header() {
               ) : (
                 ""
               )}
-
               {isLogIn && loggedUser.isAdmin ? (
                 <li className="nav-item ">
                   <div className="nav-link">

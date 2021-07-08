@@ -239,6 +239,16 @@ form {
     background-color: white;
 }
 
+.admin-btn {
+    width: fit-content;
+    padding: 5px 10px;
+    margin-top: 100px;
+    margin-bottom: 40px;
+    border: 2px solid rgb(184, 184, 184);
+    border-radius: 20px;
+    background-color: white;
+}
+
 .register-btn {
     margin: 0px;
     width: fit-content;
@@ -407,10 +417,20 @@ h6 {
 
 .img-thumbnail {
     margin-left: 25px;
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
     padding: 15px;
     border: 2px solid lightgray;
     border-radius: 30px;
     box-shadow: 3px 3px 10px grey;
+}
+
+.single-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 35px;
 }
 
 .footer {
@@ -530,13 +550,7 @@ h6 {
     position: absolute;
 }
 
-.admin-section-container {
-    min-height: 70vh;
-    background-color: white;
-    width: 100%;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-}
+
 /* .g-signin{
   position: absolute;
   top: 50%;
@@ -588,4 +602,31 @@ tbody tr:nth-child(even) {
 
 table {
     background-color: rgb(240, 244, 247);
+}
+
+
+.category-block {
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 15px;
+    border-bottom: 1px solid lightgray;
+}
+
+.cat-btn {
+    width: fit-content;
+    padding: 5px 10px;
+    margin-left: 10px;
+    border: 2px solid rgb(184, 184, 184);
+    border-radius: 20px;
+    background-color: white;
+}
+
+.cat-btn:hover {
+    background-color: rgb(222, 230, 254);
+    transform: scale(1.02);
+}
+
+.cat-title {
+    margin-top: 30px;
 }

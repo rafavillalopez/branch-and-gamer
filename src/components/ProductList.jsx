@@ -28,12 +28,10 @@ export default function ProductList() {
         return arr;
     };
 
-    let indexOfLastItem = currentPage * productosPorPagina;
-    let indexOfFirstItem = indexOfLastItem - productosPorPagina;
-    if (indexOfFirstItem >= productos.length) indexOfFirstItem = 0;
-    let currentProducts = shuffle(
-        productos.slice(indexOfFirstItem, indexOfLastItem)
-    );
+  let indexOfLastItem = currentPage * productosPorPagina;
+  let indexOfFirstItem = indexOfLastItem - productosPorPagina;
+  if (indexOfFirstItem >= productos.length) indexOfFirstItem = 0;
+  let currentProducts = productos.slice(indexOfFirstItem, indexOfLastItem);
 
     const paginate = (pageNumber, e) => {
         e.preventDefault();
@@ -45,7 +43,7 @@ export default function ProductList() {
             .get(`/api/products?item=${item}`)
             .then((res) => res.data)
             .then((data) => {
-                dispatch(setProductos(data));
+                dispatch(setProductos(shuffle(data)));
             });
     }, [item, dispatch]);
 
@@ -87,32 +85,3 @@ export default function ProductList() {
         </div>
     );
 }
-//   React.useEffect(() => {
-//     axios
-//       .get(`/api/products?item=${item}`)
-//       .then((res) => res.data)
-//       .then((data) => {
-//         dispatch(setProductos(data));
-//       });
-//   }, [dispatch, item]);
-
-//   return (
-//     <div className="productList w-100">
-//       {!item ? (
-//         productos.length ? (
-//           productos.map((producto, i) => {
-//             return <ProductBlock key={i} producto={producto} />;
-//           })
-//         ) : (
-//           <h3 className="no-product d-flex justify-content-center align-items-center w-100">
-//             "No se encontró ningún producto."
-//           </h3>
-//         )
-//       ) : (
-//         productos.map((producto, i) => {
-//           return <ProductBlock key={i} producto={producto} />;
-//         })
-//       )}
-//     </div>
-//   );
-// }
