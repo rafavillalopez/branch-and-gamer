@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 const AdminPanel = () => {
     const [activeSection, setActiveSection] = useState("Usuarios");
-    const adminSections = ["Usuarios", "Productos", "Categorias", "Ordenes"];
+    const adminSections = ["Usuarios", "Productos", "Categorias"];
 
     const user = useSelector((state) => state.loggedUser);
     const capitalizeUser = user ? user.name : null;
@@ -59,8 +59,7 @@ S18.707,9.212,18.271,9.212z"
                                 {adminSections.map((e) => {
                                     return (
                                         <div
-                                            className="col-3 d-flex justify-content-center align-items-center 
-                                        admin-navbar-section "
+                                            className="col-4 d-flex justify-content-center align-items-center admin-navbar-section "
                                             onClick={() => changeSection(e)}
                                         >
                                             <p className="m-0">{e}</p>
@@ -83,7 +82,7 @@ S18.707,9.212,18.271,9.212z"
                             {activeSection === "Categorias" ? (
                                 <Categorias />
                             ) : null}
-                            {activeSection === "Ordenes" ? <Ordenes /> : null}
+                           
                         </div>
                     </div>
                 </div>
