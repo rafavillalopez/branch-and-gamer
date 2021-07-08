@@ -13,10 +13,10 @@ export default function Sidebar() {
     const handleFilter = (categoryId) => {
         let productArr = []
          axios
-            .get(`/api/products?categoryId=${categoryId}`)
+            .get(`/api/categories?categoryId=${categoryId}`)
             .then((res) => res.data)
             .then((data) => { Promise.all(data.map(arrData => 
-                axios.get(`/api/products?id=${arrData.productId}`)
+                axios.get(`/api/products/${arrData.productId}`)
                 .then((datas) => productArr.push(datas.data))))
                 .then(() => {
                     // productArr.shift()

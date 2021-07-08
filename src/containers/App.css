@@ -589,3 +589,30 @@ tbody tr:nth-child(even) {
 table {
     background-color: rgb(240, 244, 247);
 }
+
+
+.category-block {
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 15px;
+    border-bottom: 1px solid lightgray;
+}
+
+.cat-btn {
+    width: fit-content;
+    padding: 5px 10px;
+    margin-left: 10px;
+    border: 2px solid rgb(184, 184, 184);
+    border-radius: 20px;
+    background-color: white;
+}
+
+.cat-btn:hover {
+    background-color: rgb(222, 230, 254);
+    transform: scale(1.02);
+}
+
+.cat-title {
+    margin-top: 30px;
+}
