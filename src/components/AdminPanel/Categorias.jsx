@@ -12,7 +12,7 @@ export default function Categorias() {
     const token = useSelector(store => store.token)
     
     React.useEffect(() => {
-        dispatch(getCategories(token))
+        dispatch(getCategories())
             .then(catgs => catgs.payload)
     }, [dispatch])
 
@@ -26,7 +26,7 @@ export default function Categorias() {
             token: token
         }
         dispatch(editCategory(data))
-            .then(() => dispatch(getCategories(token)))
+            .then(() => dispatch(getCategories()))
             .then(catgs => catgs.payload)
             .then(() => setCategoryName(""))
     }
@@ -37,7 +37,7 @@ export default function Categorias() {
             token: token
         }
         dispatch(removeCategory(dato))
-            .then(() => dispatch(getCategories(token)))
+            .then(() => dispatch(getCategories()))
             .then(catgs => catgs.payload)
     }
 
@@ -46,7 +46,7 @@ export default function Categorias() {
             name: categoryName.target.value, 
             token: token}
         dispatch(setNewCategory(dat))
-            .then(() => dispatch(getCategories(token)))
+            .then(() => dispatch(getCategories()))
             .then(catgs => catgs.payload)
             .then(() => setCategoryName(""))
     }
