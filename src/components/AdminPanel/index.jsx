@@ -44,8 +44,8 @@ const AdminPanel = () => {
                     </div>
                 </div>
                 
-                <div className="col-12 admin-section-container ">
-                    <div className="p-3">
+                <div className="col-12 admin-section-container">
+                    <div className="">
                         {activeSection === "Usuarios" ?  <Usuario/> : null}
                         {activeSection === "Productos" ?  <Productos/> : null}
                         {activeSection === "Categorias" ?  <Categorias/> : null}

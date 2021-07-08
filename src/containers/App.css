@@ -530,13 +530,7 @@ h6 {
     position: absolute;
 }
 
-.admin-section-container {
-    min-height: 70vh;
-    background-color: white;
-    width: 100%;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-}
+
 /* .g-signin{
   position: absolute;
   top: 50%;

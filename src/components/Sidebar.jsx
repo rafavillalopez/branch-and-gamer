@@ -7,7 +7,7 @@ import { ListGroup } from "react-bootstrap";
 import "../assets/index.css";
 
 export default function Sidebar() {
-    
+
     const dispatch = useDispatch();
     
     const handleFilter = (categoryId) => {
