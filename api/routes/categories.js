@@ -1,12 +1,12 @@
 const express = require("express");
 const router = express.Router();
-const { Category } = require("../models");
+const { Category, ProductsCategories } = require("../models");
 const { isAdmin } = require("../middlewares");
 
 //Devuelvo los pares Producto-Categoría con un categoryId dado
-router.get('/' , isAdmin, (req, res, next) => {
+router.get('/' , (req, res, next) => {
     if(req.query.categoryId){
-        Category.findAll({
+        ProductsCategories.findAll({
           where : {
             categoryId : req.query.categoryId
           }

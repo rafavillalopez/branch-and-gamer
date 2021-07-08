@@ -51,9 +51,18 @@ router.get("/", (req, res, next) => {
   }
 });
 
+// router.post("/", (req, res, next) => {
+//   Product.create(req.body)
+//     .then((data) => {
+//       res.status(201).json(data);
+//     })
+//     .catch(next);
+// });
+
 router.post("/", (req, res, next) => {
   Product.create(req.body)
     .then((data) => {
+      ProductsCategories.create({productId: data.id, categoryId: req.body.categoryId})
       res.status(201).json(data);
     })
     .catch(next);
