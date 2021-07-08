@@ -69,7 +69,7 @@ export default function Cart() {
                                         type="button"
                                         className="button cart_button_clear"
                                     >
-                                        Seguir Comprando
+                                        Seguir explorando
                                     </button>
                                 </Link>
 
@@ -88,7 +88,7 @@ export default function Cart() {
                                             type="button"
                                             className="button cart_button_checkout"
                                         >
-                                            ¡Comprar!
+                                            Comprar carrito
                                         </button>
                                     </Link>
                                 )}

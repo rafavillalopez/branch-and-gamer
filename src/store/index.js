@@ -22,6 +22,7 @@ import ordenesReducer from "./ordenesReducer";
 import ordenActualReducer from "./ordenActual";
 import ordenConItemsReducer from "./ordenConItems";
 import googleReducer from "./googleReducer";
+import categoriesReducer from "./categories";
 
 const store = configureStore({
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
@@ -33,20 +34,18 @@ const store = configureStore({
     login: loginReducer,
     ordenes: ordenesReducer,
 
+    //log
     token: tokenReducer,
     loggedUser: loggedUserReducer,
     isLogIn: authReducer,
 
     // Logueado con Google
-
     googleLogin: googleReducer,
 
     //productos
     productos: productosReducer,
     productoIndividual: unSoloProductoReducer,
     item: buscarProductoReducer,
-    
-    
     //carrito
     cartInUse: SetCartReducer,
     cartItems: cartReducer,
@@ -57,6 +56,8 @@ const store = configureStore({
     ordenActual: ordenActualReducer,
     ordenConItems: ordenConItemsReducer,
 
+    //categorías
+    categories: categoriesReducer,
   },
 });
 
