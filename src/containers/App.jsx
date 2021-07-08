@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Register from "../components/Register";
 import Login from "../components/Login";
 import SingleProduct from "../components/SingleProduct";
@@ -13,14 +13,21 @@ import About from "../components/About";
 import { setUser } from "../store/loggedUserReducer";
 import AdminPanel from "../components/AdminPanel";
 import Perfil from "../components/perfil/Perfil";
+import OrdenActual from "../components/OrdenActual";
+import Error404 from "../components/Error404.jsx";
 
 import "./App.css";
+import { getItems } from "../store/cartReducer";
+import Valoraciones from "../components/Valoraciones";
 
 function App() {
+    const { isLogIn, loggedUser } = useSelector((state) => state);
     const dispatch = useDispatch();
 
     React.useEffect(() => {
-        dispatch(setUser());
+        dispatch(setUser()).then((data) => {
+            if (!data.payload.id) dispatch(getItems());
+        });
     }, [dispatch]);
 
     return (
@@ -36,8 +43,16 @@ function App() {
                 <Route exact path="/Contact" component={Contact} />
                 <Route exact path="/About" component={About} />
                 <Route exact path="/perfil" component={Perfil} />
+                <Route exact path="/ordenActual" component={OrdenActual} />
+                <Route exact path="/valoraciones" component={Valoraciones} />
 
-                <Route exact path="/Admin" component={AdminPanel} />
+                <Route
+                    exact
+                    path="/Admin"
+                    component={
+                        isLogIn && loggedUser.isAdmin ? AdminPanel : Error404
+                    }
+                />
             </Switch>
         </>
     );

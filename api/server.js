@@ -1,3 +1,5 @@
+/** @format */
+
 const express = require("express");
 const morgan = require("morgan");
 
@@ -30,7 +32,7 @@ app.use("/", (err, req, res, next) => {
 const PORT = 3001;
 const url = "http://localhost:";
 
-db.sync({ force: false })
+db.sync({ force: true })
   .then(() => {
     console.log(`Coneexion a base de datos completa`);
     app.listen(PORT, () => {

@@ -1,9 +1,13 @@
+/** @format */
+
 import * as React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setRegister } from "../store/user";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
+import  RegisterGoogle from "../components/RegisterGoogle";
 import Navbar from "./Navbar";
+import LoginGoogle from "./LoginGoogle";
 
 export default function Register() {
   const History = useHistory();
@@ -49,7 +53,7 @@ export default function Register() {
                   <span className="far fa-user"></span>
                 </div>{" "}
                 <input
-                  autocomplete="off"
+                  autoComplete="off"
                   type="text"
                   placeholder="Nombre"
                   name="name"
@@ -81,6 +85,29 @@ export default function Register() {
                   onChange={handleChangePassword}
                 />
               </div>
+              <RegisterGoogle/>
+              {/* <GoogleLogin
+                clientId="1000128027001-1hm0fsrjmpmkldp3qeb8uvci632jp77i.apps.googleusercontent.com"
+                render={(renderProps) => (
+                  <button
+                    className="register-btn"
+                    onClick={renderProps.onClick}
+                    disabled={renderProps.disabled}
+                  >
+                    Registrate con Google
+                  </button>
+                )}
+                buttonText="Login"
+                onSuccess={responseGoogle}
+                onFailure={responseGoogle}
+                cookiePolicy={"single_host_origin"}
+              /> */}
+              <img
+                src="https://img.icons8.com/color/48/000000/google-logo.png"
+                alt=""
+              />
+              <br />
+              <br />
               <input type="submit" value="Enviar" className="register-btn" />
               {/* <div className="terms mb-2">
                     {" "}

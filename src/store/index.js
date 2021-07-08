@@ -19,6 +19,9 @@ import SetCartReducer from "./setCarReducer";
 import cartReducer from "./cartReducer";
 import adminUserReducer from "./admin"
 import ordenesReducer from "./ordenesReducer";
+import ordenActualReducer from "./ordenActual";
+import ordenConItemsReducer from "./ordenConItems";
+import googleReducer from "./googleReducer";
 
 const store = configureStore({
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
@@ -29,11 +32,15 @@ const store = configureStore({
     register: registerReducer,
     login: loginReducer,
     ordenes: ordenesReducer,
-    
+
     token: tokenReducer,
     loggedUser: loggedUserReducer,
     isLogIn: authReducer,
-    
+
+    // Logueado con Google
+
+    googleLogin: googleReducer,
+
     //productos
     productos: productosReducer,
     productoIndividual: unSoloProductoReducer,
@@ -47,6 +54,9 @@ const store = configureStore({
     //admin
     allUsers : adminUserReducer, 
     productoCreado : crearProductoReducer,
+    ordenActual: ordenActualReducer,
+    ordenConItems: ordenConItemsReducer,
+
   },
 });
 

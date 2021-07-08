@@ -9,10 +9,21 @@ import "../assets/index.css";
 export default function Sidebar() {
 
     const dispatch = useDispatch();
-
-    let [productState, setProductState] = React.useState([])
-
-    const handleFilter = (categoryId) => {}
+    
+    const handleFilter = (categoryId) => {
+        let productArr = []
+         axios
+            .get(`/api/products?categoryId=${categoryId}`)
+            .then((res) => res.data)
+            .then((data) => { Promise.all(data.map(arrData => 
+                axios.get(`/api/products?id=${arrData.productId}`)
+                .then((datas) => productArr.push(datas.data))))
+                .then(() => {
+                    // productArr.shift()
+                    dispatch(setProductos(productArr))
+                })})
+                // .then(() => console.log(productArr))
+    };
 
     return (
         <div className="sideBar">

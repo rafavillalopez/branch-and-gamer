@@ -1,8 +1,9 @@
 /** @format */
 
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import OrdenActual from "./OrdenActual";
 
 import CartItems from "./CartItems";
 import { getProductFromDbAndSetQuantities } from "../utils";
@@ -10,7 +11,8 @@ import { getProductFromDbAndSetQuantities } from "../utils";
 import "../assets/cart.css";
 
 export default function Cart() {
-    const { cartItems } = useSelector((state) => state);
+    const { cartItems, isLogIn } = useSelector((state) => state);
+    const dispatch = useDispatch();
 
     const [itemsToRender, setItemsToRender] = useState([]);
 
@@ -70,12 +72,26 @@ export default function Cart() {
                                         Seguir Comprando
                                     </button>
                                 </Link>
-                                <button
-                                    type="button"
-                                    className="button cart_button_checkout"
-                                >
-                                    Confirmar Compra
-                                </button>
+
+                                {isLogIn ? (
+                                    <Link to="/ordenActual">
+                                        <button
+                                            type="button"
+                                            className="button cart_button_checkout"
+                                        >
+                                            ¡Comprar!
+                                        </button>
+                                    </Link>
+                                ) : (
+                                    <Link to="/login">
+                                        <button
+                                            type="button"
+                                            className="button cart_button_checkout"
+                                        >
+                                            ¡Comprar!
+                                        </button>
+                                    </Link>
+                                )}
                             </div>
                         </div>
                     </div>
