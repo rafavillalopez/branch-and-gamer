@@ -21,8 +21,8 @@ export default function SingleProduct() {
         currency: "USD",
     });
 
-    const mayus = (arr) => {
-        return arr.charAt(0).toUpperCase() + arr.slice(1);
+    const mayus = (str) => {
+        return str.charAt(0).toUpperCase() + str.slice(1);
       }
 
     const handleAdd = () => {

@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { Product, ProductsCategories } = require("../models");
+const { Product } = require("../models");
 const { Op } = require("sequelize");
 
 router.get("/:id", (req, res, next) => {
@@ -14,23 +14,7 @@ router.get("/:id", (req, res, next) => {
 router.get("/", (req, res, next) => {
   //Example query
   //Req.query = {item : "mouse"}
-  if(req.query.id){
-    Product.findByPk(req.query.id)
-      .then(data => {
-        res.status(200).json(data)
-      })
-  }
-
-  else if(req.query.categoryId){
-    ProductsCategories.findAll({
-      where : {
-        categoryId : req.query.categoryId
-      }
-    })
-    .then(data => res.status(200).json(data))
-  }
-  
-  else if (req.query.item) {
+  if (req.query.item) {
     const filter = req.query.item.split(" ")[0]; //Solo la primera palabra del query
     Product.findAll({
       where: {
