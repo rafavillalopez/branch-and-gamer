@@ -1,11 +1,9 @@
 import {createReducer, createAsyncThunk,} from "@reduxjs/toolkit"
 import axios from "axios"
 
-export const getCategories = createAsyncThunk("GET_CATEGORIES", (token) => {
+export const getCategories = createAsyncThunk("GET_CATEGORIES", () => {
     console.log("GET_CATEGORIES")
-    return axios.get(`/api/categories`, {
-        headers : {authorization : token}
-    })
+    return axios.get(`/api/categories`)
         .then(res => res.data)
 })
 
