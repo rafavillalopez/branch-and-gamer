@@ -40,3 +40,14 @@ export const crearProducto = createAsyncThunk("CREAR_PRODUCTO", (producto)=>{
 export const crearProductoReducer = createReducer({},{
     [crearProducto.fulfilled] : (state, action) => action.payload
 })
+
+// Modificar producto existente
+export const modificarProducto = createAsyncThunk("MODIFICAR_PRODUCTO", (producto)=>{
+    const {inputProduct, productId, token} = producto
+    return axios.put(`/api/products/${productId}`, inputProduct, {
+        headers : {authorization : token}
+    })
+})
+export const modificarProductoReducer = createReducer("", {
+    [modificarProducto]: (state, action) => action.payload
+})

@@ -40,117 +40,125 @@ const CrearProducto = () => {
                 <form action="" onSubmit={handleSubmit} className="crear-producto-form">
                     <div className="row w-100">
                         <div className="col-12 col-md-6 mb-4 ">
-                            <div className="row align-items-center ">
+                            {/* <div className="row align-items-center ">
                                 <label className="col-3 d-flex justify-content-start" htmlFor="">Titulo</label>
-                                <input className="col-9 col-md-7 crer-producto-input"
+                            </div> */}
+                                <input className="crer-producto-input"
                                     type="text"
                                     name="title"
+                                    placeholder="Titulo"
                                     required
                                     onChange={handleInput}
                                 />
-                            </div>
                         </div>
 
                         <div className="col-12 col-md-6 mb-4">
-                            <div className="row align-items-center">
+                            {/* <div className="row align-items-center">
                                 <label className="col-3 d-flex justify-content-start" htmlFor="">Marca</label>
                                 <input className="col-9 col-md-7 crer-producto-input"
                                     type="text"
                                     name="marca" required
                                     onChange={handleInput}
                                 />
-                            </div>
-                        </div>
-
-                        <div className="col-12 col-md-6 mb-4">
-                            <div className="row align-items-center">
-                                {/* <label className="col-3 d-flex justify-content-start" htmlFor="">Categoría</label>
-                                <input className="col-9 col-md-7 crer-producto-input"
-                                    type="number"
-                                    name="categoryId"
-                                    required
+                            </div> */}
+                            <input className=" crer-producto-input"
+                                    type="text"
+                                    placeholder="Marca"
+                                    name="marca" required
                                     onChange={handleInput}
-                                /> */}
-                                <Form>
-                                <Form.Group controlId="exampleForm.SelectCustom">
-                                    <Form.Control as="select" name="categoryId" onClick={handleInput} custom>
-                                        <option disabled >Selecciona una categoría</option>
-                                        <option value="1" >Pc's completas</option>
-                                        <option value="2" >Laptops</option>
-                                        <option value="3" >Monitores</option>
-                                        <option value="4" >Teclados</option>
-                                        <option value="5" >Mouses</option>
-                                        <option value="6" >Procesadores</option>
-                                        <option value="7" >Mothers</option>
-                                        <option value="8" >Memorias Ram</option>
-                                        <option value="9" >Fuentes</option>
-                                        <option value="10" >Auriculares</option>
-                                        <option value="11" >Cables</option>
-                                        <option value="12" >Impresoras</option>
-                                    </Form.Control>
-                                </Form.Group>
-                                </Form>
-
-                            </div>
+                                />
                         </div>
 
                         <div className="col-12 col-md-6 mb-4">
                             <div className="row align-items-center">
+                                {/* <label className="col-3 d-flex justify-content-start" htmlFor="">Categoría</label> */}
+                                <div className="crer-producto-input ">
+                                    <Form >
+                                    <Form.Group className="w-100">
+                                        <Form.Control as="select" name="categoryId" onChange={handleInput}  custom className="crer-producto-input" 
+                                        style={{borderRadius : "20px"}}>
+                                            <option hidden selected >Selecciona una categoría</option>
+                                            <option value="1" >Pc's completas</option>
+                                            <option value="2" >Laptops</option>
+                                            <option value="3" >Monitores</option>
+                                            <option value="4" >Teclados</option>
+                                            <option value="5" >Mouses</option>
+                                            <option value="6" >Procesadores</option>
+                                            <option value="7" >Mothers</option>
+                                            <option value="8" >Memorias Ram</option>
+                                            <option value="9" >Fuentes</option>
+                                            <option value="10" >Auriculares</option>
+                                            <option value="11" >Cables</option>
+                                            <option value="12" >Impresoras</option>
+                                        </Form.Control>
+                                    </Form.Group>
+                                    </Form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="col-12 col-md-6 mb-4">
+                            {/* <div className="row align-items-center">
                                 <label className="col-3 d-flex justify-content-start" htmlFor="">Precio</label>
-                                <input className="col-9 col-md-7 crer-producto-input"
+                            </div> */}
+                                <input className="crer-producto-input"
                                     required
                                     type="number"
+                                    placeholder="Precio"
                                     onChange={handleInput}
                                     name="price" />
-                            </div>
                         </div>
 
                         <div className="col-12 col-md-6 mb-4">
-                            <div className="row align-items-center">
+                            {/* <div className="row align-items-center">
                                 <label className="col-3 d-flex justify-content-start" htmlFor="">Descripción</label>
-                                <input className="col-9 col-md-7 crer-producto-input"
+                            </div> */}
+                                <input className=" crer-producto-input"
                                     type="text"
                                     name="description"
                                     required
+                                    placeholder="Descripción"
                                     onChange={handleInput}
                                 />
-                            </div>
                         </div>
 
                         <div className="col-12 col-md-6 mb-4">
-                            <div className="row align-items-center">
+                            {/* <div className="row align-items-center">
                                 <label className="col-3 d-flex justify-content-start" htmlFor="">Cantidad</label>
-                                <input className="col-9 col-md-7 crer-producto-input"
+                            </div> */}
+                                <input className=" crer-producto-input"
                                     type="number"
                                     name="quantity"
+                                    placeholder="Cantidad"
                                     required
                                     onChange={handleInput}
                                 />
-                            </div>
                         </div>
 
                         <div className="col-12 col-md-6 mb-4">
-                            <div className="row align-items-center">
+                            {/* <div className="row align-items-center">
                                 <label className="col-3 d-flex justify-content-start" htmlFor="">Colores</label>
-                                <input className="col-9 col-md-7 crer-producto-input"
+                            </div> */}
+                                <input className="crer-producto-input"
                                     type="text"
                                     name="colors"
                                     required
+                                    placeholder="Colores"
                                     onChange={handleInput}
                                 />
-                            </div>
                         </div>
 
                         <div className="col-12 col-md-6 mb-4">
-                            <div className="row align-items-center">
+                            {/* <div className="row align-items-center">
                                 <label className="col-3 d-flex justify-content-start " htmlFor="">Imagen</label>
-                                <input className="col-9 col-md-7 crer-producto-input"
+                            </div> */}
+                                <input className=" crer-producto-input"
                                     type="text"
                                     name="imageUrl"
                                     required
+                                    placeholder="Imagen Url"
                                     onChange={handleInput}
                                 />
-                            </div>
                         </div>
 
                         <div className="col-12 d-flex justify-content-end mt-2 mb-2 p-0">

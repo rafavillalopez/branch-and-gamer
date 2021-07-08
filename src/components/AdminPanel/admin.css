@@ -1,3 +1,13 @@
+
+.admin-section-container {
+    min-height: 70vh;
+    max-height: 80vh ;
+    background-color: white;
+    width: 100%;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    overflow: scroll;
+}
 .user-card{
     min-height: 10rem;
     background-color: #7295d9;
@@ -32,8 +42,38 @@
 
 .crer-producto-input{
     height: 1.8rem;
-    width: 90%;
+    width: 100%;
+    padding: 0 1rem;
+
 }
+
+.crer-producto-input::placeholder{
+    color: #343a40;
+}
+
+.modificar-producto-row{
+    /* height : 2rem; 
+    display: inline-block;
+    overflow: auto; */
+}
+
+.modificar-producto-th{
+    max-width:12rem;
+}
+.modificar-producto-td{
+    height: 4rem;
+    max-width:15rem;
+}
+.modificar-producto-td input {
+    width: -webkit-fill-available;
+}
+
+.table-responsive {
+    overflow-x: unset;
+}
+
+/* background-color: #59aebb; */
+
 
 /* .crear-producto-alert{
     position: absolute;
