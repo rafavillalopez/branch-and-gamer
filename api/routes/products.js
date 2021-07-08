@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { Product } = require("../models");
+const { Product, ProductsCategories } = require("../models");
 const { Op } = require("sequelize");
 
 router.get("/:id", (req, res, next) => {
